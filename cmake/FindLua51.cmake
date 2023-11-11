@@ -78,7 +78,7 @@ ELSE(LUA_ROOT)
 		/opt/local
 		/opt/csw
 		/opt
-		PATH_SUFFIXES include/lua51 include/lua5.1 include/lua include
+		PATH_SUFFIXES include/lua51 include/lua5.1 include/lua include include/lua-5.1
 	)
 	
 	FIND_LIBRARY(LUA_LIBRARY

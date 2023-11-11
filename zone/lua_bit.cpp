@@ -54,7 +54,7 @@ static UBits barg(lua_State *L, int idx)
 #else
   bn.n = luaL_checknumber(L, idx);
 #endif
-#if defined(LUA_NUMBER_DOUBLE)
+#if defined(LUA_NUMBER_DOUBLE) || (LUA_FLOAT_TYPE == LUA_FLOAT_LONGDOUBLE) || (LUA_FLOAT_TYPE == LUA_FLOAT_DOUBLE)
   bn.n += 6755399441055744.0;  /* 2^52+2^51 */
 #ifdef SWAPPED_DOUBLE
   b = (UBits)(bn.b >> 32);
