@@ -60,7 +60,6 @@ SET(zone_sources
 	horse.cpp
 	inventory.cpp
 	loottables.cpp
-	main.cpp
 	map.cpp
 	mob.cpp
 	mob_ai.cpp
@@ -183,12 +182,15 @@ IF(EQEMU_DEPOP_INVALIDATES_CACHE)
 	ADD_DEFINITIONS(-DDEPOP_INVALIDATES_NPC_TYPES_CACHE)
 ENDIF(EQEMU_DEPOP_INVALIDATES_CACHE)
 
-ADD_EXECUTABLE(zone ${zone_sources} ${zone_headers})
+ADD_LIBRARY(zone_objs OBJECT ${zone_sources} ${zone_headers})
+ADD_EXECUTABLE(zone main.cpp)
+ADD_EXECUTABLE(mock_loot mock_loot.cpp)
 
 INSTALL(TARGETS zone RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 
 ADD_DEFINITIONS(-DZONE)
 
-TARGET_LINK_LIBRARIES(zone ${SERVER_LIBS})
+TARGET_LINK_LIBRARIES(zone zone_objs ${SERVER_LIBS})
+TARGET_LINK_LIBRARIES(mock_loot zone_objs ${SERVER_LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
