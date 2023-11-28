@@ -1347,7 +1347,7 @@ void command_zone(Client *c, const Seperator *sep)
 
 	const char* zone_identifier = sep->arg[1];
 
-	if (Strings::IsNumber(zone_identifier) && zone_identifier == "0") {
+	if (Strings::IsNumber(zone_identifier) && !strcmp(zone_identifier, "0")) {
 		c->Message(CC_Default, "Sending you to the safe coordinates of this zone.");
 
 		c->MovePC(
@@ -9618,7 +9618,7 @@ void command_zopp(Client *c, const Seperator *sep){
 		return;
 	else if (sep->argnum < 3 || sep->argnum > 4)
 		c->Message(CC_Default, "Usage: #zopp [trade/summon] [slot id] [item id] [*charges]");
-	else if (!strcasecmp(sep->arg[1], "trade") == 0 && !strcasecmp(sep->arg[1], "t") == 0 && !strcasecmp(sep->arg[1], "summon") == 0 && !strcasecmp(sep->arg[1], "s") == 0)
+	else if (strcasecmp(sep->arg[1], "trade") && strcasecmp(sep->arg[1], "t") && strcasecmp(sep->arg[1], "summon") && strcasecmp(sep->arg[1], "s"))
 		c->Message(CC_Default, "Usage: #zopp [trade/summon] [slot id] [item id] [*charges]");
 	else if (!sep->IsNumber(2) || !sep->IsNumber(3) || (sep->argnum == 4 && !sep->IsNumber(4)))
 		c->Message(CC_Default, "Usage: #zopp [trade/summon] [slot id] [item id] [*charges]");
@@ -10186,6 +10186,46 @@ void command_undeletechar(Client *c, const Seperator *sep)
 
 void command_hotfix(Client *c, const Seperator *sep)
 {
+	auto items_count = database.GetItemsCount();
+	auto shared_items_count = database.GetSharedItemsCount();
+	if (items_count != shared_items_count) {
+		c->Message(CC_Yellow, "Your database does not have the same item count as your shared memory.");
+
+		c->Message(
+			CC_Yellow,
+			fmt::format(
+				"Database Count: {} Shared Memory Count: {}",
+				items_count,
+				shared_items_count
+			).c_str()
+		);
+
+		c->Message(CC_Yellow, "If you want to be able to add new items to your server while it is online, you need to create placeholder entries in the database ahead of time and do not add or remove rows/entries. Only modify the existing placeholder rows/entries to safely use #hotfix.");
+
+		return;
+	}
+
+	auto spells_count = database.GetSpellsCount();
+	auto shared_spells_count = database.GetSharedSpellsCount();
+	if (spells_count != shared_spells_count) {
+		c->Message(CC_Yellow, "Your database does not have the same spell count as your shared memory.");
+
+		c->Message(
+			CC_Yellow,
+			fmt::format(
+				"Database Count: {} Shared Memory Count: {}",
+				spells_count,
+				shared_spells_count
+			).c_str()
+		);
+
+		c->Message(CC_Yellow, "If you want to be able to add new spells to your server while it is online, you need to create placeholder entries in the database ahead of time and do not add or remove rows/entries. Only modify the existing placeholder rows/entries to safely use #hotfix.");
+
+		c->Message(CC_Yellow, "Note: You may still have to distribute a spell file, even with dynamic changes.");
+
+		return;
+	}
+
 	std::string hotfix;
 	database.GetVariable("hotfix_name", hotfix);
 

@@ -246,8 +246,8 @@ bool Mob::CastSpell(uint16 spell_id, uint16 target_id, CastingSlot slot,
 
 	// check to see if target is a caster mob before performing a mana tap or one of the recourse based mana-tap-over-time spells
 	if (IsClient() && spell_target &&
-		spells[spell_id].manatapspell || /* Theft of Thought (player castable), Mind Tap, Essence Drain, Black Claw */
-		(spells[spell_id].contains_se_currentmana && spells[spell_id].hasrecourse) /* Wandering Mind, Mind Wrack, Scryer's Trespass */)
+		(spells[spell_id].manatapspell || /* Theft of Thought (player castable), Mind Tap, Essence Drain, Black Claw */
+		(spells[spell_id].contains_se_currentmana && spells[spell_id].hasrecourse)) /* Wandering Mind, Mind Wrack, Scryer's Trespass */)
 	{
 		if (spell_target->GetCasterClass() == 'N') {
 			InterruptSpell(TARGET_NO_MANA, CC_User_SpellFailure, spell_id, true, false);
@@ -928,7 +928,7 @@ void Mob::ZeroCastingVars()
 	spellend_timer.Disable();
 	casting_spell_id = 0;
 	casting_spell_targetid = 0;
-	casting_spell_slot = CastingSlot::Gem1;
+	casting_spell_slot = CastingSlot::Invalid;
 	casting_spell_mana = 0;
 	casting_spell_inventory_slot = 0;
 	casting_spell_timer = 0;
@@ -950,7 +950,7 @@ void Mob::InterruptSpell(uint16 spellid, bool fizzle)
 		spellid = bardsong;
 
 	int16 message = IsBardSong(spellid) ? SONG_ENDS_ABRUPTLY : INTERRUPT_SPELL;
-	InterruptSpell(message, CC_User_Spells, spellid, fizzle);
+	InterruptSpell(message, CC_User_SpellFailure, spellid, fizzle);
 }
 
 void Mob::InterruptSpell(uint16 message, uint16 color, uint16 spellid, bool fizzle, bool message_others)
@@ -1005,11 +1005,6 @@ void Mob::InterruptSpell(uint16 message, uint16 color, uint16 spellid, bool fizz
 			if (message != SONG_ENDS)
 			{
 				SendSpellBarEnable(spellid);
-
-				if (!fizzle)
-				{
-					CastToClient()->RefreshSpellIcon();
-				}
 			}
 		}
 
@@ -1066,28 +1061,26 @@ void Mob::InterruptSpell(uint16 message, uint16 color, uint16 spellid, bool fizz
 void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slot,
 							uint16 mana_used, uint32 inventory_slot, int16 resist_adjust)
 {
-	bool IsFromItem = false;
-
-	if(IsClient() && slot != CastingSlot::Item) { // 10 is item
-		if(!CastToClient()->GetPTimers().Expired(&database, pTimerSpellStart + spell_id, false)) {
-			//should we issue a message or send them a spell gem packet?
-			Message_StringID(CC_User_Spells, SPELL_NOT_RECOVERED);
-			Log(Logs::Detail, Logs::Spells, "Casting of %d canceled: spell reuse timer not expired", spell_id);
-			InterruptSpell();
-			return;
-		}
-	}
-
-	if(IsClient() && ((slot == CastingSlot::Item)))
-	{
-		IsFromItem = true;
-	}
-
-	if(!IsValidSpell(spell_id))
+	if (!IsValidSpell(spell_id))
 	{
 		Log(Logs::Detail, Logs::Spells, "Casting of %d canceled: invalid spell id", spell_id);
 		InterruptSpell();
 		return;
+	}
+
+	bool IsFromItem = false;
+	if (IsClient() && ((slot == CastingSlot::Item)))
+	{
+		IsFromItem = true;
+	}
+
+	if(IsClient() && slot != CastingSlot::Item) { // 10 is item
+		if(!CastToClient()->GetPTimers().Expired(&database, pTimerSpellStart + spell_id, false)) {
+			//should we issue a message or send them a spell gem packet?
+			Log(Logs::Detail, Logs::Spells, "Casting of %d canceled: spell reuse timer not expired", spell_id);
+			InterruptSpell(SPELL_NOT_RECOVERED, CC_User_SpellFailure, spell_id);
+			return;
+		}
 	}
 
 	// Prevent rapid recast of normal spells. Clickies are exempt. 
@@ -1105,12 +1098,10 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 	if (casting_spell_id != spell_id)
 	{
 		Log(Logs::Detail, Logs::Spells, "Casting of %d canceled: already casting", spell_id);
-		Message_StringID(CC_Red,ALREADY_CASTING);
-		InterruptSpell();
+		InterruptSpell(ALREADY_CASTING, CC_User_SpellFailure, spell_id);
 		return;
 	}
 
-	bool bard_song_mode = false;
 	bool regain_conc = false;
 	Mob *spell_target = entity_list.GetMob(target_id);
 	// here we do different things if this is a bard casting a bard song
@@ -1133,7 +1124,6 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 					bardsong_target_id = spell_target->GetID();
 				bardsong_timer.Start(6000);
 				Log(Logs::Detail, Logs::Spells, "Bard song %d started: slot %d, target id %d", bardsong, bardsong_slot, bardsong_target_id);
-				bard_song_mode = true;
 			}
 		}
 	}
@@ -1161,7 +1151,7 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 					return;
 				}
 
-				float distance_moved, d_x, d_y;
+				float d_x, d_y;
 				if (GetX() != GetSpellX() || GetY() != GetSpellY())
 				{
 					d_x = std::abs(std::abs(GetX()) - std::abs(GetSpellX()));
@@ -1262,39 +1252,10 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 			return;
 		}
 
-		Client* clienttarget = GetTarget()->CastToClient();
-		Group* group = entity_list.GetGroupByClient(clienttarget);
-		if(group) 
+		if (!GetTarget()->InSameGroup(this))
 		{
-			if(!group->IsGroupMember(clienttarget)) 
-			{
-				InterruptSpell(CORPSE_SUMMON_TAR, CC_User_SpellFailure, SPELL_UNKNOWN);
-				return;
-			}
-		}
-		else 
-		{
-			Raid *r = entity_list.GetRaidByClient(this->CastToClient());
-			if(r)
-			{
-				uint32 gid = r->GetGroup(GetName());
-				if(gid < 11)
-				{
-					if(r->GetGroup(clienttarget->GetName()) != gid) 
-					{
-						InterruptSpell(CORPSE_SUMMON_TAR, CC_User_SpellFailure, SPELL_UNKNOWN);
-						return;
-					}
-				}
-			} 
-			else 
-			{
-				if(clienttarget != this->CastToClient()) 
-				{
-					InterruptSpell(CORPSE_SUMMON_TAR, CC_User_SpellFailure, SPELL_UNKNOWN);
-					return;
-				}
-			}
+			InterruptSpell(CORPSE_SUMMON_TAR, CC_User_SpellFailure, spell_id);
+			return;
 		}
 	}
 
@@ -1321,8 +1282,6 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 		&& inventory_slot != 0xFFFFFFFF)	// 10 is an item
 	{
 		const EQ::ItemInstance* inst = CastToClient()->GetInv()[inventory_slot];
-		uint32 recastdelay = 0;
-		uint32 recasttype = 0;
 
 		if (inst && inst->IsType(EQ::item::ItemClassCommon) && (inst->GetItem()->Click.Effect == spell_id) && inst->GetCharges())
 		{
@@ -1381,19 +1340,17 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 		if (GetClass() == BARD && (IsBardSong(spell_id) || HasActiveSong()))
 			skipSpellRefresh = true;
 
-		if (!skipSpellRefresh)
-		{
-			SendSpellBarEnable(spell_id);
-		}
-
 		if (slot < CastingSlot::MaxGems || slot == CastingSlot::Ability)
 		{
-			// this causes the delayed refresh of the spell bar gems
+			// this causes the delayed refresh of the spell bar gems and sets the recast delay timer for this slot on the client for non bards
 			c->MemorizeSpell(static_cast<uint32>(slot), spell_id, memSpellSpellbar);
 		}
 
 		// this tells the client that casting may happen again
-		SetMana(GetMana());
+		if (!skipSpellRefresh)
+		{
+			SendSpellBarEnable(spell_id);
+		}
 
 		// skills
 		if(slot < CastingSlot::MaxGems)
@@ -1477,6 +1434,7 @@ bool Mob::HasSongInstrument(uint16 spell_id){
 	return true;
 }
 
+// this actually consumes the reagents, it doesn't just check for them
 bool Mob::HasSpellReagent(uint16 spell_id)
 {
 	static const int16 petfocusItems[] = { 20508, 28144, 11571, 11569, 11567, 11566, 11568, 6360, 6361, 6362, 6363 };
@@ -1540,32 +1498,43 @@ bool Mob::HasSpellReagent(uint16 spell_id)
 	}
 	else
 	{
+		// mage AA still requires reagents but does not consume them
+		if (GetClass() == MAGICIAN && GetAA(aaElementalPact) > 0 && GetSpellEffectIndex(spell_id, SE_SummonPet) != -1)
+			return true;
+
 		std::string item_name;
 		int reg_focus = CastToClient()->GetFocusEffect(focusReagentCost, spell_id, item_name);
-		if (zone->random.Roll(reg_focus))
-		{
-			if (item_name.length() > 0)
-			{
-				Message_StringID(MT_Spells, BEGINS_TO_SHINE, item_name.c_str());
-			}
-			Log(Logs::General, Logs::Focus, "focusReagentCost prevented reagent consumption (%d chance)", reg_focus);
-		}
-		else
-		{
-			if(reg_focus > 0)
-				Log(Logs::General, Logs::Focus, "focusReagentCost failed to prevent reagent consumption (%d chance)", reg_focus);
 
-			for (int t_count = 0; t_count < 4; t_count++) 
+		for (int t_count = 0; t_count < 4; t_count++) // loop through each of the 4 possible component slots
+		{
+			int32 component = spells[spell_id].components[t_count];
+			if (component == -1)
+				continue;
+			int component_count = spells[spell_id].component_counts[t_count];
+
+			for (int t_component_count = 0; t_component_count < component_count; t_component_count++) // loop for each quantity of each reagent, it's not all or nothing, each one rolls
 			{
-				int32 component = spells[spell_id].components[t_count];
-				if (component == -1)
-					continue;
-				int component_count = spells[spell_id].component_counts[t_count];
-				Log(Logs::Detail, Logs::Spells, "Spell %d: Consuming %d of spell component item id %d", spell_id, component, component_count);
-				// Components found, Deleting
-				// now we go looking for and deleting the items one by one
-				for (int s = 0; s < component_count; s++)
+				// these items can't benefit from reagent conservation even if the focus filters would apply (from client decompile)
+				bool exempt_reagent = component == 9963 /* Essence Emerald */ || component == 10092 /* Fuligan Soulstone of Innoruuk */ || component == 10094 /* Cloudy Stone of Veeshan */;
+
+				// roll for reagent conservation
+				if (!exempt_reagent && zone->random.Roll(reg_focus))
 				{
+					// roll success, conserve reagent
+					if (item_name.length() > 0)
+					{
+						Message_StringID(MT_Spells, BEGINS_TO_SHINE, item_name.c_str());
+					}
+					Log(Logs::General, Logs::Focus, "focusReagentCost prevented reagent consumption (%d chance) spell_id %d item_id %d", reg_focus, spell_id, component);
+				}
+				else
+				{
+					// roll failed or not a conservable reagent
+					if (reg_focus > 0)
+						Log(Logs::General, Logs::Focus, "focusReagentCost failed to prevent reagent consumption (%d chance, exempt_reagent = %d) spell_id %d item_id %d", reg_focus, exempt_reagent, spell_id, component);
+					Log(Logs::Detail, Logs::Spells, "Spell %d: Consuming 1 of spell component item id %d", spell_id, component);
+					// Components found, Deleting
+					// now we go looking for and deleting the items one by one
 					int16 inv_slot_id = c->GetInv().HasItem(component, 1, invWhereWorn | invWherePersonal);
 					if (inv_slot_id != -1)
 					{
@@ -4582,9 +4551,9 @@ bool Mob::UseBardSpellLogic(uint16 spell_id, int slot)
 	if (spell_id == SPELL_UNKNOWN && bardsong)
 		spell_id = bardsong;
 
-	if (slot == -1 && static_cast<int>(casting_spell_slot) != -1)
+	if (slot == -1 && casting_spell_slot != CastingSlot::Invalid)
 		slot = static_cast<int>(casting_spell_slot);
-	if (slot == -1 && static_cast<int>(bardsong_slot) != -1)
+	if (slot == -1 && bardsong_slot != CastingSlot::Invalid)
 		slot = static_cast<int>(bardsong_slot);
 
 	// should we treat this as a bard singing?
@@ -4617,7 +4586,7 @@ void Mob::_StopSong()
 {
 	bardsong = 0;
 	bardsong_target_id = 0;
-	bardsong_slot = CastingSlot::Gem1;
+	bardsong_slot = CastingSlot::Invalid;
 	bardsong_timer.Disable();
 }
 
@@ -4778,22 +4747,6 @@ bool Mob::IsPacified()
 	}
 	
 	return false;
-}
-
-void Client::RefreshSpellIcon()
-{
-	for (unsigned int i = 0; i < MAX_PP_MEMSPELL; ++i)
-	{
-		if (IsValidSpell(m_pp.mem_spells[i]) && p_timers.Enabled(pTimerSpellStart + m_pp.mem_spells[i]))
-		{
-			m_pp.spellSlotRefresh[i] = p_timers.GetRemainingTime(pTimerSpellStart + m_pp.mem_spells[i]);
-			if(m_pp.spellSlotRefresh[i] > 0)
-			{
-				MemorizeSpell(i, m_pp.mem_spells[i], memSpellSpellbar);
-				Log(Logs::General, Logs::Spells, "Sending slot disable for spell %d in slot %d which has %d seconds left", m_pp.mem_spells[i], i, m_pp.spellSlotRefresh[i]);
-			}
-		}
-	}
 }
 
 void Mob::ResistSpell(Mob* caster, uint16 spell_id, bool isProc)

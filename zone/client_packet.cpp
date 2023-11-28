@@ -325,7 +325,7 @@ int Client::HandlePacket(const EQApplicationPacket *app)
 	case CLIENT_CONNECTING: {
 		if(ConnectingOpcodes.count(opcode) != 1) {
 			//Hate const cast but everything in lua needs to be non-const even if i make it non-mutable
-			std::vector<EQ::Any> args;
+			std::vector<std::any> args;
 			args.push_back(const_cast<EQApplicationPacket*>(app));
 			parse->EventPlayer(EVENT_UNHANDLED_OPCODE, this, "", 1, &args);
 
@@ -355,7 +355,7 @@ int Client::HandlePacket(const EQApplicationPacket *app)
 		ClientPacketProc p;
 		p = ConnectedOpcodes[opcode];
 		if(p == nullptr) { 
-			std::vector<EQ::Any> args;
+			std::vector<std::any> args;
 			args.push_back(const_cast<EQApplicationPacket*>(app));
 			parse->EventPlayer(EVENT_UNHANDLED_OPCODE, this, "", 0, &args);
 
@@ -2791,7 +2791,7 @@ void Client::Handle_OP_ClickDoor(const EQApplicationPacket *app)
 	char buf[20];
 	snprintf(buf, 19, "%u", cd->doorid);
 	buf[19] = '\0';
-	std::vector<EQ::Any> args;
+	std::vector<std::any> args;
 	args.push_back(currentdoor);
 	parse->EventPlayer(EVENT_CLICK_DOOR, this, buf, 0, &args);
 
@@ -2821,7 +2821,7 @@ void Client::Handle_OP_ClickObject(const EQApplicationPacket *app)
 
 		object->HandleClick(this, click_object);
 
-		std::vector<EQ::Any> args;
+		std::vector<std::any> args;
 		args.push_back(object);
 
 		char buf[10];
@@ -3055,9 +3055,6 @@ void Client::Handle_OP_ClientUpdate(const EQApplicationPacket *app)
 	{
 		entity_list.OpenFloorTeleportNear(this);
 	}
-
-	float water_x = m_Position.x;
-	float water_y = m_Position.y;
 
 	//last_update = Timer::GetCurrentTime();
 	m_Position.x = ppu->x_pos;
@@ -7457,12 +7454,12 @@ void Client::Handle_OP_ShopPlayerBuy(const EQApplicationPacket *app)
 
 	int SinglePrice = 0;
 	float price_mod = CalcPriceMod(tmp);
-	SinglePrice = item->Price * item->SellRate * price_mod + 0.5f;
+	SinglePrice = item->Price * item->SellRate * price_mod;
 
 	if (item->MaxCharges > 1)
 		mpo->price = SinglePrice;
 	else
-		mpo->price = SinglePrice * mp->quantity;
+		mpo->price = SinglePrice * mp->quantity + 0.5f;
 	if (mpo->price < 0)
 	{
 		Message_StringID(CC_Default, ALREADY_SOLD);

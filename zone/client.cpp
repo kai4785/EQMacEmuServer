@@ -151,6 +151,7 @@ Client::Client(EQStreamInterface* ieqs)
 {
 	for(int cf=0; cf < _FilterCount; cf++)
 		ClientFilters[cf] = FilterShow;
+	for (int aa_ix = 0; aa_ix < MAX_PP_AA_ARRAY; aa_ix++) { aa[aa_ix] = nullptr; }
 	character_id = 0;
 	zoneentry = nullptr;
 	conn_state = NoPacketsReceived;
@@ -978,7 +979,7 @@ void Client::ChannelMessageReceived(uint8 chan_num, uint8 language, uint8 lang_s
 				}
 			}
 
-			char target_name[64];
+			char target_name[64] = {};
 
 			if(targetname)
 			{
@@ -2114,6 +2115,8 @@ uint16 Client::GetMaxSkillAfterSpecializationRules(EQ::skills::SkillType skillid
 			}
 			else
 			{
+				Result = m_pp.skills[skillid]; // don't allow further increase, this is believed to be AKurate behavior https://www.takproject.net/forums/index.php?threads/10-11-2023.26773/#post-123497
+				/*
 				Message(CC_Red, "Your spell casting specializations skills have been reset. "
 						"Only %i primary specialization skill is allowed.", MaxSpecializations);
 
@@ -2124,6 +2127,7 @@ uint16 Client::GetMaxSkillAfterSpecializationRules(EQ::skills::SkillType skillid
 
 				Log(Logs::General, Logs::Normal, "Reset %s's caster specialization skills to 1. "
 								"Too many specializations skills were above 50.", GetCleanName());
+				*/
 			}
 
 		}
@@ -2981,7 +2985,7 @@ void Client::SacrificeConfirm(Client *caster) {
 
 	if (GetLevel() > RuleI(Spells, SacrificeMaxLevel)) 
 	{
-		caster->Message_StringID(CC_Red, SAC_TOO_HIGH);
+		caster->Message_StringID(CC_Red, SAC_TOO_HIGH); //This being is too powerful to be a sacrifice.
 		safe_delete(outapp);
 		return;
 	}
@@ -4101,7 +4105,7 @@ void Client::Doppelganger(uint16 spell_id, Mob *target, const char *name_overrid
 		return;
 	}
 
-	SwarmPet_Struct pet;
+	SwarmPet_Struct pet = {};
 	pet.count = pet_count;
 	pet.duration = pet_duration;
 	pet.npc_id = record.npc_type;
@@ -4994,7 +4998,7 @@ void Client::SendSoulMarks(SoulMarkList_Struct* SMS)
 		return;
 
 	auto outapp = new EQApplicationPacket(OP_SoulMarkUpdate, sizeof(SoulMarkList_Struct));
-	memset(outapp->pBuffer, 0, sizeof(outapp->pBuffer));
+	memset(outapp->pBuffer, 0, sizeof(SoulMarkList_Struct));
 	SoulMarkList_Struct* soulmarks = (SoulMarkList_Struct*)outapp->pBuffer;
 	memcpy(&soulmarks->entries, SMS->entries, 12 * sizeof(SoulMarkEntry_Struct));
 	strncpy(soulmarks->interrogatename, SMS->interrogatename, 64);
