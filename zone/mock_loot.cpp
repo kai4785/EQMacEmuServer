@@ -123,10 +123,19 @@ public:
     {
         LogInfo("Runs: {}", runs);
         sort(results.begin(), results.end(), [](result& lhs, result& rhs){return lhs.count > rhs.count;});
-        for(auto& result : results)
+        for (auto& result : results)
         {
             LogInfo("{}%% {} ({}) {}", static_cast<double>(result.count) / runs * 100, result.name, result.id, result.count);
         }
+    }
+    bool hasDropped(uint32 itemId)
+    {
+        for (auto& result : results)
+        {
+            if (result.id == itemId)
+                return true;
+        }
+        return false;
     }
     struct result
     {
@@ -139,20 +148,30 @@ public:
 
 void usage(const char *program)
 {
-    cout << program << " npc_id runs" << endl;
+    cout << program << " npc_id (--runs|--item) #" << endl;
 }
 
 int main(int argc, char **argv)
 {
-    if (argc != 3)
+    if (argc != 4)
     {
         usage(argv[0]);
         return -1;
     }
     uint32 npc_id = stoi(argv[1]);
-    uint32 runs = stoi(argv[2]);
+    uint32 runs = 0;
+    uint32 itemId = 0;
+    if (string(argv[2]) == "--runs")
+        runs = stoi(argv[3]);
+    else if(string(argv[2]) == "--item")
+        itemId = stoi(argv[3]);
+    else
+    {
+        usage(argv[0]);
+        return -1;
+    }
 
-    LogInfo("NPC: {}, runs: {}", npc_id, runs);
+    LogInfo("NPC: {}, runs: {}", npc_id, runs, itemId);
     zone = new Zone(316, "rivervale");
 
 	Config = ZoneConfig::get();
@@ -201,9 +220,20 @@ int main(int argc, char **argv)
 	auto node_position = glm::vec4(0, 0, 0, 0);
     MockLoot mock_loot(type, nullptr, node_position, EQ::constants::GravityBehavior::Flying, false);
     uint32 copper = 0, silver = 0, gold = 0, plat = 0;
-    for(int i = 0; i < runs; i++)
+    if (runs)
     {
-        database.AddLootTableToNPC(&mock_loot, type->loottable_id, nullptr, &copper, &silver, &gold, &plat);
+        for(int i = 0; i < runs; i++)
+        {
+            database.AddLootTableToNPC(&mock_loot, type->loottable_id, nullptr, &copper, &silver, &gold, &plat);
+        }
+    }
+    else
+    {
+        while(!mock_loot.hasDropped(itemId))
+        {
+            database.AddLootTableToNPC(&mock_loot, type->loottable_id, nullptr, &copper, &silver, &gold, &plat);
+            runs++;
+        }
     }
     mock_loot.report(runs);
     delete type;
