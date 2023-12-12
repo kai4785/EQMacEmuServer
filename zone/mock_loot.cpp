@@ -119,13 +119,13 @@ public:
     {
         return;
     }
-    void report(uint32 runs)
+    void report(uint32 clears)
     {
-        LogInfo("Runs: {}", runs);
+        LogInfo("Clears: {}", clears);
         sort(results.begin(), results.end(), [](result& lhs, result& rhs){return lhs.count > rhs.count;});
         for (auto& result : results)
         {
-            LogInfo("{}%% {} ({}) {}", static_cast<double>(result.count) / runs * 100, result.name, result.id, result.count);
+            LogInfo("{}%% {} ({}) {}", static_cast<double>(result.count) / clears * 100, result.name, result.id, result.count);
         }
     }
     bool hasDropped(uint32 itemId)
@@ -148,30 +148,28 @@ public:
 
 void usage(const char *program)
 {
-    cout << program << " npc_id (--runs|--item) #" << endl;
+    cout << program << " npc_id (--clears|--item) #" << endl;
 }
 
 int main(int argc, char **argv)
 {
-    if (argc != 4)
-    {
-        usage(argv[0]);
-        return -1;
-    }
-    uint32 npc_id = stoi(argv[1]);
-    uint32 runs = 0;
+    std::vector<uint32> npc_ids;
+    int arg = 1;
+    while(argv[arg][0] != '-')
+        npc_ids.push_back(stoi(argv[arg++]));
+    uint32 clears = 0;
     uint32 itemId = 0;
-    if (string(argv[2]) == "--runs")
-        runs = stoi(argv[3]);
-    else if(string(argv[2]) == "--item")
-        itemId = stoi(argv[3]);
+    if (string(argv[arg]) == "--clears")
+        clears = stoi(argv[arg+1]);
+    else if(string(argv[arg]) == "--item")
+        itemId = stoi(argv[arg+1]);
     else
     {
         usage(argv[0]);
         return -1;
     }
 
-    LogInfo("NPC: {}, runs: {}", npc_id, runs, itemId);
+    //LogInfo("NPC: {}, clears: {}", npc_id, clears, itemId);
     zone = new Zone(316, "rivervale");
 
 	Config = ZoneConfig::get();
@@ -215,28 +213,35 @@ int main(int argc, char **argv)
 		LogError("Failed. But ignoring error and going on...");
 	}
 
-    NPCType* type = database.GrabNPCType(npc_id);
-    LogInfo("Found ({}) {} {}", npc_id, type->name, type->lastname);
+    std::vector<NPCType*> types;
+    for(auto npc_id : npc_ids)
+    {
+        NPCType* type = database.GrabNPCType(npc_id);
+        LogInfo("Found ({}) {} {}", npc_id, type->name, type->lastname);
+        types.push_back(type);
+    }
 	auto node_position = glm::vec4(0, 0, 0, 0);
-    MockLoot mock_loot(type, nullptr, node_position, EQ::constants::GravityBehavior::Flying, false);
+    MockLoot mock_loot(types[0], nullptr, node_position, EQ::constants::GravityBehavior::Flying, false);
     uint32 copper = 0, silver = 0, gold = 0, plat = 0;
-    if (runs)
+    bool allDone = false;
+    int i = 0;
+    do
     {
-        for(int i = 0; i < runs; i++)
+        for(auto type : types)
         {
             database.AddLootTableToNPC(&mock_loot, type->loottable_id, nullptr, &copper, &silver, &gold, &plat);
         }
-    }
-    else
+        i++;
+        if(clears)
+            allDone = (i == clears);
+        else
+            allDone = mock_loot.hasDropped(itemId);
+    } while(!allDone);
+    mock_loot.report(i);
+    for(auto type: types)
     {
-        while(!mock_loot.hasDropped(itemId))
-        {
-            database.AddLootTableToNPC(&mock_loot, type->loottable_id, nullptr, &copper, &silver, &gold, &plat);
-            runs++;
-        }
+        delete type;
     }
-    mock_loot.report(runs);
-    delete type;
     delete zone;
     return 0;
 }
