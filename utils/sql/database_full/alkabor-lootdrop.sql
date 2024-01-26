@@ -4,7 +4,7 @@ CREATE TABLE `lootdrop` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=115933 DEFAULT CHARSET=latin1 PACK_KEYS=0;
+) ENGINE=InnoDB AUTO_INCREMENT=115959 DEFAULT CHARSET=latin1 PACK_KEYS=0;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `lootdrop` VALUES (209,'86_Corflunk_Wear');
 INSERT INTO `lootdrop` VALUES (246,'106_#Lady_Mirenilla_Wear');
@@ -47,7 +47,6 @@ INSERT INTO `lootdrop` VALUES (1221,'546_Narra_Tanith_Wear');
 INSERT INTO `lootdrop` VALUES (1223,'548_Ashenpaw_Wear');
 INSERT INTO `lootdrop` VALUES (1228,'550_Bristletoe_Wear');
 INSERT INTO `lootdrop` VALUES (1229,'550_Bristletoe_Trade');
-INSERT INTO `lootdrop` VALUES (1230,'550_Bristletoe_Misc');
 INSERT INTO `lootdrop` VALUES (1234,'553_Lockjaw_Wear');
 INSERT INTO `lootdrop` VALUES (1235,'553_Lockjaw_Trade');
 INSERT INTO `lootdrop` VALUES (1238,'556_Tae_Ew_Diviner_Wear');
@@ -30553,3 +30552,29 @@ INSERT INTO `lootdrop` VALUES (115929,'115929_a_putrid_skeleton_MAGELO-GEN');
 INSERT INTO `lootdrop` VALUES (115930,'115930_a_putrid_skeleton_MAGELO-GEN');
 INSERT INTO `lootdrop` VALUES (115931,'115931_a_putrid_skeleton_MAGELO-GEN');
 INSERT INTO `lootdrop` VALUES (115932,'5679_a_poacher_');
+INSERT INTO `lootdrop` VALUES (115933,'97229_Grenix_Mucktail_');
+INSERT INTO `lootdrop` VALUES (115934,'115934_Vexven_Mucktail_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115935,'115935_a_large_fire_beetle_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115936,'115936_a_large_fire_beetle_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115937,'115937_a_large_fire_beetle_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115938,'115938_large_fire_goblin_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115939,'115939_large_fire_goblin_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115940,'115940_cinder_goblin_wizard_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115941,'115941_cinder_goblin_wizard_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115942,'115942_a_wraithish_ancille_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115943,'115943_a_wraithish_ancille_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115944,'115944_a_wraithish_ancille_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115945,'97234_Feddi_Dooger_');
+INSERT INTO `lootdrop` VALUES (115946,'115946_orc_oracle_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115947,'115947_orc_oracle_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115948,'115948_orc_oracle_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115949,'97226_Puntar_Sandfisher_');
+INSERT INTO `lootdrop` VALUES (115950,'115950_Holinix_Darkpaw_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115951,'115951_Holinix_Darkpaw_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115952,'97236_Holinix_Darkpaw_');
+INSERT INTO `lootdrop` VALUES (115953,'93359_Grarrax_Darkpaw_');
+INSERT INTO `lootdrop` VALUES (115954,'115954_Infected_Rat_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115955,'115955_Infected_Rat_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (115956,'97239_fang_tooth_');
+INSERT INTO `lootdrop` VALUES (115957,'97241_Bink_');
+INSERT INTO `lootdrop` VALUES (115958,'97241_Bink_');

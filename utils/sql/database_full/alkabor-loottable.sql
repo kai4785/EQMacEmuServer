@@ -8,7 +8,7 @@ CREATE TABLE `loottable` (
   `avgcoin` int(10) unsigned NOT NULL DEFAULT 0,
   `done` tinyint(3) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=97229 DEFAULT CHARSET=latin1 PACK_KEYS=0;
+) ENGINE=InnoDB AUTO_INCREMENT=97242 DEFAULT CHARSET=latin1 PACK_KEYS=0;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `loottable` VALUES (1,'a_froglok_repairer',1,2000,250,0);
 INSERT INTO `loottable` VALUES (2,'Orc_Centurion',1,50,7,0);
@@ -116,7 +116,6 @@ INSERT INTO `loottable` VALUES (1898,'cazicthule A_Tae_Ew_fanatic',0,0,0,1);
 INSERT INTO `loottable` VALUES (1900,'cazicthule A_Tae_Ew_judicator',0,0,0,1);
 INSERT INTO `loottable` VALUES (1908,'Rilca_Leafrunner',748,4959,0,1);
 INSERT INTO `loottable` VALUES (1913,'Synger_Foxfyre',1,3000,1000,0);
-INSERT INTO `loottable` VALUES (1915,'Grenix_Mucktail',1,500,25,0);
 INSERT INTO `loottable` VALUES (1931,'Maareq_the_Prophet',0,0,0,1);
 INSERT INTO `loottable` VALUES (1958,'An_Ashenbone_Drake',1100,7282,0,1);
 INSERT INTO `loottable` VALUES (1999,'podisease #Grummus',0,0,0,1);
@@ -7773,7 +7772,7 @@ INSERT INTO `loottable` VALUES (91772,'91772_Trilani_Parlone_MAGELO-GEN',45,4500
 INSERT INTO `loottable` VALUES (91773,'91773_Akbaq_Salid_MAGELO-GEN',35,3500,0,0);
 INSERT INTO `loottable` VALUES (91774,'91774_a_giant_piranha_MAGELO-GEN',0,0,0,0);
 INSERT INTO `loottable` VALUES (91775,'91775_Illithi_Nollith_MAGELO-GEN',1,2000,250,0);
-INSERT INTO `loottable` VALUES (91776,'91776_Tol_Nicelot_MAGELO-GEN',1,2000,250,0);
+INSERT INTO `loottable` VALUES (91776,'91776_Tol_Nicelot_MAGELO-GEN',1,9000,0,0);
 INSERT INTO `loottable` VALUES (91779,'ErudinSentinel',1,3000,1000,0);
 INSERT INTO `loottable` VALUES (91790,'91790_Ticar_Lorestring_MAGELO-GEN',1,2500,500,0);
 INSERT INTO `loottable` VALUES (91791,'91791_Collier_MAGELO-GEN',35,3500,0,0);
@@ -8784,7 +8783,7 @@ INSERT INTO `loottable` VALUES (92913,'92913_Grizzleknot_MAGELO-GEN',0,0,0,0);
 INSERT INTO `loottable` VALUES (92914,'92914_royal_guard_MAGELO-GEN',1,1000,50,0);
 INSERT INTO `loottable` VALUES (92915,'92915_orc_warlord_MAGELO-GEN',1,1000,50,0);
 INSERT INTO `loottable` VALUES (92916,'92916_The_Prophet_MAGELO-GEN',1,2000,250,0);
-INSERT INTO `loottable` VALUES (92917,'a_bixie_drone',0,0,0,0);
+INSERT INTO `loottable` VALUES (92917,'a_bixie_drone',0,35,0,0);
 INSERT INTO `loottable` VALUES (92918,'92918_a_cliff_spider_MAGELO-GEN',0,0,0,0);
 INSERT INTO `loottable` VALUES (92919,'92919_Ambassador_DVinn_MAGELO-GEN',1,2000,250,0);
 INSERT INTO `loottable` VALUES (92920,'Whimsy_Larktwitter',1,2000,250,0);
@@ -12873,6 +12872,19 @@ INSERT INTO `loottable` VALUES (97222,'Guard_Ranlem',0,3500,0,0);
 INSERT INTO `loottable` VALUES (97223,'lizardman_mystic',0,700,0,0);
 INSERT INTO `loottable` VALUES (97224,'Troll Bashers',40,4000,0,0);
 INSERT INTO `loottable` VALUES (97225,'Guard_Fentallin',0,2000,0,0);
-INSERT INTO `loottable` VALUES (97226,'Puntar_Sandfisher',0,1000,0,0);
+INSERT INTO `loottable` VALUES (97226,'Puntar_Sandfisher',0,1500,0,0);
 INSERT INTO `loottable` VALUES (97227,'Vrionele',0,3000,0,0);
 INSERT INTO `loottable` VALUES (97228,'97228_a_putrid_skeleton_MAGELO-GEN',8,800,0,0);
+INSERT INTO `loottable` VALUES (97229,'Grenix_Mucktail',0,500,0,0);
+INSERT INTO `loottable` VALUES (97230,'97230_a_large_fire_beetle_MAGELO-GEN',0,0,0,0);
+INSERT INTO `loottable` VALUES (97231,'97231_large_fire_goblin_MAGELO-GEN',26,2600,0,0);
+INSERT INTO `loottable` VALUES (97232,'97232_cinder_goblin_wizard_MAGELO-GEN',20,2000,0,0);
+INSERT INTO `loottable` VALUES (97233,'97233_a_wraithish_ancille_MAGELO-GEN',30,3000,0,0);
+INSERT INTO `loottable` VALUES (97234,'Feddi_Dooger',0,500,0,0);
+INSERT INTO `loottable` VALUES (97235,'97235_orc_oracle_MAGELO-GEN',4,400,0,0);
+INSERT INTO `loottable` VALUES (97236,'97236_Holinix_Darkpaw_MAGELO-GEN',8,800,0,0);
+INSERT INTO `loottable` VALUES (97237,'97237_Infected_Rat_MAGELO-GEN',0,0,0,0);
+INSERT INTO `loottable` VALUES (97238,'Tol_Nicelot',0,9000,0,0);
+INSERT INTO `loottable` VALUES (97239,'fang_tooth',0,0,0,0);
+INSERT INTO `loottable` VALUES (97240,'a_heretic_prophet',0,500,0,0);
+INSERT INTO `loottable` VALUES (97241,'Bink',0,500,0,0);

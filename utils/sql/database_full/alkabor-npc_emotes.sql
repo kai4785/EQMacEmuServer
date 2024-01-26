@@ -7,7 +7,7 @@ CREATE TABLE `npc_emotes` (
   `type` tinyint(3) NOT NULL DEFAULT 0,
   `text` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4152 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4174 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_emotes` VALUES (1,1,1,0,'Time to die $name.');
 INSERT INTO `npc_emotes` VALUES (2,2,1,0,'Your bones will be crushed by the Kromzek of Kael Drakkel!');
@@ -206,7 +206,7 @@ INSERT INTO `npc_emotes` VALUES (198,124,4,0,'Hail! I\'d love to stop and chat w
 INSERT INTO `npc_emotes` VALUES (199,125,1,0,'Death to all who oppose Innoruuk\'s will!!');
 INSERT INTO `npc_emotes` VALUES (200,125,3,0,'Innoruuk has seen what you have done. His hate, along with the Dismal Rage, will find you.');
 INSERT INTO `npc_emotes` VALUES (201,126,1,0,'For the glory of the Deathfist Magistrate, your blood shall run!!');
-INSERT INTO `npc_emotes` VALUES (202,126,2,0,'Aaarrghh!!  The Deathfist shall hunt you down.  My death will not go unnoticed.');
+INSERT INTO `npc_emotes` VALUES (202,126,3,0,'Aaarrghh!!  The Deathfist shall hunt you down.  My death will not go unnoticed.');
 INSERT INTO `npc_emotes` VALUES (203,127,1,0,'Ye be messin with the wrong dwarf!  I\'ll smash ye\'r head in like a ripe marr cherry!');
 INSERT INTO `npc_emotes` VALUES (204,127,3,0,'Argh!  I shall be rewarded in the Kingdom of Brell for my victories over the children of Veeshan!');
 INSERT INTO `npc_emotes` VALUES (205,128,1,0,'Not even the dragons of Velious can content with my mastery of the elements!  Prepare to meet your fate, fool!');
@@ -4064,3 +4064,22 @@ INSERT INTO `npc_emotes` VALUES (4148,1991,3,0,'Bertoxxuloussss.. shall find you
 INSERT INTO `npc_emotes` VALUES (4149,1991,9,0,'The Lord of Disease welcomes you!');
 INSERT INTO `npc_emotes` VALUES (4150,1992,1,0,'bark, bark, bark!!!\r\n');
 INSERT INTO `npc_emotes` VALUES (4151,1993,1,0,'Slay the hairless ones!\r\n');
+INSERT INTO `npc_emotes` VALUES (4152,1994,1,0,'Ggrrrff!! Onward, and destroy this bile!');
+INSERT INTO `npc_emotes` VALUES (4153,1995,1,0,'Let the madness rain upon you! Long live Meldrath!');
+INSERT INTO `npc_emotes` VALUES (4154,1995,3,0,'And now I sleep. Forever in the madness of Meldrath am I.');
+INSERT INTO `npc_emotes` VALUES (4155,1996,1,0,'Orc stomp, orc kill - orc weapons, your blood will spill.');
+INSERT INTO `npc_emotes` VALUES (4156,1997,1,0,'Orc stomp, orc kill - orc weapons, your blood will spill.');
+INSERT INTO `npc_emotes` VALUES (4157,1997,3,0,'My comrades will avenge my death.');
+INSERT INTO `npc_emotes` VALUES (4158,269,3,0,'zzzzzzztone hivvvvvvvvv');
+INSERT INTO `npc_emotes` VALUES (4162,95,9,0,'For the glory of the Deathfist Magistrate, your blood shall run!!');
+INSERT INTO `npc_emotes` VALUES (4163,1998,9,0,'Hardly a worthy adversary. A member of the Indigo Brotherhood deserves a much better opponent.');
+INSERT INTO `npc_emotes` VALUES (4164,1998,1,0,'Prepare to meet the skilled fury of a Neriak Dragoon.');
+INSERT INTO `npc_emotes` VALUES (4165,1998,3,0,'Start digging your grave. The Indigo Brotherhood shall find you.');
+INSERT INTO `npc_emotes` VALUES (4166,1873,1,0,'Argh!  Bertoxxulous demands your flesh!');
+INSERT INTO `npc_emotes` VALUES (4167,1873,5,2,'Your fate is sealed, foolish mortals!  Cower before the might of Varsoon the Undying!');
+INSERT INTO `npc_emotes` VALUES (4168,1999,3,0,'Wizzzz... Click. Tick...');
+INSERT INTO `npc_emotes` VALUES (4169,2000,1,0,'The single death of a member of the Paladins of Tunare shall plague your wretched life.');
+INSERT INTO `npc_emotes` VALUES (4170,2001,1,1,'growls exposing decaying fangs!\r\n');
+INSERT INTO `npc_emotes` VALUES (4171,2001,3,1,'curls into a pile as it hits the ground.\r\n');
+INSERT INTO `npc_emotes` VALUES (4172,2002,1,0,'Your death shall be swift!');
+INSERT INTO `npc_emotes` VALUES (4173,2002,3,0,'My comrades will avenge my death.');
