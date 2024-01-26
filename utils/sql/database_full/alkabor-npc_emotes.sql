@@ -7,7 +7,7 @@ CREATE TABLE `npc_emotes` (
   `type` tinyint(3) NOT NULL DEFAULT 0,
   `text` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4196 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4197 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_emotes` VALUES (1,1,1,0,'Time to die $name.');
 INSERT INTO `npc_emotes` VALUES (2,2,1,0,'Your bones will be crushed by the Kromzek of Kael Drakkel!');
@@ -536,7 +536,7 @@ INSERT INTO `npc_emotes` VALUES (543,320,3,0,'I am dead, this is true.  But at l
 INSERT INTO `npc_emotes` VALUES (544,321,1,0,'You can run, but I can hide.  Turn your back, find you have died!');
 INSERT INTO `npc_emotes` VALUES (545,321,2,0,'Ugly creature, I stare at your feet.  It seems my end I am about to meet.');
 INSERT INTO `npc_emotes` VALUES (546,322,1,0,'Who is this creature in my view?  I do not care, I will just run it through!');
-INSERT INTO `npc_emotes` VALUES (547,322,3,0,'Flarglegnump ak murgledoo!  That is Goblin for I hate you!');
+INSERT INTO `npc_emotes` VALUES (547,322,3,0,'Flarglegrump ak murgledoo!  That is Goblin for \"I hate you!\"');
 INSERT INTO `npc_emotes` VALUES (548,323,1,0,'You are ugly, there is no doubt.  I think I will poke your eyeballs out!');
 INSERT INTO `npc_emotes` VALUES (549,323,3,0,'Was it because I called you ugly?');
 INSERT INTO `npc_emotes` VALUES (550,324,1,0,'I wiggle my fingers, I wave my hands.  Your name shall be forgotten in all the lands!');
@@ -4096,3 +4096,4 @@ INSERT INTO `npc_emotes` VALUES (4189,2010,1,0,'No, it can\'t be that I\'ve been
 INSERT INTO `npc_emotes` VALUES (4193,1184,9,0,'Ha! Fertilizer for the forests and another notch in the belt of the Unkempt Druids!');
 INSERT INTO `npc_emotes` VALUES (4194,2011,1,0,'Little man, little man, filled with red - I\'ll crunch your bones when you are dead.');
 INSERT INTO `npc_emotes` VALUES (4195,2012,3,0,'Aaaghh! You dare bring the wrath of my people upon yourself. May Brell have mercy on your...  soul...');
+INSERT INTO `npc_emotes` VALUES (4196,2013,1,0,'Guards!  Come smash!');

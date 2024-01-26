@@ -94,7 +94,7 @@ INSERT INTO `faction_list` VALUES (79,'Gargoyle',0,1,0,0);
 INSERT INTO `faction_list` VALUES (80,'Race Faction (80)',0,1,0,0);
 INSERT INTO `faction_list` VALUES (81,'Gelatinous Cube',0,1,0,0);
 INSERT INTO `faction_list` VALUES (82,'Ghost',0,1,0,0);
-INSERT INTO `faction_list` VALUES (83,'Ghoul',0,1,0,0);
+INSERT INTO `faction_list` VALUES (83,'Ghoul',-2000,1,-2000,2000);
 INSERT INTO `faction_list` VALUES (84,'Giant Bat',-300,1,0,0);
 INSERT INTO `faction_list` VALUES (85,'Beta KOS Copy 9',0,1,0,0);
 INSERT INTO `faction_list` VALUES (86,'Giant Rat',-300,1,0,0);

@@ -471,6 +471,7 @@ CREATE TABLE `character_buffs` (
   `persistent` tinyint(3) unsigned NOT NULL,
   `ExtraDIChance` int(10) NOT NULL DEFAULT '0',
   `bard_modifier` tinyint(3) unsigned NOT NULL DEFAULT '10',
+  `bufftype` int(11) NOT NULL,
   PRIMARY KEY (`id`,`slot_id`),
   KEY `character_id` (`id`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;

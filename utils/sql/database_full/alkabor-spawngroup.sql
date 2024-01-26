@@ -19,7 +19,7 @@ CREATE TABLE `spawngroup` (
   `wp_spawns` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=225909 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=225910 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `spawngroup` VALUES (1002,'qeynos_Guard_Jerith14',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (1006,'qeynos_Guard_Cyrillian13',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -909,7 +909,7 @@ INSERT INTO `spawngroup` VALUES (12031,'qey2hh1_a_brown_bear5',0,-2200,-15650,78
 INSERT INTO `spawngroup` VALUES (12032,'qey2hh1_Renux_Herkanor18011',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (12041,'qey2hh1_Furball_Miller127',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (12043,'qey2hh1_Brother_Estle218',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (12050,'qey2hh1_a_cyclops50',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (12050,'qey2hh1_a_cyclops50',0,0,0,0,0,0,15000,0,100,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (12058,'qey2hh1_a_farmer98',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (12061,'qey2hh1_a_skeletal_soldier12',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (12062,'qey2hh1_a_bandit1',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -3752,14 +3752,11 @@ INSERT INTO `spawngroup` VALUES (72199,'fearplane_a_thought_bleeder2',0,0,0,0,0,
 INSERT INTO `spawngroup` VALUES (73003,'permafrost_an_elite_goblin_guard3',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73006,'permafrost_High_Priest_Zaharn80',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73013,'permafrost_the_goblin_sage81',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (73016,'permafrost_a_goblin_mendicant176',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73019,'permafrost_an_ice_goblin86',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73023,'permafrost_an_injured_polar_bear23',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (73028,'permafrost_a_goblin_priest0',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73033,'permafrost_an_icy_terror14',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73036,'permafrost_a_dire_wolf35',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73039,'permafrost_The_Ice_Witch213',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (73044,'permafrost_a_goblin_wizard4',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73048,'permafrost_a_dire_pup37',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73050,'permafrost_a_giant_polar_bear17',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73056,'permafrost_an_ice_giant_priest13',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -3770,7 +3767,6 @@ INSERT INTO `spawngroup` VALUES (73062,'permafrost_an_ice_giant_magus56',0,0,0,0
 INSERT INTO `spawngroup` VALUES (73065,'permafrost_giant_wooly_spider16',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73068,'permafrost_a_goblin_preacher181',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73069,'permafrost high level giants',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (73071,'permafrost_a_goblin_prelate82',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73079,'permafrost low level giants',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73088,'permafrost_a_young_dire_wolf34',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (73090,'permafrost_Greshvoule214',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -10361,7 +10357,7 @@ INSERT INTO `spawngroup` VALUES (222351,'feerrott_222351',0,0,0,0,0,0,0,0,0,0,12
 INSERT INTO `spawngroup` VALUES (222352,'gukbottom_222352',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222353,'templeveeshan_222353',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222354,'oot_222354',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222356,'southkarana_222356',1,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222356,'southkarana_222356',1,0,0,0,0,0,0,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (222357,'cabeast_222357',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222358,'permafrost mid level giants',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222360,'lfaydark_222360',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
@@ -10482,18 +10478,18 @@ INSERT INTO `spawngroup` VALUES (222486,'steamfont_222486',0,0,0,0,0,0,15000,0,0
 INSERT INTO `spawngroup` VALUES (222487,'steamfont_222487',0,0,0,0,0,0,15000,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (222488,'steamfont_222488',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222489,'rathemtn_222489',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222490,'southkarana_222490',1,0,0,0,0,0,0,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222491,'southkarana_222491',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222490,'southkarana_222490',1,0,0,0,0,0,0,0,0,0,1200,0,0,1);
+INSERT INTO `spawngroup` VALUES (222491,'southkarana_222491',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (222492,'southkarana_222492',0,3326,-3700,2230,265,30000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222493,'southkarana_222493',0,3280,1307,1431,-7630,38000,15000,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222494,'southkarana_222494',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222494,'southkarana_222494',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (222495,'southkarana_222495',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222496,'southkarana_222496',0,880,-3568,-5548,-7470,30000,15000,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222497,'southkarana_222497',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222497,'southkarana_222497',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (222498,'southkarana_222498',0,3255,-3650,2230,265,30000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222499,'southkarana_222499',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222501,'southkarana_222501',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222502,'southkarana_222502',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222502,'southkarana_222502',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (222503,'northkarana_222503',0,3110,-2190,1020,-3587,45000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222504,'nro_222504',0,1300,-690,1,-1870,30000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222505,'nro_222505',0,1300,-690,1,-1870,30000,15000,0,0,0,1200,0,0,0);
@@ -10822,7 +10818,7 @@ INSERT INTO `spawngroup` VALUES (222840,'charasis_222840',0,0,0,0,0,0,0,0,0,0,12
 INSERT INTO `spawngroup` VALUES (222841,'charasis_222841',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222842,'charasis_222842',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222843,'qey2hh1_222843',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222844,'qey2hh1_222844',0,-8660,-15650,781,-3625,38000,15000,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222844,'qey2hh1_222844',1,-8660,-15650,781,-3625,38000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222845,'charasis_222845',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222846,'charasis_222846',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222847,'charasis_222847',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
@@ -11685,7 +11681,7 @@ INSERT INTO `spawngroup` VALUES (223785,'frozenshadow_223785',0,0,0,0,0,0,0,0,0,
 INSERT INTO `spawngroup` VALUES (223788,'frozenshadow_223788',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (223789,'gukbottom_223789',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (223791,'southkarana_223791',1,0,0,0,0,0,0,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (223792,'southkarana_223792',1,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (223792,'southkarana_223792',1,0,0,0,0,0,0,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (223793,'frozenshadow_223793',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (223794,'frozenshadow_223794',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (223795,'frozenshadow_223795',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
@@ -11969,7 +11965,7 @@ INSERT INTO `spawngroup` VALUES (224095,'mischiefplane_224095',0,0,0,0,0,0,0,0,0
 INSERT INTO `spawngroup` VALUES (224096,'guktop_224096',0,0,0,0,0,0,0,2,2400,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (224098,'kael_224098',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (224099,'necropolis_224099',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (224100,'southkarana_224100',1,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (224100,'southkarana_224100',1,0,0,0,0,0,0,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (224101,'iceclad_224101',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (224102,'thurgadina_224102',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (224103,'thurgadina_224103',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
@@ -13463,8 +13459,8 @@ INSERT INTO `spawngroup` VALUES (225869,'oot_225869',0,0,0,0,0,45000,15000,0,0,0
 INSERT INTO `spawngroup` VALUES (225870,'oot_225870',0,-675,-1640,-2820,-3902,45000,15000,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (225871,'kithicor_225871',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (225872,'misty_225872',0,-508,-2340,1060,-1060,40000,15000,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (225873,'southkarana_225873',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (225874,'southkarana_225874',1,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225873,'southkarana_225873',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
+INSERT INTO `spawngroup` VALUES (225874,'southkarana_225874',1,0,0,0,0,0,0,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (225875,'lfaydark 5-9 static cents',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (225876,'lfaydark Thistle_Underbrush',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (225877,'lfaydark Mina_Glimmerwing',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
@@ -13499,3 +13495,4 @@ INSERT INTO `spawngroup` VALUES (225905,'steamfont_225905',0,0,0,0,0,0,0,0,0,0,1
 INSERT INTO `spawngroup` VALUES (225906,'neriakc_225906',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (225907,'permafrost_225907',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (225908,'permafrost_225908',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225909,'permafrost_225909',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);

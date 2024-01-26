@@ -11,7 +11,7 @@ CREATE TABLE `tradeskill_recipe_entries` (
   PRIMARY KEY (`id`),
   KEY `recipe_id` (`recipe_id`),
   KEY `item_id` (`item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=158144 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=158137 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `tradeskill_recipe_entries` VALUES (1,1,9650,0,0,1,0);
 INSERT INTO `tradeskill_recipe_entries` VALUES (2,1,9651,0,0,1,0);
@@ -4323,14 +4323,14 @@ INSERT INTO `tradeskill_recipe_entries` VALUES (6889,797,17653,0,0,0,1);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6890,10252,11787,0,0,1,0);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6891,10252,15403,0,0,1,0);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6892,10252,16584,0,0,1,0);
-INSERT INTO `tradeskill_recipe_entries` VALUES (6893,10252,16127,1,0,0,0);
+INSERT INTO `tradeskill_recipe_entries` VALUES (6893,10252,15395,1,0,0,0);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6894,10252,25,0,0,0,1);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6895,10252,17502,0,0,0,1);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6896,10252,17653,0,0,0,1);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6897,10251,11787,0,0,1,0);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6898,10251,13075,0,0,1,0);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6899,10251,15402,0,0,1,0);
-INSERT INTO `tradeskill_recipe_entries` VALUES (6900,10251,16126,1,0,0,0);
+INSERT INTO `tradeskill_recipe_entries` VALUES (6900,10251,15336,1,0,0,0);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6901,10251,25,0,0,0,1);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6902,10251,17502,0,0,0,1);
 INSERT INTO `tradeskill_recipe_entries` VALUES (6903,10251,17653,0,0,0,1);
