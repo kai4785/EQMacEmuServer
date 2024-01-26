@@ -1,0 +1,130 @@
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `char_create_point_allocations` (
+  `id` int(10) unsigned NOT NULL,
+  `base_str` int(10) unsigned NOT NULL,
+  `base_sta` int(10) unsigned NOT NULL,
+  `base_dex` int(10) unsigned NOT NULL,
+  `base_agi` int(10) unsigned NOT NULL,
+  `base_int` int(10) unsigned NOT NULL,
+  `base_wis` int(10) unsigned NOT NULL,
+  `base_cha` int(10) unsigned NOT NULL,
+  `alloc_str` int(10) unsigned NOT NULL,
+  `alloc_sta` int(10) unsigned NOT NULL,
+  `alloc_dex` int(10) unsigned NOT NULL,
+  `alloc_agi` int(10) unsigned NOT NULL,
+  `alloc_int` int(10) unsigned NOT NULL,
+  `alloc_wis` int(10) unsigned NOT NULL,
+  `alloc_cha` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+INSERT INTO `char_create_point_allocations` VALUES (0,103,105,70,87,60,80,60,0,5,5,5,0,5,0);
+INSERT INTO `char_create_point_allocations` VALUES (1,113,100,80,82,60,70,55,25,0,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (2,103,95,80,92,60,70,55,25,0,5,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (3,103,100,70,82,60,80,60,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (4,113,105,70,87,60,70,55,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (5,65,70,75,90,99,93,60,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (6,60,65,75,90,109,83,70,0,0,0,0,5,0,25);
+INSERT INTO `char_create_point_allocations` VALUES (7,60,75,75,90,109,83,60,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (8,60,65,85,90,109,83,60,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (9,60,65,85,100,99,83,60,25,0,5,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (10,70,70,75,90,109,83,65,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (11,70,75,75,95,99,83,60,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (12,100,95,100,70,60,83,45,25,0,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (13,95,95,90,70,60,93,45,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (14,100,95,90,70,60,88,55,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (15,90,90,100,80,60,83,45,25,0,5,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (16,100,100,90,75,60,83,45,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (17,65,75,70,70,107,93,70,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (18,60,70,70,70,117,83,80,0,0,0,0,5,0,25);
+INSERT INTO `char_create_point_allocations` VALUES (19,60,80,70,70,117,83,70,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (20,60,70,80,70,117,83,70,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (21,70,75,70,70,107,88,80,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (22,70,75,70,70,117,83,75,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (23,65,75,85,85,98,77,60,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (24,60,70,85,85,108,67,70,0,0,0,0,5,0,25);
+INSERT INTO `char_create_point_allocations` VALUES (25,60,80,85,85,108,67,60,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (26,60,70,95,85,108,67,60,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (27,70,75,85,85,98,72,70,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (28,60,70,95,95,98,67,60,25,0,5,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (29,70,75,85,85,108,67,65,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (30,70,80,85,90,98,67,60,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (31,75,70,95,90,75,60,85,0,0,0,0,0,0,25);
+INSERT INTO `char_create_point_allocations` VALUES (32,70,80,85,90,75,70,75,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (33,80,75,85,90,75,65,85,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (34,75,80,85,100,75,65,75,0,0,20,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (35,70,70,95,100,75,60,75,25,0,5,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (36,80,80,85,95,75,60,75,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (37,75,80,90,95,67,90,50,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (38,70,85,90,95,67,90,50,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (39,80,80,90,95,67,85,60,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (40,75,85,90,105,67,85,50,0,0,20,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (41,70,75,100,105,67,80,50,25,0,5,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (42,80,85,90,100,67,80,50,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (43,60,70,70,85,92,105,80,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (44,55,65,70,85,102,95,90,0,0,0,0,5,0,25);
+INSERT INTO `char_create_point_allocations` VALUES (45,55,75,70,85,102,95,80,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (46,65,70,70,85,92,100,90,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (47,80,75,85,75,75,75,85,0,0,0,0,0,0,25);
+INSERT INTO `char_create_point_allocations` VALUES (48,80,80,75,75,75,85,75,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (49,75,85,75,75,75,85,75,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (50,75,75,75,75,85,75,85,0,0,0,0,5,0,25);
+INSERT INTO `char_create_point_allocations` VALUES (51,75,85,75,75,85,75,75,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (52,80,80,85,85,75,75,75,0,0,0,20,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (53,75,75,85,75,85,75,75,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (54,85,80,75,75,75,80,85,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (55,80,85,75,85,75,80,75,0,0,20,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (56,75,75,85,85,75,75,75,25,0,5,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (57,85,80,75,75,85,75,80,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (58,85,85,75,80,75,75,75,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (59,70,80,85,95,75,90,60,0,5,5,5,0,5,0);
+INSERT INTO `char_create_point_allocations` VALUES (60,75,75,95,100,75,80,55,0,0,0,20,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (61,70,70,95,90,85,80,55,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (62,80,75,85,90,85,80,60,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (63,70,75,85,90,75,90,60,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (64,80,80,85,95,75,80,55,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (65,130,132,70,75,60,77,42,0,5,5,5,0,5,0);
+INSERT INTO `char_create_point_allocations` VALUES (66,140,127,80,70,60,67,37,25,0,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (67,140,127,70,70,70,67,42,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (68,130,127,70,70,60,77,42,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (69,140,132,70,75,60,67,37,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (70,108,119,75,88,52,70,45,0,5,5,5,0,5,0);
+INSERT INTO `char_create_point_allocations` VALUES (71,118,114,85,83,52,60,40,25,0,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (72,118,114,75,83,62,60,45,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (73,108,114,75,83,52,70,45,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (74,118,119,75,88,52,60,40,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (75,95,75,80,90,65,70,75,0,0,0,0,0,0,25);
+INSERT INTO `char_create_point_allocations` VALUES (76,90,85,70,95,65,80,70,0,5,5,5,0,5,0);
+INSERT INTO `char_create_point_allocations` VALUES (77,100,80,80,90,65,70,65,25,0,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (78,90,75,80,100,65,70,65,25,0,5,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (79,90,80,70,90,65,80,70,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (80,100,85,70,95,65,70,65,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (81,70,65,90,95,75,80,85,0,0,0,0,0,0,25);
+INSERT INTO `char_create_point_allocations` VALUES (82,65,75,80,95,75,90,75,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (83,70,75,80,105,75,85,75,0,0,20,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (84,65,65,90,105,75,80,75,25,0,5,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (85,75,75,80,100,75,80,75,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (86,75,85,100,100,75,85,50,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (87,70,80,110,100,85,75,50,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (88,80,85,100,100,75,80,60,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (89,70,80,110,110,75,75,50,25,0,5,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (90,80,85,100,100,85,75,55,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (91,70,85,100,100,75,85,55,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (92,80,90,100,105,75,75,50,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (93,70,90,100,100,85,75,50,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (94,80,90,75,90,85,80,75,0,25,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (95,75,85,75,85,85,90,75,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (96,80,85,75,85,85,85,85,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (97,75,90,75,95,85,85,75,0,0,20,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (98,80,85,75,85,95,80,80,0,20,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (99,70,90,75,85,85,90,75,0,5,0,0,0,25,0);
+INSERT INTO `char_create_point_allocations` VALUES (100,75,85,85,95,85,80,75,0,0,0,20,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (101,75,80,85,85,85,80,85,0,0,0,0,0,0,25);
+INSERT INTO `char_create_point_allocations` VALUES (102,70,80,85,95,85,80,75,25,0,5,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (103,70,80,85,85,95,80,75,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (104,70,90,75,85,95,80,75,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (105,70,90,75,85,95,80,75,0,5,0,0,25,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (106,70,80,75,85,95,80,85,0,0,0,0,5,0,25);
+INSERT INTO `char_create_point_allocations` VALUES (107,140,132,70,75,60,67,37,7,18,0,0,0,0,0);
+INSERT INTO `char_create_point_allocations` VALUES (108,140,127,80,70,60,67,37,10,15,0,0,0,0,0);
