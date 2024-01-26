@@ -11,7 +11,7 @@ CREATE TABLE `starting_items` (
   `gm` tinyint(1) NOT NULL DEFAULT 0,
   `slot` mediumint(9) NOT NULL DEFAULT -1,
   PRIMARY KEY (`id`,`race`)
-) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=248 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `starting_items` VALUES (1,1,0,201,0,9982,1,0,-1);
 INSERT INTO `starting_items` VALUES (2,0,0,0,0,9990,20,0,-1);
@@ -228,3 +228,5 @@ INSERT INTO `starting_items` VALUES (241,7,1,201,1,18853,1,0,-1);
 INSERT INTO `starting_items` VALUES (242,7,1,207,1,18707,1,0,-1);
 INSERT INTO `starting_items` VALUES (243,7,1,396,1,18707,1,0,-1);
 INSERT INTO `starting_items` VALUES (244,7,0,201,0,9982,1,0,-1);
+INSERT INTO `starting_items` VALUES (245,7,1,0,10,18857,1,0,-1);
+INSERT INTO `starting_items` VALUES (246,7,1,214,0,18707,1,0,-1);

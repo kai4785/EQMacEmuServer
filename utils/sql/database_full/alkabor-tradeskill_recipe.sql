@@ -485,7 +485,7 @@ INSERT INTO `tradeskill_recipe` VALUES (589,'Practice Rune (beza)',58,0,0,1,0,'C
 INSERT INTO `tradeskill_recipe` VALUES (590,'Practice Rune (complete)',58,0,21,0,0,'Created by joligario',0,1);
 INSERT INTO `tradeskill_recipe` VALUES (593,'Salil\'s Writ Pg. 153 (left)',58,0,162,0,0,NULL,0,1);
 INSERT INTO `tradeskill_recipe` VALUES (594,'Salil\'s Writ Pg. 282 (right)',58,0,162,0,0,NULL,0,1);
-INSERT INTO `tradeskill_recipe` VALUES (595,'Salil\'s Writ Pg. 288 (right)',58,0,162,0,0,NULL,0,1);
+INSERT INTO `tradeskill_recipe` VALUES (595,'Salil\'s Writ Pg. 288 (left)',58,0,162,0,0,NULL,0,1);
 INSERT INTO `tradeskill_recipe` VALUES (596,'Salil\'s Writ Pg. 64 (left)',58,0,142,0,0,NULL,0,1);
 INSERT INTO `tradeskill_recipe` VALUES (597,'Salil\'s Writ Pg. 90 (right)',58,0,142,0,0,NULL,0,1);
 INSERT INTO `tradeskill_recipe` VALUES (604,'Spell: Allure',58,0,182,0,0,NULL,0,1);
@@ -5337,9 +5337,9 @@ INSERT INTO `tradeskill_recipe` VALUES (8331,'Silver Jacinth Wedding Ring',68,0,
 INSERT INTO `tradeskill_recipe` VALUES (8332,'Silver Jasper Ring',68,0,30,0,0,NULL,0,1);
 INSERT INTO `tradeskill_recipe` VALUES (8333,'Silver Jasper Ring',68,0,30,0,0,NULL,0,1);
 INSERT INTO `tradeskill_recipe` VALUES (8334,'Silver Lapis Lazuli Necklace',68,0,21,0,0,NULL,0,1);
-INSERT INTO `tradeskill_recipe` VALUES (8335,'Silver Lapis Lazuli Necklace',68,0,16,0,0,NULL,0,1);
+INSERT INTO `tradeskill_recipe` VALUES (8335,'Silver Lapis Lazuli Necklace',68,0,21,0,0,NULL,0,1);
 INSERT INTO `tradeskill_recipe` VALUES (8336,'Silver Malachite Ring',68,0,17,0,0,NULL,0,1);
-INSERT INTO `tradeskill_recipe` VALUES (8337,'Silver Malachite Ring',68,0,21,0,0,NULL,0,1);
+INSERT INTO `tradeskill_recipe` VALUES (8337,'Silver Malachite Ring',68,0,17,0,0,NULL,0,1);
 INSERT INTO `tradeskill_recipe` VALUES (8340,'Silver Onyx Bracelet',68,0,28,0,0,NULL,0,1);
 INSERT INTO `tradeskill_recipe` VALUES (8341,'Silver Onyx Bracelet',68,0,28,0,0,NULL,0,1);
 INSERT INTO `tradeskill_recipe` VALUES (8342,'Silver Opal Engagement Ring',68,0,50,0,0,NULL,0,1);

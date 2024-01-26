@@ -8,7 +8,7 @@ CREATE TABLE `loottable` (
   `avgcoin` int(10) unsigned NOT NULL DEFAULT 0,
   `done` tinyint(3) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=97337 DEFAULT CHARSET=latin1 PACK_KEYS=0;
+) ENGINE=InnoDB AUTO_INCREMENT=97338 DEFAULT CHARSET=latin1 PACK_KEYS=0;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `loottable` VALUES (1,'a_froglok_repairer',1,2000,250,0);
 INSERT INTO `loottable` VALUES (2,'Orc_Centurion',1,50,7,0);
@@ -8417,7 +8417,6 @@ INSERT INTO `loottable` VALUES (92549,'92549_Bouncer_Haraan_MAGELO-GEN',37,3700,
 INSERT INTO `loottable` VALUES (92550,'92550_Bouncer_Scaar_MAGELO-GEN',1,3300,0,0);
 INSERT INTO `loottable` VALUES (92551,'92551_Bouncer_Skon_MAGELO-GEN',35,3500,0,0);
 INSERT INTO `loottable` VALUES (92552,'92552_a_deathfist_scout_MAGELO-GEN',1,500,25,0);
-INSERT INTO `loottable` VALUES (92553,'92553_a_decaying_gnome_skeleton_MAGELO-GEN',1,25,3,0);
 INSERT INTO `loottable` VALUES (92554,'92554_a_fire_imp_MAGELO-GEN',1,1000,50,0);
 INSERT INTO `loottable` VALUES (92555,'92555_Glynn_Smeltpot_MAGELO-GEN',1,500,25,0);
 INSERT INTO `loottable` VALUES (92556,'92556_a_dwarf_skeleton_MAGELO-GEN',1,50,7,0);
@@ -12967,3 +12966,4 @@ INSERT INTO `loottable` VALUES (97333,'Transient_Xin',0,5000,0,0);
 INSERT INTO `loottable` VALUES (97334,'Hasten_Bootstrutter',1,4000,0,0);
 INSERT INTO `loottable` VALUES (97335,'Peltin_Funter',0,500,0,0);
 INSERT INTO `loottable` VALUES (97336,'97336_Dark_Deathsinger_MAGELO-GEN',25,2500,0,0);
+INSERT INTO `loottable` VALUES (97337,'tainted_seahorse',0,0,0,0);

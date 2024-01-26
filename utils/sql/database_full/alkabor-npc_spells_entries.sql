@@ -961,7 +961,7 @@ INSERT INTO `npc_spells_entries` VALUES (2002,231,2167,1,1,255,-1,-1,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2003,233,2164,1,1,255,-1,-1,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2004,234,2167,1,1,255,-1,-1,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2005,449,982,1,1,255,-1,45,0,NULL);
-INSERT INTO `npc_spells_entries` VALUES (2006,449,897,256,1,255,-1,-1,0,NULL);
+INSERT INTO `npc_spells_entries` VALUES (2006,449,897,1,1,255,-1,-1,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2113,514,372,1,1,7,-1,-1,1,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2114,514,376,1,4,15,-1,-1,2,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2115,514,656,1,8,23,-1,-1,3,NULL);

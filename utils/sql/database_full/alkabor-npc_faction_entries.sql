@@ -5048,6 +5048,7 @@ INSERT INTO `npc_faction_entries` VALUES (1505,228,-2,1,0,2);
 INSERT INTO `npc_faction_entries` VALUES (1505,232,-15,1,0,1);
 INSERT INTO `npc_faction_entries` VALUES (1505,261,2,0,0,3);
 INSERT INTO `npc_faction_entries` VALUES (1506,68,0,1,0,1);
+INSERT INTO `npc_faction_entries` VALUES (1506,205,0,-1,0,12);
 INSERT INTO `npc_faction_entries` VALUES (1506,211,0,-1,0,3);
 INSERT INTO `npc_faction_entries` VALUES (1506,223,0,-1,0,5);
 INSERT INTO `npc_faction_entries` VALUES (1506,230,0,-1,0,8);

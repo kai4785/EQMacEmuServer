@@ -19,7 +19,7 @@ CREATE TABLE `spawngroup` (
   `wp_spawns` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=225911 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=448059 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `spawngroup` VALUES (1002,'qeynos_Guard_Jerith14',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (1006,'qeynos_Guard_Cyrillian13',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -3595,7 +3595,7 @@ INSERT INTO `spawngroup` VALUES (68226,'butcher_Blyle_Bundin22',0,0,0,0,0,0,1500
 INSERT INTO `spawngroup` VALUES (68233,'butcher_Harbormaster_Ironbeard324',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (68236,'butcher_Glisse_Bluesea330',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (68237,'butcher_Emeraldman178',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (68244,'butcher_Shuttle244',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (68244,'butcher_Shuttle_I_244',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (68245,'butcher_Kancompan328',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (68249,'butcher_Ayen__Rundlor249',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (68256,'butcher_Guard_Zyburr256',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -13497,3 +13497,10 @@ INSERT INTO `spawngroup` VALUES (225907,'permafrost_225907',0,0,0,0,0,0,0,0,0,0,
 INSERT INTO `spawngroup` VALUES (225908,'permafrost_225908',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (225909,'permafrost_225909',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (225910,'crystal_225910',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (448052,'butcher_Shuttle_II_244',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (448053,'butcher_Shuttle_III_244',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (448054,'butcher_Shuttle_IV_244',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (448055,'timorous_Shuttle_I_244',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (448056,'timorous_Shuttle_II_244',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (448057,'timorous_Shuttle_III_244',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (448058,'timorous_Shuttle_IV_244',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);

@@ -4,7 +4,7 @@ CREATE TABLE `lootdrop` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=116105 DEFAULT CHARSET=latin1 PACK_KEYS=0;
+) ENGINE=InnoDB AUTO_INCREMENT=116108 DEFAULT CHARSET=latin1 PACK_KEYS=0;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `lootdrop` VALUES (209,'86_Corflunk_Wear');
 INSERT INTO `lootdrop` VALUES (246,'106_#Lady_Mirenilla_Wear');
@@ -107,8 +107,6 @@ INSERT INTO `lootdrop` VALUES (2736,'1443_#War_Priestess_T`zan_Wear');
 INSERT INTO `lootdrop` VALUES (2738,'1445_Edwardian_Holyblade_Wear');
 INSERT INTO `lootdrop` VALUES (2885,'1498_A_Lesser_Mummy_Wear');
 INSERT INTO `lootdrop` VALUES (2906,'1507_A_Ghoul_Wear');
-INSERT INTO `lootdrop` VALUES (2942,'1524_Shadow_Treebright_Trade');
-INSERT INTO `lootdrop` VALUES (2943,'1524_Shadow_Treebright_Misc');
 INSERT INTO `lootdrop` VALUES (2965,'1534_Guard_Bittmin_Misc');
 INSERT INTO `lootdrop` VALUES (3015,'1559_Brina_Foxtripper_Wear');
 INSERT INTO `lootdrop` VALUES (3067,'1598_Ged_Twigborn_Wear');
@@ -6024,7 +6022,6 @@ INSERT INTO `lootdrop` VALUES (17791,'10871_a_crypt_mummy_Trade');
 INSERT INTO `lootdrop` VALUES (17792,'10872_a_gnoll_reaver_Wear');
 INSERT INTO `lootdrop` VALUES (17793,'10872_a_gnoll_reaver_Trade');
 INSERT INTO `lootdrop` VALUES (17794,'10873_Ceel_Moonwhisper_Wear');
-INSERT INTO `lootdrop` VALUES (17795,'10873_Ceel_Moonwhisper_Trade');
 INSERT INTO `lootdrop` VALUES (17797,'10874_Unkempt_preserver_Wear');
 INSERT INTO `lootdrop` VALUES (17798,'10874_Unkempt_preserver_Trade');
 INSERT INTO `lootdrop` VALUES (17799,'10875_an_orc_legionnaire_Wear');
@@ -22606,7 +22603,6 @@ INSERT INTO `lootdrop` VALUES (107082,'107082_Watchman_Prenn_MAGELO-GEN');
 INSERT INTO `lootdrop` VALUES (107083,'107083_Watchman_Prenn_MAGELO-GEN');
 INSERT INTO `lootdrop` VALUES (107084,'107084_Watchman_Prenn_MAGELO-GEN');
 INSERT INTO `lootdrop` VALUES (107085,'107085_Tindo_Frugrin_MAGELO-GEN');
-INSERT INTO `lootdrop` VALUES (107087,'107087_Tindo_Frugrin_MAGELO-GEN');
 INSERT INTO `lootdrop` VALUES (107088,'92989_Renux_Herkanor_');
 INSERT INTO `lootdrop` VALUES (107089,'107089_Phiz_Frugrin_MAGELO-GEN');
 INSERT INTO `lootdrop` VALUES (107090,'107090_Phiz_Frugrin_MAGELO-GEN');
@@ -30426,3 +30422,5 @@ INSERT INTO `lootdrop` VALUES (116101,'116101_Guard_Dykalin_MAGELO-GEN');
 INSERT INTO `lootdrop` VALUES (116102,'Elven Blood');
 INSERT INTO `lootdrop` VALUES (116103,'116103_Dark_Deathsinger_MAGELO-GEN');
 INSERT INTO `lootdrop` VALUES (116104,'116104_Dark_Deathsinger_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (116105,'116105_tainted_seahorse_MAGELO-GEN');
+INSERT INTO `lootdrop` VALUES (116106,'Ocean Ink');
