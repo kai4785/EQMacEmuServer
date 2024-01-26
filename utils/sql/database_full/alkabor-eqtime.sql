@@ -9,4 +9,4 @@ CREATE TABLE `eqtime` (
   `realtime` int(11) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-INSERT INTO `eqtime` VALUES (36,15,16,7,3304,1690887022);
+INSERT INTO `eqtime` VALUES (34,15,8,6,3305,1692183022);

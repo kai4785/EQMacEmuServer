@@ -19,7 +19,7 @@ CREATE TABLE `spawngroup` (
   `wp_spawns` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=225837 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=225848 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `spawngroup` VALUES (224827,'acrylia_224827',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (154005,'acrylia_a_grimling_skullcracker1',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -307,20 +307,10 @@ INSERT INTO `spawngroup` VALUES (36004,'befallen_a_skeletal_excavator18',0,0,0,0
 INSERT INTO `spawngroup` VALUES (36022,'befallen_a_plague_rat20',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (36043,'befallen_a_cracked_skeleton21',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (36030,'befallen_a_putrid_skeleton22',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36031,'befallen_ice_boned_skeleton30',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36090,'befallen_a_necro_acolyte31',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36037,'befallen_a_greater_skeleton32',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36033,'befallen_a_willowisp36',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36038,'befallen_a_ghoul39',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36061,'befallen_a_necro_theurgist44',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36078,'befallen_a_sturdy_skeleton65',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36054,'befallen_a_lesser_mummy73',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225847,'feerrott NE alligators',0,-520,-2700,1380,570,40000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (36064,'befallen_skeleton_Lrodd75',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36048,'befallen_a_dread_bone76',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36085,'befallen_a_burnt_zombie81',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36083,'befallen_a_necro_apprentice88',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (36023,'befallen_a_necro_neophyte89',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (36095,'befallen_a_zombie95',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225846,'befallen_225846_3rd floor',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (36005,'befallen_a_large_plague_rat105',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (36000,'befallen_Boondin_Babbinsbort137',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (36097,'befallen_the_thaumaturgist141',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -941,20 +931,20 @@ INSERT INTO `spawngroup` VALUES (21127,'commons_a_ghoul127',0,3600,-1666,-500,-9
 INSERT INTO `spawngroup` VALUES (21043,'commons_Jahsohn_Aksot146',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (21137,'commons_spider147',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58049,'crushbone_an_elven_slave1',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (58029,'crushbone_orc_slaver2',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (58029,'crushbone low slavers',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58009,'crushbone all cents',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58042,'crushbone_Orc_Scoutsman4',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58047,'crushbone_Orc_Warden5',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58017,'crushbone_Retlon_Brenclog6',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58030,'crushbone_royal_guard7',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (58040,'crushbone_orc_taskmaster8',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (58040,'crushbone taskmaster',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58050,'crushbone_a_dwarven_slave11',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (58036,'crushbone_orc_legionnaire16',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (58036,'crushbone legionnaires',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58001,'crushbone low cents',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58035,'crushbone_orc_trainer45',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58038,'crushbone_orc_oracle46',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58032,'crushbone_Emperor_Crush47',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (58028,'crushbone_Lord_Darish48',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (58028,'crushbone Lord Darish',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58041,'crushbone_orc_emissary53',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58002,'crushbone_orc_warlord58',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (58018,'crushbone_a_dwarven_smith87',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -1155,12 +1145,12 @@ INSERT INTO `spawngroup` VALUES (81116,'droga_Jeren_Manri462',0,0,0,0,0,0,15000,
 INSERT INTO `spawngroup` VALUES (81135,'droga_nothing463',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (81464,'droga_an_angry_goblin464',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (81117,'droga_a_goblin_traitor465',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222255,'feerrott_222255',0,340,-2845,1300,30,45000,15000,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222255,'feerrott N region',0,340,-2400,1380,30,45000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (15129,'eastkarana_a_bandit3',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222256,'feerrott_222256',0,-2160,-2860,1330,600,40000,15000,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222256,'feerrott NE ruins',0,-2160,-2880,1360,600,40000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222253,'eastkarana_222253',0,0,0,0,0,0,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222504,'nro_222504',0,1300,-690,1,-1870,30000,15000,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (15030,'eastkarana_a_gorge_hound23',0,680,-2650,1675,-3330,35000,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (15030,'eastkarana_a_gorge_hound23',0,680,-2650,1675,-3330,35000,15000,0,100,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (15114,'eastkarana_a_farmer27',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (15205,'eastkarana_a_crag_spider29',0,-293,-2820,925,-293,45000,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (15083,'eastkarana_a_lioness_matriarch31',0,680,-2650,1675,-3330,45000,15000,0,100,0,1200,0,0,0);
@@ -1742,8 +1732,8 @@ INSERT INTO `spawngroup` VALUES (47174,'feerrott_lizardman_mystic43',0,0,0,0,0,0
 INSERT INTO `spawngroup` VALUES (222261,'feerrott_222261',0,784,655,245,-1225,30000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222259,'feerrott_222259',0,2940,2280,1360,600,40000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (47188,'feerrott_a_lizardman_forager50',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (47071,'feerrott_a_bat54',0,-955,-2845,30,-1365,30000,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222258,'feerrott_222258',0,-1480,-2065,590,30,30000,15000,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (47071,'feerrott SE region',0,-955,-2900,30,-1435,30000,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222258,'feerrott druid ring',0,-1480,-2065,590,30,30000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (47197,'feerrott_Scout_Ahlikal96',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (47218,'feerrott_a_Tae_Ew_probationer108',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (47134,'feerrott_a_Tae_Ew_page114',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -2575,7 +2565,7 @@ INSERT INTO `spawngroup` VALUES (157073,'fungusgrove_Samfort_Ruggen370',0,0,0,0,
 INSERT INTO `spawngroup` VALUES (157074,'fungusgrove_Jolly_Arval371',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (157075,'fungusgrove_Narvak_Smugreed372',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (157114,'fungusgrove_Several373',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222387,'sro_222387',0,1280,-712,1164,-500,40000,15000,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222387,'sro_222387',0,1280,-712,1164,-500,40000,15000,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (54015,'gfaydark_orc_pawn1',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (54017,'gfaydark_a_giant_wasp_drone3',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222354,'oot_222354',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
@@ -4503,7 +4493,7 @@ INSERT INTO `spawngroup` VALUES (57070,'lfaydark_a_faerie_maiden7',0,0,0,0,0,0,1
 INSERT INTO `spawngroup` VALUES (57056,'lfaydark_orc_centurion8',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (57036,'lfaydark_a_fae_drake_hatchling11',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (57018,'lfaydark_a_shadowed_man12',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (57017,'lfaydark_a_giant_spider14',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (57017,'lfaydark_a_giant_spider14',0,0,0,0,0,0,15000,0,100,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (57123,'lfaydark_a_fairy_guard15',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (57019,'lfaydark_a_pixie_trickster20',0,2945,2688,1730,1008,30000,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (57025,'lfaydark_Saben_Tucross22',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -4531,7 +4521,7 @@ INSERT INTO `spawngroup` VALUES (57102,'lfaydark_Grynnaf_Einoom103',0,0,0,0,0,0,
 INSERT INTO `spawngroup` VALUES (57046,'lfaydark_a_brownie_farmer110',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (57047,'lfaydark_a_brownie111',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (57044,'lfaydark_a_brownie_guard114',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (57136,'lfaydark_a_spiderling136',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (57136,'lfaydark_a_spiderling136',0,0,0,0,0,0,15000,0,100,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (57060,'lfaydark_Glyndur_Tindel185',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (57075,'lfaydark_Bryn_Fynndel186',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (57078,'lfaydark_Sarawyn_Amorfin187',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -5074,7 +5064,7 @@ INSERT INTO `spawngroup` VALUES (13075,'northkarana_Bilbis_Briar9',0,0,0,0,0,0,1
 INSERT INTO `spawngroup` VALUES (13035,'northkarana_Guard_Bartley11',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (13004,'northkarana_a_borer_beetle12',0,3110,-2190,1020,-3587,40000,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (13029,'northkarana_a_griffenne13',0,3110,-2190,1020,-3587,35000,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (13025,'northkarana_a_willowisp32',0,3110,-2190,1020,-3587,45000,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (13025,'northkarana_a_willowisp32',0,3110,-2190,1020,-3587,45000,15000,0,100,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (13048,'northkarana_a_druid47',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222240,'qey2hh1_222240',0,0,0,0,0,0,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (13037,'northkarana_Cordelia_Minster76',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -5090,7 +5080,7 @@ INSERT INTO `spawngroup` VALUES (13062,'northkarana_Bunu_Stoutheart92',0,0,0,0,0
 INSERT INTO `spawngroup` VALUES (13063,'northkarana_Fixxin_Followig93',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (13064,'northkarana_Cory_Bumbleye94',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (13065,'northkarana_Nul_Aleswiller95',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (13078,'northkarana_Zahal_the_Vile96',1,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (13078,'northkarana_Zahal_the_Vile96',1,0,0,0,0,0,15000,0,100,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (13049,'northkarana_Brother_Nallin132',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (13053,'northkarana_Capt_Linarius133',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (13038,'northkarana_Shiel_Glimmerspindle134',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -6799,7 +6789,7 @@ INSERT INTO `spawngroup` VALUES (4078,'qeytoqrg_a_mangy_rat35',0,0,0,0,0,0,0,0,0
 INSERT INTO `spawngroup` VALUES (4155,'qeytoqrg_Scruffy37',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222246,'southkarana_222246',0,642,-3700,-2115,-5360,45000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (4010,'qeytoqrg_a_decaying_skeleton58',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222257,'feerrott_222257',0,-520,-2700,1330,570,40000,15000,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222257,'feerrott NE region',0,340,-2900,1380,30,40000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (4159,'qeytoqrg_JPEInvisGnollSpawna61',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (4081,'qeytoqrg_Guard_Cheslin78',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (4045,'qeytoqrg_a_dread_corpse80',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -9889,7 +9879,7 @@ INSERT INTO `spawngroup` VALUES (20050,'kithicor_enraged_dread_wolf24211',0,0,0,
 INSERT INTO `spawngroup` VALUES (51027,'lakerathe_a_goblin_net_master5511',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222241,'southkarana_222241',0,-115,-2111,2370,-2000,35000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (13034,'northkarana_Guard_Stanard3211',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222238,'northkarana_222238',0,3110,-2190,1020,-3587,40000,15000,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222238,'northkarana_222238',0,3110,-2190,1020,-3587,40000,15000,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (209013,'bothunder strong branns',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (12019,'qey2hh1_Vilnius_the_Small15711',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (12155,'qey2hh1_Gomo_Limerin16011',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
@@ -10122,8 +10112,8 @@ INSERT INTO `spawngroup` VALUES (214026,'potactics_Tallon_Zek271',0,0,0,0,0,0,15
 INSERT INTO `spawngroup` VALUES (214014,'potactics_Giwin_Mirakon276',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (33149,'misty_a_bixie_queen77',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (214287,'crushbone_214287',0,0,0,0,0,0,15000,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (214288,'crushbone_214288',0,0,0,0,0,0,15000,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (214289,'crushbone_214289',0,0,0,0,0,0,15000,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (214288,'crushbone castle outside',0,0,0,0,0,0,15000,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (214289,'crushbone front castle',0,0,0,0,0,0,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (214291,'crushbone_214291',0,0,0,0,0,0,15000,2,12476,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (214292,'overthere_214292',0,0,0,0,0,0,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (214294,'qeynos_214294',0,0,0,0,0,0,15000,0,0,0,1200,0,0,0);
@@ -10795,8 +10785,8 @@ INSERT INTO `spawngroup` VALUES (215021,'poair An_Elemental_Doomseeker lvl64',0,
 INSERT INTO `spawngroup` VALUES (219182,'potimea____182',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (219170,'potimea____170',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (219169,'potimea_____169',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (225634,'crushbone_225634',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
-INSERT INTO `spawngroup` VALUES (225633,'crushbone_225633',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
+INSERT INTO `spawngroup` VALUES (225634,'crushbone moat patroller',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
+INSERT INTO `spawngroup` VALUES (225633,'crushbone cent patrollers',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (225632,'poair_225632',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (219078,'potimea______78',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (225652,'poearthb #War_Chieftan_Birak',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
@@ -11259,7 +11249,7 @@ INSERT INTO `spawngroup` VALUES (222321,'oggok_222321',0,0,0,0,0,0,0,0,0,0,1200,
 INSERT INTO `spawngroup` VALUES (222322,'gukbottom_222322',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222323,'paw_222323',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222324,'paw_222324',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
-INSERT INTO `spawngroup` VALUES (222325,'paw_222325',0,0,0,0,0,0,0,4,60,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222325,'paw_222325',0,0,0,0,0,0,0,4,1200,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222326,'paw_222326',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222327,'paw_222327',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222328,'Sea_King-erudnext',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
@@ -11396,7 +11386,7 @@ INSERT INTO `spawngroup` VALUES (222499,'southkarana_222499',0,0,0,0,0,0,0,0,0,0
 INSERT INTO `spawngroup` VALUES (222636,'warslikswood_222636',0,4365,1304,3125,-245,45000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222501,'southkarana_222501',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222502,'southkarana_222502',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
-INSERT INTO `spawngroup` VALUES (222503,'northkarana_222503',0,3110,-2190,1020,-3587,45000,15000,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (222503,'northkarana_222503',0,3110,-2190,1020,-3587,45000,15000,0,0,0,1200,0,0,1);
 INSERT INTO `spawngroup` VALUES (222505,'nro_222505',0,1300,-690,1,-1870,30000,15000,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222506,'lavastorm_222506',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (222507,'commons_222507',0,3000,-1666,1100,400,30000,15000,0,0,0,1200,0,0,0);
@@ -13482,5 +13472,14 @@ INSERT INTO `spawngroup` VALUES (225828,'guktop_225828',0,0,0,0,0,0,0,0,0,0,1200
 INSERT INTO `spawngroup` VALUES (225829,'guktop_225829',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (225831,'blackburrow higher level guardsmen',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (225830,'mischiefplane_225830',0,0,0,0,0,0,0,0,0,0,1200,0,0,1);
-INSERT INTO `spawngroup` VALUES (225835,'crushbone cents+pawn+rare leg',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225835,'crushbone west cabin area',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
 INSERT INTO `spawngroup` VALUES (225836,'crushbone high cent + pawn',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225837,'crushbone throne legs',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225838,'crushbone high slavers',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225839,'crushbone lvl 4-6 cents',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225840,'crushbone top+bottom tents',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225841,'crushbone middle tent',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225842,'crushbone north hut + cave opening',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225843,'crushbone bridge guards',0,0,0,0,0,0,0,0,0,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225844,'befallen_225844_2ndfloortrash',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);
+INSERT INTO `spawngroup` VALUES (225845,'befallen_225845_2ndfloor',0,0,0,0,0,0,15000,0,100,0,1200,0,0,0);

@@ -6,7 +6,7 @@ CREATE TABLE `npc_faction` (
   `primaryfaction` int(11) NOT NULL DEFAULT 0,
   `ignore_primary_assist` tinyint(3) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1543 DEFAULT CHARSET=latin1 PACK_KEYS=0;
+) ENGINE=MyISAM AUTO_INCREMENT=1550 DEFAULT CHARSET=latin1 PACK_KEYS=0;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_faction` VALUES (1,'an_emperor_fae_drake',397,0);
 INSERT INTO `npc_faction` VALUES (2,'Crushbone2',234,0);
@@ -1550,3 +1550,10 @@ INSERT INTO `npc_faction` VALUES (1539,'Dervish - Non Assist',150,1);
 INSERT INTO `npc_faction` VALUES (1540,'Scarecrow',132,0);
 INSERT INTO `npc_faction` VALUES (1541,'#a_diseased_rat Misty',5017,0);
 INSERT INTO `npc_faction` VALUES (1542,'a_black_wolf Misty',5018,0);
+INSERT INTO `npc_faction` VALUES (1543,'Giant Snake - Non Assist',87,1);
+INSERT INTO `npc_faction` VALUES (1544,'clockworksofakanon5',138,0);
+INSERT INTO `npc_faction` VALUES (1545,'a_large_piranha Qcat',5017,0);
+INSERT INTO `npc_faction` VALUES (1546,'an_elf_skeleton',110,1);
+INSERT INTO `npc_faction` VALUES (1547,'Dry Bones LakeRathe',5017,0);
+INSERT INTO `npc_faction` VALUES (1548,'a_skeleton LakeRathe',110,0);
+INSERT INTO `npc_faction` VALUES (1549,'Alligator - Non Assist',141,1);

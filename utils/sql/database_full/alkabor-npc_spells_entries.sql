@@ -13,7 +13,7 @@ CREATE TABLE `npc_spells_entries` (
   `resist_adjust` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `spellsid_spellid` (`npc_spells_id`,`spellid`)
-) ENGINE=MyISAM AUTO_INCREMENT=19668 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19669 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_spells_entries` VALUES (1,1,14,1,1,13,-1,-1,1,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2,1,560,1,5,28,-1,-1,1,NULL);
@@ -1940,6 +1940,7 @@ INSERT INTO `npc_spells_entries` VALUES (2883,521,393,8,56,58,-1,-1,1,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2884,521,394,8,59,255,-1,-1,1,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2888,521,346,8,22,255,-1,-1,1,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2889,521,364,8,54,255,-1,-1,1,NULL);
+INSERT INTO `npc_spells_entries` VALUES (19668,1633,938,1,1,255,-1,5,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2892,521,491,32,9,14,-1,-1,1,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2893,521,351,32,15,21,-1,-1,1,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2894,521,362,32,22,29,-1,-1,1,NULL);
@@ -3684,7 +3685,6 @@ INSERT INTO `npc_spells_entries` VALUES (18341,706,0,32768,79,83,-1,-1,2,NULL);
 INSERT INTO `npc_spells_entries` VALUES (18348,204,2899,1,1,255,-1,-1,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (18638,1214,1942,1,1,255,-1,-1,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (18353,496,2377,1,1,255,-1,-1,0,NULL);
-INSERT INTO `npc_spells_entries` VALUES (18356,637,1008,256,1,255,-1,-1,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (18357,1069,121,1,1,255,-1,-1,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (19666,1617,1002,1,1,255,-1,5,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (19665,1279,25,1,1,255,-1,-1,1,NULL);

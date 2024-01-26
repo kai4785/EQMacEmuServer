@@ -7,7 +7,7 @@ CREATE TABLE `npc_emotes` (
   `type` tinyint(3) NOT NULL DEFAULT 0,
   `text` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4083 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4094 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_emotes` VALUES (1,1,1,0,'Time to die $name.');
 INSERT INTO `npc_emotes` VALUES (2,2,1,0,'Your bones will be crushed by the Kromzek of Kael Drakkel!');
@@ -455,7 +455,8 @@ INSERT INTO `npc_emotes` VALUES (445,265,3,0,'My comrades will avenge my death.'
 INSERT INTO `npc_emotes` VALUES (446,266,1,0,'Submit before the sovereign might of Mayong Mistmoore!');
 INSERT INTO `npc_emotes` VALUES (447,267,1,0,'Do not underestimate the might of Mistmoore!');
 INSERT INTO `npc_emotes` VALUES (448,268,3,0,'With my last breath, I call upon the vengeance of House Mistmoore!  Stalk the filth that strikes against our house and leave their organs strewn about the Lesser Faydark!');
-INSERT INTO `npc_emotes` VALUES (449,268,4,0,'How dare you speak to me, you impudent sack of nauseating refuse!  For this outrage of insubordination I call forth the vengeance of House Mistmore!  You now have little time left to live.  Enjoy it.');
+INSERT INTO `npc_emotes` VALUES (4092,1971,1,0,'You not gonna escape from da taint, tall freak!');
+INSERT INTO `npc_emotes` VALUES (4093,1972,1,0,'Death to you all! Swords cannot harm a mighty follower of Innoruuk!');
 INSERT INTO `npc_emotes` VALUES (450,269,1,0,'zzzzzzztone hivvvvvvvvv');
 INSERT INTO `npc_emotes` VALUES (451,270,2,0,'Foolish children.  My magic surpasses the boundaries of life and death.');
 INSERT INTO `npc_emotes` VALUES (452,271,1,0,'Innoruuk!  I call forth your power to help me vanquish these false prophets!');
@@ -3996,3 +3997,12 @@ INSERT INTO `npc_emotes` VALUES (4079,157,9,1,'dances in triumph!');
 INSERT INTO `npc_emotes` VALUES (4080,156,9,1,'dances in triumph!\r\n');
 INSERT INTO `npc_emotes` VALUES (4081,160,9,1,'will feed well this day.');
 INSERT INTO `npc_emotes` VALUES (4082,307,8,2,'Flee for your lives, weakling humans! This land will be ours once again! I claim this city in the name of the Sabertooths!');
+INSERT INTO `npc_emotes` VALUES (4083,1966,1,0,'Help! Clockworks, report to my location!');
+INSERT INTO `npc_emotes` VALUES (4084,1966,3,0,'My comrades will avenge my death.');
+INSERT INTO `npc_emotes` VALUES (4085,1967,1,0,'Click... Tick... City violation. Code 5150. This unit is authorized to execute punishment. Please stand still. Thank you.');
+INSERT INTO `npc_emotes` VALUES (4086,1967,3,0,'Bzzzz... Click... This unit is terminally damaged. Destruction of city property is a violation of city code 22468. All units shall be notified of your offense...');
+INSERT INTO `npc_emotes` VALUES (4087,1968,1,0,'Wizzzz... Click. Tick...');
+INSERT INTO `npc_emotes` VALUES (4088,1968,3,0,'Wizzzz... Click. Tick...');
+INSERT INTO `npc_emotes` VALUES (4089,1969,1,0,'Death to all!  None shall get the mallet!  All shall die!');
+INSERT INTO `npc_emotes` VALUES (4090,1283,9,0,'You should feel honored that your soul shall finally be made useful.  I will donate its energy to the hungry Marnek, so that he may soon walk the face of Antonica once again.');
+INSERT INTO `npc_emotes` VALUES (4091,1970,1,0,'I must free your soul, $name!');
