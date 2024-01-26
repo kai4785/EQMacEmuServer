@@ -7,7 +7,7 @@ CREATE TABLE `faction_list_mod` (
   `mod_name` varchar(16) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `faction_id_mod_name` (`faction_id`,`mod_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=7713 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7728 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `faction_list_mod` VALUES (1,1181,-1000,'r6');
 INSERT INTO `faction_list_mod` VALUES (2,1181,-1000,'r5');
@@ -7680,3 +7680,18 @@ INSERT INTO `faction_list_mod` VALUES (7709,5069,1000,'c5');
 INSERT INTO `faction_list_mod` VALUES (7710,5069,1000,'c11');
 INSERT INTO `faction_list_mod` VALUES (7711,5070,1000,'r8');
 INSERT INTO `faction_list_mod` VALUES (7712,5070,1000,'r3');
+INSERT INTO `faction_list_mod` VALUES (7713,78,1000,'r8');
+INSERT INTO `faction_list_mod` VALUES (7714,78,1000,'r3');
+INSERT INTO `faction_list_mod` VALUES (7715,207,700,'d207');
+INSERT INTO `faction_list_mod` VALUES (7716,207,300,'r11');
+INSERT INTO `faction_list_mod` VALUES (7717,207,300,'r9');
+INSERT INTO `faction_list_mod` VALUES (7718,207,300,'r10');
+INSERT INTO `faction_list_mod` VALUES (7719,207,300,'r8');
+INSERT INTO `faction_list_mod` VALUES (7720,207,300,'r3');
+INSERT INTO `faction_list_mod` VALUES (7721,207,300,'r12');
+INSERT INTO `faction_list_mod` VALUES (7722,207,300,'r6');
+INSERT INTO `faction_list_mod` VALUES (7723,207,500,'r1');
+INSERT INTO `faction_list_mod` VALUES (7724,207,500,'r2');
+INSERT INTO `faction_list_mod` VALUES (7725,207,500,'r4');
+INSERT INTO `faction_list_mod` VALUES (7726,207,500,'r5');
+INSERT INTO `faction_list_mod` VALUES (7727,207,500,'r7');

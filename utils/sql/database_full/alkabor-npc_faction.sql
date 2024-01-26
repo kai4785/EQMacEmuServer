@@ -6,7 +6,7 @@ CREATE TABLE `npc_faction` (
   `primaryfaction` int(11) NOT NULL DEFAULT 0,
   `ignore_primary_assist` tinyint(3) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1551 DEFAULT CHARSET=latin1 PACK_KEYS=0;
+) ENGINE=InnoDB AUTO_INCREMENT=1557 DEFAULT CHARSET=latin1 PACK_KEYS=0;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_faction` VALUES (1,'an_emperor_fae_drake',397,0);
 INSERT INTO `npc_faction` VALUES (2,'Crushbone2',234,0);
@@ -1558,3 +1558,9 @@ INSERT INTO `npc_faction` VALUES (1547,'Dry Bones LakeRathe',5017,0);
 INSERT INTO `npc_faction` VALUES (1548,'a_skeleton LakeRathe',110,0);
 INSERT INTO `npc_faction` VALUES (1549,'Alligator - Non Assist',141,1);
 INSERT INTO `npc_faction` VALUES (1550,'MerchantsofHighpass0',331,0);
+INSERT INTO `npc_faction` VALUES (1551,'scouts_of_tunare20',316,0);
+INSERT INTO `npc_faction` VALUES (1552,'thurg mines non assist',461,1);
+INSERT INTO `npc_faction` VALUES (1553,'crystal spiders assist',658,0);
+INSERT INTO `npc_faction` VALUES (1554,'Inhabitantsoffirionavie75',248,0);
+INSERT INTO `npc_faction` VALUES (1555,'a_nuisance - Shik Nar',5015,1);
+INSERT INTO `npc_faction` VALUES (1556,'a_lesser_shade',5017,0);
