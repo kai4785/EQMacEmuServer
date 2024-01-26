@@ -8,7 +8,7 @@ CREATE TABLE `loottable` (
   `avgcoin` int(10) unsigned NOT NULL DEFAULT 0,
   `done` tinyint(3) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=97326 DEFAULT CHARSET=latin1 PACK_KEYS=0;
+) ENGINE=InnoDB AUTO_INCREMENT=97315 DEFAULT CHARSET=latin1 PACK_KEYS=0;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `loottable` VALUES (1,'a_froglok_repairer',1,2000,250,0);
 INSERT INTO `loottable` VALUES (2,'Orc_Centurion',1,50,7,0);
@@ -7787,6 +7787,7 @@ INSERT INTO `loottable` VALUES (91805,'91805_an_ash_drakeling_MAGELO-GEN',1,50,7
 INSERT INTO `loottable` VALUES (91806,'91806_Leatherfoot_Sergeant_MAGELO-GEN',1,500,25,0);
 INSERT INTO `loottable` VALUES (91807,'91807_Guard_N`Lan_MAGELO-GEN',1,2000,250,0);
 INSERT INTO `loottable` VALUES (91808,'91808_Forley_MAGELO-GEN',1,500,25,0);
+INSERT INTO `loottable` VALUES (91809,'91809_a_zombie_MAGELO-GEN',1,500,25,0);
 INSERT INTO `loottable` VALUES (91810,'91810_a_rotting_citizen_MAGELO-GEN',8,800,0,0);
 INSERT INTO `loottable` VALUES (91811,'91811_Tizina_MAGELO-GEN',1,3000,1000,0);
 INSERT INTO `loottable` VALUES (91812,'91812_a_shadowed_man_MAGELO-GEN',24,2400,0,0);
@@ -8647,7 +8648,7 @@ INSERT INTO `loottable` VALUES (92784,'92784_an_isle_goblin_shaman_MAGELO-GEN',1
 INSERT INTO `loottable` VALUES (92785,'92785_an_isle_goblin_MAGELO-GEN',1,2000,250,0);
 INSERT INTO `loottable` VALUES (92786,'92786_an_island_goblin_headhunter_MAGELO-GEN',1,2500,500,0);
 INSERT INTO `loottable` VALUES (92787,'92787_an_aviak_turaco_MAGELO-GEN',1,1000,50,0);
-INSERT INTO `loottable` VALUES (92788,'92788_an_aviak_tanager_MAGELO-GEN',1,1000,0,0);
+INSERT INTO `loottable` VALUES (92788,'92788_an_aviak_tanager_MAGELO-GEN',1,500,25,0);
 INSERT INTO `loottable` VALUES (92791,'92791_an_aqua_goblin_MAGELO-GEN',1,500,25,0);
 INSERT INTO `loottable` VALUES (92792,'92792_an_alluring_siren_MAGELO-GEN',1,1000,50,0);
 INSERT INTO `loottable` VALUES (92793,'92793_Sister_of_Erollisi_MAGELO-GEN',1,500,25,0);
@@ -8708,7 +8709,7 @@ INSERT INTO `loottable` VALUES (92848,'92848_a_giant_snake_MAGELO-GEN',0,0,0,0);
 INSERT INTO `loottable` VALUES (92849,'92849_a_gnoll_MAGELO-GEN',1,50,7,0);
 INSERT INTO `loottable` VALUES (92850,'92850_a_gnoll_brewer_MAGELO-GEN',1,500,25,0);
 INSERT INTO `loottable` VALUES (92851,'92851_a_gnoll_commander_MAGELO-GEN',1,1000,50,0);
-INSERT INTO `loottable` VALUES (92852,'92852_a_gnoll_guardsman_MAGELO-GEN',1,250,0,0);
+INSERT INTO `loottable` VALUES (92852,'92852_a_gnoll_guardsman_MAGELO-GEN',1,50,7,0);
 INSERT INTO `loottable` VALUES (92853,'92853_a_gnoll_pup_MAGELO-GEN',1,25,3,0);
 INSERT INTO `loottable` VALUES (92854,'92854_a_gnoll_tactician_MAGELO-GEN',1,1000,50,0);
 INSERT INTO `loottable` VALUES (92855,'92855_a_patrolling_gnoll_MAGELO-GEN',1,50,7,0);
@@ -12946,14 +12947,3 @@ INSERT INTO `loottable` VALUES (97311,'a_pixie',1,250,0,0);
 INSERT INTO `loottable` VALUES (97312,'97312_a_Spiroc_Lightbringer_MAGELO-GEN',50,5000,0,0);
 INSERT INTO `loottable` VALUES (97313,'97313_a_Tae_Ew_disciple_MAGELO-GEN',17,1700,0,0);
 INSERT INTO `loottable` VALUES (97314,'Champion_Thenrin',1,5000,0,0);
-INSERT INTO `loottable` VALUES (97315,'97315_Zagran_the_Mad_MAGELO-GEN',25,2500,0,0);
-INSERT INTO `loottable` VALUES (97316,'Travis_Two_Tone',1,3000,0,0);
-INSERT INTO `loottable` VALUES (97317,'97317_Clockwork_XE_MAGELO-GEN',32,3200,0,0);
-INSERT INTO `loottable` VALUES (97318,'Clockwork_XIB',1,3000,0,0);
-INSERT INTO `loottable` VALUES (97319,'Clockwork_XIIC',44,4400,0,0);
-INSERT INTO `loottable` VALUES (97320,'Clockwork_XIXA',20,2000,0,0);
-INSERT INTO `loottable` VALUES (97321,'Clockwork_XXIA',10,1000,0,0);
-INSERT INTO `loottable` VALUES (97322,'97322_Clockwork_XVD_MAGELO-GEN',35,3500,0,0);
-INSERT INTO `loottable` VALUES (97323,'Clockwork_MX',45,4500,0,0);
-INSERT INTO `loottable` VALUES (97324,'97324_a_werewolf_MAGELO-GEN',27,2700,0,0);
-INSERT INTO `loottable` VALUES (97325,'Lorna_Shearsin',1,2500,0,0);

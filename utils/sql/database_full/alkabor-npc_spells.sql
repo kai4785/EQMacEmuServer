@@ -23,7 +23,7 @@ CREATE TABLE `npc_spells` (
   `idle_no_sp_recast_max` int(11) unsigned NOT NULL DEFAULT 0,
   `idle_b_chance` tinyint(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1639 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1638 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_spells` VALUES (1,'Default Cleric List',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (2,'Default Wizard List',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -1348,4 +1348,3 @@ INSERT INTO `npc_spells` VALUES (1634,'plagueratdisease5',0,909,5,-1,0,-1,0,0,0,
 INSERT INTO `npc_spells` VALUES (1635,'Poison25',0,1002,25,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1636,'lizardman_mystic',6,1001,50,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1637,'Giant_Werewolf',377,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `npc_spells` VALUES (1638,'sonic_bat',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);

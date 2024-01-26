@@ -13,7 +13,7 @@ CREATE TABLE `npc_spells_entries` (
   `resist_adjust` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `spellsid_spellid` (`npc_spells_id`,`spellid`)
-) ENGINE=InnoDB AUTO_INCREMENT=19671 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19670 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_spells_entries` VALUES (1,1,14,1,1,13,-1,-1,1,NULL);
 INSERT INTO `npc_spells_entries` VALUES (2,1,560,1,5,28,-1,-1,1,NULL);
@@ -4360,4 +4360,3 @@ INSERT INTO `npc_spells_entries` VALUES (19666,1617,1002,1,1,255,-1,5,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (19667,1627,938,1,1,255,-1,5,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (19668,1633,938,1,1,255,-1,5,0,NULL);
 INSERT INTO `npc_spells_entries` VALUES (19669,1140,919,1,1,255,-1,-1,0,NULL);
-INSERT INTO `npc_spells_entries` VALUES (19670,1638,915,1,1,255,-1,-1,-1,NULL);
