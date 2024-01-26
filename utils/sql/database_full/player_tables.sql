@@ -126,6 +126,7 @@ CREATE TABLE `character_data` (
   `famished` int(11) NOT NULL DEFAULT '0',
   `is_deleted` tinyint(4) NOT NULL DEFAULT '0',
   `showhelm` tinyint(4) NOT NULL DEFAULT '1',
+  `fatigue` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`) USING BTREE,
   KEY `account_id` (`account_id`) USING BTREE

@@ -7,7 +7,7 @@ CREATE TABLE `npc_emotes` (
   `type` tinyint(3) NOT NULL DEFAULT 0,
   `text` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4187 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4196 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_emotes` VALUES (1,1,1,0,'Time to die $name.');
 INSERT INTO `npc_emotes` VALUES (2,2,1,0,'Your bones will be crushed by the Kromzek of Kael Drakkel!');
@@ -4084,12 +4084,15 @@ INSERT INTO `npc_emotes` VALUES (4173,2002,3,0,'My comrades will avenge my death
 INSERT INTO `npc_emotes` VALUES (4174,2003,1,0,'I am not seeking this,  but it is now the property of the Haggle Baron.');
 INSERT INTO `npc_emotes` VALUES (4175,2004,1,0,'Time to die!');
 INSERT INTO `npc_emotes` VALUES (4176,285,9,0,'Let no one challenge Faydark\'s Champions.. Nay.. Let no one challenge the Sisterhood of Erollisi!');
-INSERT INTO `npc_emotes` VALUES (4177,2005,1,1,'snarls and attacks!');
-INSERT INTO `npc_emotes` VALUES (4178,2005,9,1,'begins to devour your ally\'s corpse!');
-INSERT INTO `npc_emotes` VALUES (4179,2005,3,2,'<HHHhhooooowwwLLLL!>');
 INSERT INTO `npc_emotes` VALUES (4181,2006,1,0,'There must be hundreds of interlopers in this place of nature, and this one has just crossed paths with terrible fate!');
 INSERT INTO `npc_emotes` VALUES (4182,2006,3,0,'Aaaaagh, not like this!');
 INSERT INTO `npc_emotes` VALUES (4183,1419,9,0,'Fall before my ancient might!');
 INSERT INTO `npc_emotes` VALUES (4184,1419,1,0,'Long have I lived.  Crush you I shall!');
 INSERT INTO `npc_emotes` VALUES (4185,2007,1,0,'Your evil ways are not permitted within these great woods!');
 INSERT INTO `npc_emotes` VALUES (4186,2007,9,0,'The bounty is mine; yours is a wormy grave.');
+INSERT INTO `npc_emotes` VALUES (4187,2008,3,0,'I\'ll not have these disturbances intrude upon my work.');
+INSERT INTO `npc_emotes` VALUES (4188,2009,1,0,'Kithicor Woods is no place for the likes of you!');
+INSERT INTO `npc_emotes` VALUES (4189,2010,1,0,'No, it can\'t be that I\'ve been outwitted by an animal. That which stalks me must be intelligent.');
+INSERT INTO `npc_emotes` VALUES (4193,1184,9,0,'Ha! Fertilizer for the forests and another notch in the belt of the Unkempt Druids!');
+INSERT INTO `npc_emotes` VALUES (4194,2011,1,0,'Little man, little man, filled with red - I\'ll crunch your bones when you are dead.');
+INSERT INTO `npc_emotes` VALUES (4195,2012,3,0,'Aaaghh! You dare bring the wrath of my people upon yourself. May Brell have mercy on your...  soul...');

@@ -9,4 +9,4 @@ CREATE TABLE `eqtime` (
   `realtime` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-INSERT INTO `eqtime` VALUES (52,9,20,8,3309,1698286821);
+INSERT INTO `eqtime` VALUES (45,7,24,7,3311,1701085821);

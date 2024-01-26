@@ -6,7 +6,7 @@ CREATE TABLE `npc_faction` (
   `primaryfaction` int(11) NOT NULL DEFAULT 0,
   `ignore_primary_assist` tinyint(3) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1568 DEFAULT CHARSET=latin1 PACK_KEYS=0;
+) ENGINE=InnoDB AUTO_INCREMENT=1580 DEFAULT CHARSET=latin1 PACK_KEYS=0;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_faction` VALUES (1,'an_emperor_fae_drake',397,0);
 INSERT INTO `npc_faction` VALUES (2,'Crushbone2',234,0);
@@ -1575,3 +1575,15 @@ INSERT INTO `npc_faction` VALUES (1564,'Beggar_Wyllin',5028,0);
 INSERT INTO `npc_faction` VALUES (1565,'a_sewer_rat qcat',86,0);
 INSERT INTO `npc_faction` VALUES (1566,'phinigel2nonassist',299,1);
 INSERT INTO `npc_faction` VALUES (1567,'Pegasus',175,0);
+INSERT INTO `npc_faction` VALUES (1568,'Bertoxxulous5',201,0);
+INSERT INTO `npc_faction` VALUES (1569,'Kunark Raptors',494,0);
+INSERT INTO `npc_faction` VALUES (1570,'Kunark Cockatrices',146,0);
+INSERT INTO `npc_faction` VALUES (1571,'Kunark Sabertooth Cats',169,0);
+INSERT INTO `npc_faction` VALUES (1572,'Kunark Mosquito Threatening',184,0);
+INSERT INTO `npc_faction` VALUES (1573,'Kunark Leeches',154,0);
+INSERT INTO `npc_faction` VALUES (1574,'Kunark Man-Eating Plants',493,0);
+INSERT INTO `npc_faction` VALUES (1575,'Kunark Cactus Man',498,0);
+INSERT INTO `npc_faction` VALUES (1576,'Kunark Rhinos',185,0);
+INSERT INTO `npc_faction` VALUES (1577,'Kunark Gorilla',91,0);
+INSERT INTO `npc_faction` VALUES (1578,'Kunark Yeti',188,0);
+INSERT INTO `npc_faction` VALUES (1579,'Banker Faction',5003,0);
