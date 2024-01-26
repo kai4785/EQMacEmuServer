@@ -8,5 +8,5 @@ CREATE TABLE `npc_types_metadata` (
   `isCreatedMob` tinyint(4) NOT NULL DEFAULT 0,
   `isCustomFeatureNPC` tinyint(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`npc_types_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

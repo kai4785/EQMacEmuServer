@@ -8,5 +8,5 @@ CREATE TABLE `item_tick` (
   `it_qglobal` varchar(50) NOT NULL,
   `it_bagslot` tinyint(4) NOT NULL,
   PRIMARY KEY (`it_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

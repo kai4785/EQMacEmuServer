@@ -7,7 +7,7 @@ CREATE TABLE `skill_caps` (
   `cap` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `class_` tinyint(3) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`skillID`,`class`,`level`,`class_`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `skill_caps` VALUES (0,1,1,10,0);
 INSERT INTO `skill_caps` VALUES (0,1,2,15,0);

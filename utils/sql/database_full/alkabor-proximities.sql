@@ -10,5 +10,5 @@ CREATE TABLE `proximities` (
   `minz` float(14,6) NOT NULL DEFAULT 0.000000,
   `maxz` float(14,6) NOT NULL DEFAULT 0.000000,
   PRIMARY KEY (`zoneid`,`exploreid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

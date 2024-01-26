@@ -12,7 +12,7 @@ CREATE TABLE `base_data` (
   `mana_fac` double NOT NULL,
   `end_fac` double NOT NULL,
   PRIMARY KEY (`level`,`class`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `base_data` VALUES (1,1,25,0,15,2,5,0.083,0,0.075);
 INSERT INTO `base_data` VALUES (1,2,22,15,15,2,5,0.073,0.075,0.075);

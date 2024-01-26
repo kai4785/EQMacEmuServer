@@ -23,7 +23,7 @@ CREATE TABLE `npc_spells` (
   `idle_no_sp_recast_max` int(11) unsigned NOT NULL DEFAULT 0,
   `idle_b_chance` tinyint(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1636 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1636 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_spells` VALUES (1,'Default Cleric List',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (2,'Default Wizard List',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -208,7 +208,6 @@ INSERT INTO `npc_spells` VALUES (186,'a_sun_revenant_spell',0,2960,20,-1,0,-1,0,
 INSERT INTO `npc_spells` VALUES (187,'#Disciple_of_Sun',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (188,'#Gozzrem_AOE_plusparent',1,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (189,'#Telkorenar',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `npc_spells` VALUES (1303,'#The_Spirit_of_Malevolence',0,2053,50,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (191,'#Nilasz_the_Devourer',0,2913,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (192,'#Ssraeshzian_Blood_Priest',1,2806,40,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (193,'#Ssraeshzian_Death_Priest',1,2806,40,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -243,7 +242,6 @@ INSERT INTO `npc_spells` VALUES (221,'a_Chakta_Fungus_Priest',6,2856,5,-1,0,-1,0
 INSERT INTO `npc_spells` VALUES (222,'#Chakiza',1,2856,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (223,'#Chakno',6,2856,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (224,'a_Xakra_Sei',0,-1,0,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `npc_spells` VALUES (1359,'a_Shissar_Revenant',0,328,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (226,'Necro Epic 1.5 Proc',0,6303,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (227,'#Emperor_Ssraeshza_',0,2981,4,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (228,'#Lord_Inquisitor_Seru',0,1968,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -277,7 +275,6 @@ INSERT INTO `npc_spells` VALUES (256,'Manaetic_Prototype_XI',0,-1,3,-1,0,-1,0,0,
 INSERT INTO `npc_spells` VALUES (257,'a_clockwork_device',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (258,'#a_greasy_clockwork',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (259,'#Junk_Beast',0,1085,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `npc_spells` VALUES (1497,'Baraguj_Szuul',0,1132,75,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (261,'A_blood_raven_hatchling',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (262,'A_Boruk_ravager',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (263,'A_Kaniz_ravager',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -291,7 +288,6 @@ INSERT INTO `npc_spells` VALUES (270,'Torstien_Stoneskin',0,-1,3,-1,0,-1,0,0,0,0
 INSERT INTO `npc_spells` VALUES (271,'Kuanbyr_Hailstorm',0,1031,4,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (272,'A_firestorm_portal',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (273,'Agnarr_the_Storm_Lord',0,1045,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `npc_spells` VALUES (1488,'Riodhr_Torrentwind',1441,1047,8,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (275,'Auliffe_Chaoswind',1441,1034,8,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (276,'A_jord_skygge',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (277,'Evynd_Firestorm',0,1038,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -576,7 +572,6 @@ INSERT INTO `npc_spells` VALUES (573,'Gaukr_Sandstorm',1441,1031,10,-1,0,-1,0,0,
 INSERT INTO `npc_spells` VALUES (574,'Hreidar_Lynhillig',1441,1026,8,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (575,'Laef_Windfall',1441,1033,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (576,'Serang Vikch',4,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `npc_spells` VALUES (1582,'Deathbringer_Blackheart',0,3176,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (578,'#Tunare',519,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (579,'#Rydda`Dar',0,3174,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (580,'ServantRo',0,-1,0,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -652,7 +647,6 @@ INSERT INTO `npc_spells` VALUES (711,'Bard Bot',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0
 INSERT INTO `npc_spells` VALUES (712,'Beastlord Bot',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (713,'Insanity Crawler Trap',0,0,0,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (714,'#Innoruuk_Nadox',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `npc_spells` VALUES (1155,'Miragul',3,993,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (716,'#Harbinger_Discord_named',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (717,'#Trainer_Dysarth',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (718,'#Harbingers_named_Dragorn',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -665,7 +659,6 @@ INSERT INTO `npc_spells` VALUES (724,'Xygoz 1.0',0,-1,0,-1,0,-1,0,0,0,0,0,0,0,0,
 INSERT INTO `npc_spells` VALUES (725,'Druushk 1.0',10,-1,0,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (726,'Nexona 1.0',521,-1,0,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (727,'Hoshkar',518,-1,0,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `npc_spells` VALUES (1108,'#The_Gale_Caller',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (901,'#The_Fabled_maggot_infested_flesh',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (902,'#The_Fabled_Coloth_Meadowgreen',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (903,'#The_Fabled_shardwurm_broodmother',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -826,6 +819,7 @@ INSERT INTO `npc_spells` VALUES (1104,'an_azarack',0,825,20,-1,0,-1,0,0,0,0,0,0,
 INSERT INTO `npc_spells` VALUES (1105,'an_avenging_gazer',2,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1106,'heart_harpie',521,986,50,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1107,'Gorgalosk',0,926,40,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1108,'#The_Gale_Caller',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1109,'Phinigel_Autropos',2,25,50,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1110,'Airplane Spiroc Druids',7,938,25,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1111,'Airplane Spiroc Rangers',10,938,25,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -872,6 +866,7 @@ INSERT INTO `npc_spells` VALUES (1151,'#Neh`Ashiir',5,856,5,-1,0,-1,0,0,0,0,0,0,
 INSERT INTO `npc_spells` VALUES (1152,'General_V`ghera',521,995,15,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1153,'Captain_Rottgrime',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1154,'Drusella_Sathir',515,692,27,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1155,'Miragul',3,993,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1156,'Dark Poison proc',0,-1,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1157,'Guardian Wurm skyfire',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1158,'Tremor 5%',0,405,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -1018,6 +1013,7 @@ INSERT INTO `npc_spells` VALUES (1299,'a_grimling_deathdealer',0,-1,3,-1,0,-1,0,
 INSERT INTO `npc_spells` VALUES (1300,'a_grimling_manaweaver',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1301,'a_grimling_possessor',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1302,'#a_glyph_covered_serpent',0,2810,20,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1303,'#The_Spirit_of_Malevolence',0,2053,50,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1304,'twilight shades',0,524,20,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1305,'An_Imperial_Golem',0,2829,15,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1306,'Xin`Xakra',0,2993,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -1073,6 +1069,7 @@ INSERT INTO `npc_spells` VALUES (1355,'Xi_Vius',1,2818,20,-1,0,-1,0,0,0,0,0,0,0,
 INSERT INTO `npc_spells` VALUES (1356,'Xin`Xekra',9,2991,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1357,'Xin`Xokra',9,2992,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1358,'A_wailing_shade',9,2818,20,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1359,'a_Shissar_Revenant',0,328,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1360,'a_Shissar_Stalker',0,328,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1361,'a_pestilence_rat',0,31,7,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1362,'Cazic Thule Shamans',6,2134,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -1201,6 +1198,7 @@ INSERT INTO `npc_spells` VALUES (1484,'Eindride_Icestorm',0,1047,8,-1,0,-1,0,0,0
 INSERT INTO `npc_spells` VALUES (1485,'Elif_Whitewind',1442,1033,15,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1486,'Erech_Eyford',0,1033,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1487,'Galm_Snowdrift',1480,1047,8,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1488,'Riodhr_Torrentwind',1441,1047,8,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1489,'Rorek_Steelthorn',0,1030,8,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1490,'Thorolf_Sutherland',1441,1030,8,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1491,'Torstien_Stoneskin',1442,1024,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -1209,6 +1207,7 @@ INSERT INTO `npc_spells` VALUES (1493,'a_potameid_temptress',0,2257,4,-1,0,-1,0,
 INSERT INTO `npc_spells` VALUES (1494,'a_potameid_matriarch',0,2258,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1495,'a_potameid_bewilder',0,2257,7,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1496,'a_potameid_guardian',0,2250,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1497,'Baraguj_Szuul',0,1132,75,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1498,'A_blood_raven',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1499,'A_Boruk_ravager',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1500,'A_Boruk_skin_harvester',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -1233,8 +1232,8 @@ INSERT INTO `npc_spells` VALUES (1518,'Unity of Fire',0,-1,3,-1,0,-1,0,0,0,0,0,0
 INSERT INTO `npc_spells` VALUES (1519,'Ball of Lava',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1520,'Enchanter no buffs no gate',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1521,'#a_pumice_collector',1520,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `npc_spells` VALUES (1523,'Magician no buffs no gate',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1522,'#a_runed_giant',1523,3004,18,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1523,'Magician no buffs no gate',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1524,'#a_sweltering_mephit',1523,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1525,'#Balrezu',1438,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1526,'#Grezou',1436,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -1293,6 +1292,7 @@ INSERT INTO `npc_spells` VALUES (1578,'General_Druav_Flamesinger',0,3013,10,-1,0
 INSERT INTO `npc_spells` VALUES (1579,'Hebabbilys_the_Ragelord',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1580,'Omni_Magus_Crato',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1581,'triloun gatherer PoTime',1520,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1582,'Deathbringer_Blackheart',0,3176,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1583,'A_Ferocious_Warboar',0,1968,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1584,'Kraksmaal_Fir`Dethsin',0,1073,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1585,'Xeroan_Xi`Geruonask',0,3012,5,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);

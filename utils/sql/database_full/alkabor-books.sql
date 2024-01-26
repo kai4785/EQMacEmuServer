@@ -4,7 +4,7 @@ CREATE TABLE `books` (
   `name` varchar(30) NOT NULL DEFAULT '',
   `txtfile` text NOT NULL,
   UNIQUE KEY `id` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `books` VALUES ('','MISSING ITEM TEXT');
 INSERT INTO `books` VALUES ('6AVCheatSheet','`1)  These conflicted strands are a badge of honor.``2)  This pouch is crafted from finer things than leather.``3)  Weigh your options before seeking these.``4)  A crumbling intellect can be a burden.``5)  It towers above, but these help it grow below``6) The rhyme of the mountains.``7)  Cursing can be heard whenever this is used.``8)  Their bark is the least of your worries.``9)  Fans the swarming flame.``10)  Grown from the seeds of failure.');

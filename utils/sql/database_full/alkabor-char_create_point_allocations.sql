@@ -17,7 +17,7 @@ CREATE TABLE `char_create_point_allocations` (
   `alloc_wis` int(10) unsigned NOT NULL,
   `alloc_cha` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `char_create_point_allocations` VALUES (0,103,105,70,87,60,80,60,0,5,5,5,0,5,0);
 INSERT INTO `char_create_point_allocations` VALUES (1,113,100,80,82,60,70,55,25,0,0,0,0,0,0);

@@ -4,7 +4,7 @@ CREATE TABLE `damageshieldtypes` (
   `spellid` int(10) unsigned NOT NULL DEFAULT 0,
   `type` tinyint(3) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`spellid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `damageshieldtypes` VALUES (129,249);
 INSERT INTO `damageshieldtypes` VALUES (191,248);

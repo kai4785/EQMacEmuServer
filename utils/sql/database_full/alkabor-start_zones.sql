@@ -17,7 +17,7 @@ CREATE TABLE `start_zones` (
   `bind_z` float NOT NULL DEFAULT 0,
   `select_rank` tinyint(3) unsigned NOT NULL DEFAULT 50,
   PRIMARY KEY (`player_choice`,`player_race`,`player_class`,`player_deity`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `start_zones` VALUES (504,1147,-38.22,0,75,75,0,2,203,3,75,200,800,3.39,50);
 INSERT INTO `start_zones` VALUES (-433,-1099,67.72,0,24,38,0,2,209,3,24,67,2230,-45,50);

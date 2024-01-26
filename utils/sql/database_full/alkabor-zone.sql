@@ -92,7 +92,7 @@ CREATE TABLE `zone` (
   PRIMARY KEY (`id`),
   KEY `zoneidnumber` (`zoneidnumber`),
   KEY `zonename` (`short_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=5881 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5881 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `zone` VALUES ('acrylia',2,'','Acrylia Caverns',NULL,-665,20,4,0,0,0,0,154,0,0,0,'',-450,100,650,450,600,50,50,50,0,1,0.90,0.4,0,50,50,50,450,600,50,50,50,450,600,50,50,50,450,600,50,50,50,450,600,0.33,'',0,1,0,0,0,5000,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,3,0,1,1,80,1,10000);
 INSERT INTO `zone` VALUES ('airplane',3,'','Plane of Sky',NULL,614,1415,-650,0,0,46,0,71,0,0,0,'',-2030,1500,2000,500,2000,0,0,0,3,255,0.75,0.4,5,0,0,0,500,2000,0,0,0,500,2000,0,0,0,500,2000,0,0,0,500,2000,0.33,'',0,1,0,1,0,5000,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,18,1,2,3,0,0,0,80,1,1790);

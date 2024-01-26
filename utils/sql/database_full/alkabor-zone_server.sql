@@ -8,5 +8,5 @@ CREATE TABLE `zone_server` (
   `last_alive` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `rain` char(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
