@@ -712,7 +712,7 @@ INSERT INTO `faction_list` VALUES (697,'Faction697',0,1,0,0);
 INSERT INTO `faction_list` VALUES (698,'Faction698',0,1,0,0);
 INSERT INTO `faction_list` VALUES (699,'Faction699',0,1,0,0);
 INSERT INTO `faction_list` VALUES (700,'Mercenary Coalition',0,1,0,0);
-INSERT INTO `faction_list` VALUES (701,'Beta KOS Copy 1',0,1,0,0);
+INSERT INTO `faction_list` VALUES (701,'Beta KOS Copy 1',-1000,1,-2000,2000);
 INSERT INTO `faction_list` VALUES (702,'Beta KOS Copy 2',0,1,0,0);
 INSERT INTO `faction_list` VALUES (703,'Beta KOS Copy 3',0,1,0,0);
 INSERT INTO `faction_list` VALUES (704,'Beta KOS Copy 4',0,1,0,0);

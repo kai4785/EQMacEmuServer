@@ -7,7 +7,7 @@ CREATE TABLE `npc_emotes` (
   `type` tinyint(3) NOT NULL DEFAULT 0,
   `text` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4174 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4176 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_emotes` VALUES (1,1,1,0,'Time to die $name.');
 INSERT INTO `npc_emotes` VALUES (2,2,1,0,'Your bones will be crushed by the Kromzek of Kael Drakkel!');
@@ -469,7 +469,7 @@ INSERT INTO `npc_emotes` VALUES (470,282,1,0,'Your actions and history are a per
 INSERT INTO `npc_emotes` VALUES (471,282,3,0,'My comrades will avenge my death.');
 INSERT INTO `npc_emotes` VALUES (472,283,1,0,'Smash you. . . No one bash better than Mudtoe.');
 INSERT INTO `npc_emotes` VALUES (473,283,2,0,'Oooh!!  That hurt.  Oggok ogres find you.  Smash you.');
-INSERT INTO `npc_emotes` VALUES (474,284,0,0,'Aye!!  There be no quarter among the Pirates of Gunthak!');
+INSERT INTO `npc_emotes` VALUES (474,284,9,0,'Aye!!  There be no quarter among the Pirates of Gunthak!');
 INSERT INTO `npc_emotes` VALUES (475,284,1,0,'Dead men tell no tales!!');
 INSERT INTO `npc_emotes` VALUES (476,284,3,0,'You have run me through!  Beware the Pirates of Gunthak.. They will avenge me... Unngh!!');
 INSERT INTO `npc_emotes` VALUES (477,285,1,0,'Raise your weapon!!  Let us begin the battle!');
@@ -490,7 +490,6 @@ INSERT INTO `npc_emotes` VALUES (493,292,1,0,'Prime Healer!!  Guide me to victor
 INSERT INTO `npc_emotes` VALUES (494,292,3,0,'Your name has been stricken from the book of the Prime Healer!!  I shall be avenged!');
 INSERT INTO `npc_emotes` VALUES (495,293,1,0,'Let me release your soul.');
 INSERT INTO `npc_emotes` VALUES (496,293,3,0,'Your destiny lies at the hands of the Greenbloods.');
-INSERT INTO `npc_emotes` VALUES (497,294,4,1,'grumbles and looks up at you.');
 INSERT INTO `npc_emotes` VALUES (498,295,3,0,'Your act of murder will not go unnoticed by the Unkempt Druids or nature itself!!');
 INSERT INTO `npc_emotes` VALUES (499,295,7,2,'Come out of that house, Linaya Sowlin!! I am waiting! It is time for you to die!');
 INSERT INTO `npc_emotes` VALUES (500,296,1,0,'Rodcet Nife!!  Give me strength to smite your foe!!');
@@ -2617,7 +2616,6 @@ INSERT INTO `npc_emotes` VALUES (2684,1492,1,1,'locks its faceted eyes on you. P
 INSERT INTO `npc_emotes` VALUES (2685,1492,3,1,'is still, ichor oozing from the cracks in its carapace.');
 INSERT INTO `npc_emotes` VALUES (2686,1493,3,1,'slumps to the ground as a sudden confused look overtakes him.  He touches his bloody wounds as if trying to comprehend what has occurred then lays motionless as death overcomes him.');
 INSERT INTO `npc_emotes` VALUES (2687,1493,1,0,'You foolish mortals shall pay for interfering with powers you cannot comprehend!');
-INSERT INTO `npc_emotes` VALUES (2688,1494,4,0,'Bug off! Unless you want an Irontoe boot to caress your head?!');
 INSERT INTO `npc_emotes` VALUES (2689,1495,1,0,'Grrrr... <Barkk!> No get... stout!');
 INSERT INTO `npc_emotes` VALUES (2690,1496,1,0,'AARRGHHH! Into the fray come the Wolves of the North. Cut you down, I will!');
 INSERT INTO `npc_emotes` VALUES (2691,1497,1,1,'looks amused at your attack, \'heh, you just bought some trouble, kid\'');
@@ -4083,3 +4081,5 @@ INSERT INTO `npc_emotes` VALUES (4170,2001,1,1,'growls exposing decaying fangs!\
 INSERT INTO `npc_emotes` VALUES (4171,2001,3,1,'curls into a pile as it hits the ground.\r\n');
 INSERT INTO `npc_emotes` VALUES (4172,2002,1,0,'Your death shall be swift!');
 INSERT INTO `npc_emotes` VALUES (4173,2002,3,0,'My comrades will avenge my death.');
+INSERT INTO `npc_emotes` VALUES (4174,2003,1,0,'I am not seeking this,  but it is now the property of the Haggle Baron.');
+INSERT INTO `npc_emotes` VALUES (4175,2004,1,0,'Time to die!');

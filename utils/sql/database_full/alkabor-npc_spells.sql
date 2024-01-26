@@ -127,7 +127,7 @@ INSERT INTO `npc_spells` VALUES (104,'An Emerald Watcher',0,-1,3,-1,0,-1,0,0,0,0
 INSERT INTO `npc_spells` VALUES (105,'A Glare Lord',0,956,20,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (106,'A Scareling',0,977,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (107,'A Turmoil Toad',0,901,20,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `npc_spells` VALUES (108,'A Spectre',0,919,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (108,'A Spectre',0,919,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (109,'Kaggy Krup',0,2145,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (110,'Vallon Zek',0,2447,10,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (111,'Bertoxxulous',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -851,7 +851,7 @@ INSERT INTO `npc_spells` VALUES (1136,'#Corrupter_of_Life',2,913,10,-1,0,-1,0,0,
 INSERT INTO `npc_spells` VALUES (1137,'#Lord_of_Ire',9,1319,20,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1138,'#Avatar_of_Abhorrence',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1139,'A_Very_Unpleasant_Hand',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `npc_spells` VALUES (1140,'a_loathling_lich',2,919,20,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1140,'a_loathling_lich',2,-1,20,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1141,'#Coercer_T`vala',5,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1142,'#Magi_P`tasa',4,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1143,'#Grandmaster_R`tal',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
