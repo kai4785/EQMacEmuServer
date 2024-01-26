@@ -7,7 +7,7 @@ CREATE TABLE `npc_emotes` (
   `type` tinyint(3) NOT NULL DEFAULT 0,
   `text` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4197 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4199 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_emotes` VALUES (1,1,1,0,'Time to die $name.');
 INSERT INTO `npc_emotes` VALUES (2,2,1,0,'Your bones will be crushed by the Kromzek of Kael Drakkel!');
@@ -4097,3 +4097,5 @@ INSERT INTO `npc_emotes` VALUES (4193,1184,9,0,'Ha! Fertilizer for the forests a
 INSERT INTO `npc_emotes` VALUES (4194,2011,1,0,'Little man, little man, filled with red - I\'ll crunch your bones when you are dead.');
 INSERT INTO `npc_emotes` VALUES (4195,2012,3,0,'Aaaghh! You dare bring the wrath of my people upon yourself. May Brell have mercy on your...  soul...');
 INSERT INTO `npc_emotes` VALUES (4196,2013,1,0,'Guards!  Come smash!');
+INSERT INTO `npc_emotes` VALUES (4197,2014,1,1,'gurgles and flings itself at you through the water.');
+INSERT INTO `npc_emotes` VALUES (4198,2015,3,1,'\'s corpse begins to violently convulse. An incorporeal mist begins to rise from the beast\'s ethereal essence as its corrupted soul returns to the shadows.\r\n');

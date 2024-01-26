@@ -17,7 +17,7 @@ CREATE TABLE `object` (
   `incline` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `zone` (`zoneid`)
-) ENGINE=InnoDB AUTO_INCREMENT=228357 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=228358 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `object` VALUES (1,88,-171,201,-124,395,0,0,'IT128',30,892,0,0,0);
 INSERT INTO `object` VALUES (3,6,-223,60,26,383,0,0,'IT70',19,1116,0,0,0);

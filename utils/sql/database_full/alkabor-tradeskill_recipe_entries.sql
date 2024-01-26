@@ -5725,7 +5725,6 @@ INSERT INTO `tradeskill_recipe_entries` VALUES (10627,1369,17901,0,0,0,1);
 INSERT INTO `tradeskill_recipe_entries` VALUES (10628,1370,14214,0,0,1,0);
 INSERT INTO `tradeskill_recipe_entries` VALUES (10629,1370,14215,0,0,1,0);
 INSERT INTO `tradeskill_recipe_entries` VALUES (10630,1370,14232,0,0,1,0);
-INSERT INTO `tradeskill_recipe_entries` VALUES (10631,1370,16519,0,0,1,0);
 INSERT INTO `tradeskill_recipe_entries` VALUES (10632,1370,14437,1,0,0,0);
 INSERT INTO `tradeskill_recipe_entries` VALUES (10635,1370,17811,0,0,0,1);
 INSERT INTO `tradeskill_recipe_entries` VALUES (10636,1370,17901,0,0,0,1);

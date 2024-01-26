@@ -23,7 +23,7 @@ CREATE TABLE `npc_spells` (
   `idle_no_sp_recast_max` int(11) unsigned NOT NULL DEFAULT 0,
   `idle_b_chance` tinyint(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1639 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1643 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_spells` VALUES (1,'Default Cleric List',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (2,'Default Wizard List',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -1349,3 +1349,7 @@ INSERT INTO `npc_spells` VALUES (1635,'Poison25',0,1002,25,-1,0,-1,0,0,0,0,0,0,0
 INSERT INTO `npc_spells` VALUES (1636,'lizardman_mystic',6,1001,50,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1637,'Giant_Werewolf',377,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `npc_spells` VALUES (1638,'sonic_bat',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1639,'an_icy_servant',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1640,'a_lava_keeper',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1641,'a_watery_servant',0,-1,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `npc_spells` VALUES (1642,'Scarecrow Fear',0,900,3,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);

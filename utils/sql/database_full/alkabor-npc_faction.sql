@@ -6,7 +6,7 @@ CREATE TABLE `npc_faction` (
   `primaryfaction` int(11) NOT NULL DEFAULT 0,
   `ignore_primary_assist` tinyint(3) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1583 DEFAULT CHARSET=latin1 PACK_KEYS=0;
+) ENGINE=InnoDB AUTO_INCREMENT=1585 DEFAULT CHARSET=latin1 PACK_KEYS=0;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_faction` VALUES (1,'an_emperor_fae_drake',397,0);
 INSERT INTO `npc_faction` VALUES (2,'Crushbone2',234,0);
@@ -1590,3 +1590,5 @@ INSERT INTO `npc_faction` VALUES (1579,'Banker Faction',5003,0);
 INSERT INTO `npc_faction` VALUES (1580,'mayongmistmoore300',285,0);
 INSERT INTO `npc_faction` VALUES (1581,'minionsofthesunlord100',1574,0);
 INSERT INTO `npc_faction` VALUES (1582,'Ghoul',83,0);
+INSERT INTO `npc_faction` VALUES (1583,'Oggokresident15',374,0);
+INSERT INTO `npc_faction` VALUES (1584,'oggokresident2',374,0);
