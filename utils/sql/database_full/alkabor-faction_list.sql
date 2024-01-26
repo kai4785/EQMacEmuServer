@@ -186,7 +186,7 @@ INSERT INTO `faction_list` VALUES (171,'Gorgon',0,1,0,0);
 INSERT INTO `faction_list` VALUES (172,'Dragon Skeleton',0,1,0,0);
 INSERT INTO `faction_list` VALUES (173,'Innoruuk (Race)',0,1,0,0);
 INSERT INTO `faction_list` VALUES (174,'Unicorn Nightmare',0,1,0,0);
-INSERT INTO `faction_list` VALUES (175,'Pegasus',0,1,0,0);
+INSERT INTO `faction_list` VALUES (175,'Pegasus',-500,1,-2000,2000);
 INSERT INTO `faction_list` VALUES (176,'Djinn (Race)',0,1,0,0);
 INSERT INTO `faction_list` VALUES (177,'Invisible Man',0,1,0,0);
 INSERT INTO `faction_list` VALUES (178,'Iksar',0,0,-2000,2000);

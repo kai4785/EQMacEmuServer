@@ -12,7 +12,7 @@ CREATE TABLE `tradeskill_recipe` (
   `quest` tinyint(1) NOT NULL DEFAULT 0,
   `enabled` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13615 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13616 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `tradeskill_recipe` VALUES (1,'Blessed Fishing Rod',55,0,202,0,0,NULL,0,1);
 INSERT INTO `tradeskill_recipe` VALUES (2,'Busy Bee Circle Fly',55,0,54,0,0,NULL,0,1);
@@ -7401,3 +7401,4 @@ INSERT INTO `tradeskill_recipe` VALUES (13611,'Shadowscream Steel Helm (recharge
 INSERT INTO `tradeskill_recipe` VALUES (13612,'Shadowscream Steel Veil',63,0,248,0,0,'',0,1);
 INSERT INTO `tradeskill_recipe` VALUES (13613,'Spiced Hollow Palm Tea',65,0,162,0,0,'',0,1);
 INSERT INTO `tradeskill_recipe` VALUES (13614,'Spiced Hollow Palm Tea',65,0,162,0,0,'',0,1);
+INSERT INTO `tradeskill_recipe` VALUES (13615,'Spell: Project Lightning',58,0,26,0,0,'Created by Elroz',0,1);

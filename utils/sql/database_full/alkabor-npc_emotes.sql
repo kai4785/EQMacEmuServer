@@ -7,7 +7,7 @@ CREATE TABLE `npc_emotes` (
   `type` tinyint(3) NOT NULL DEFAULT 0,
   `text` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4176 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4187 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `npc_emotes` VALUES (1,1,1,0,'Time to die $name.');
 INSERT INTO `npc_emotes` VALUES (2,2,1,0,'Your bones will be crushed by the Kromzek of Kael Drakkel!');
@@ -4083,3 +4083,13 @@ INSERT INTO `npc_emotes` VALUES (4172,2002,1,0,'Your death shall be swift!');
 INSERT INTO `npc_emotes` VALUES (4173,2002,3,0,'My comrades will avenge my death.');
 INSERT INTO `npc_emotes` VALUES (4174,2003,1,0,'I am not seeking this,  but it is now the property of the Haggle Baron.');
 INSERT INTO `npc_emotes` VALUES (4175,2004,1,0,'Time to die!');
+INSERT INTO `npc_emotes` VALUES (4176,285,9,0,'Let no one challenge Faydark\'s Champions.. Nay.. Let no one challenge the Sisterhood of Erollisi!');
+INSERT INTO `npc_emotes` VALUES (4177,2005,1,1,'snarls and attacks!');
+INSERT INTO `npc_emotes` VALUES (4178,2005,9,1,'begins to devour your ally\'s corpse!');
+INSERT INTO `npc_emotes` VALUES (4179,2005,3,2,'<HHHhhooooowwwLLLL!>');
+INSERT INTO `npc_emotes` VALUES (4181,2006,1,0,'There must be hundreds of interlopers in this place of nature, and this one has just crossed paths with terrible fate!');
+INSERT INTO `npc_emotes` VALUES (4182,2006,3,0,'Aaaaagh, not like this!');
+INSERT INTO `npc_emotes` VALUES (4183,1419,9,0,'Fall before my ancient might!');
+INSERT INTO `npc_emotes` VALUES (4184,1419,1,0,'Long have I lived.  Crush you I shall!');
+INSERT INTO `npc_emotes` VALUES (4185,2007,1,0,'Your evil ways are not permitted within these great woods!');
+INSERT INTO `npc_emotes` VALUES (4186,2007,9,0,'The bounty is mine; yours is a wormy grave.');

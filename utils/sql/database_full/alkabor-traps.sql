@@ -23,7 +23,7 @@ CREATE TABLE `traps` (
   `undetectable` tinyint(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `zone` (`zone`)
-) ENGINE=InnoDB AUTO_INCREMENT=877 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=876 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `traps` VALUES (11,'echo',146,651,-81,50,20,40,0,2985,0,'',0,36,300,120,0,0,0,0);
 INSERT INTO `traps` VALUES (12,'echo',167,656,-81,50,20,30,0,2985,0,'',0,36,300,120,0,0,0,0);

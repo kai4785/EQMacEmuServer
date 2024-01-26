@@ -16,5 +16,5 @@ CREATE TABLE `titles` (
   `suffix` varchar(32) NOT NULL DEFAULT '',
   `title_set` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=374 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
