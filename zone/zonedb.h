@@ -6,6 +6,7 @@
 #include "position.h"
 #include "../common/faction.h"
 #include "../common/eqemu_logsys.h"
+#include "../common/repositories/doors_repository.h"
 
 class Client;
 class Corpse;
@@ -329,12 +330,11 @@ public:
 	void		AddLootDropToNPC(NPC* npc, uint32 lootdrop_id, ItemList* itemlist, uint8 droplimit, uint8 mindrop);
 	uint32		GetMaxNPCSpellsID();
 	uint32		GetMaxNPCSpellsEffectsID();
+	void LoadGlobalLoot();
 
 	DBnpcspells_Struct*				GetNPCSpells(uint32 iDBSpellsID);
 	DBnpcspellseffects_Struct*		GetNPCSpellsEffects(uint32 iDBSpellsEffectsID);
-	const NPCType*					GetNPCType(uint32 id, bool bulk_load = false);
-	NPCType*					    GetNPCTypeTemp(uint32 id);
-	NPCType*						GrabNPCType(uint32 id);
+	const NPCType*					LoadNPCTypesData(uint32 id, bool bulk_load = false);
 
 	/* Petitions   */
 	void	UpdateBug(BugReport_Struct* bug_report, uint32 clienttype);
@@ -365,7 +365,7 @@ public:
 	*/
 	bool	DoorIsOpen(uint8 door_id,const char* zone_name);
 	void	SetDoorPlace(uint8 value,uint8 door_id,const char* zone_name);
-	bool	LoadDoors(int32 iDoorCount, Door *into, const char *zone_name);
+	std::vector<DoorsRepository::Doors> LoadDoors(const std::string &zone_name);
 	int32	GetDoorsCount(uint32* oMaxID, const char *zone_name);
 	int32	GetDoorsCountPlusOne(const char *zone_name);
 	int32	GetDoorsDBCountPlusOne(const char *zone_name);

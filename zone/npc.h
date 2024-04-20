@@ -134,6 +134,7 @@ public:
 
 	virtual bool	AI_IdleCastCheck();
 	virtual void	AI_Event_SpellCastFinished(bool iCastSucceeded, uint16 slot);
+	void			TriggerAutoCastTimer() { if (!IsCasting() && AIautocastspell_timer) AIautocastspell_timer->Trigger(); }
 
 	void LevelScale();
 	void CalcNPCResists();
@@ -182,6 +183,7 @@ public:
 	void	AddItem(uint32 itemid, int8 charges, bool equipitem = true, bool quest = false);
 	void	AddLootTable();
 	void	AddLootTable(uint32 ldid);
+	void	CheckGlobalLootTables();
 	bool	MoveItemToGeneralInventory(ServerLootItem_Struct* item);
 	void	CheckMinMaxLevel(Mob *them);
 	void	ClearItemList();
@@ -210,6 +212,7 @@ public:
 	void	DeleteInvalidQuestLoot();
 	void	DeleteEquipment(int16 slotid);
 	virtual void UpdateEquipmentLight();
+	inline bool DropsGlobalLoot() const { return !skip_global_loot; }
 	uint32	GetEquipment(uint8 material_slot) const;	// returns item id
 	int32	GetEquipmentMaterial(uint8 material_slot) const;
 
@@ -561,7 +564,7 @@ protected:
 
 	bool private_corpse; 
 	bool aggro_pc;
-	bool underwater; 
+	bool underwater = false;
 
 	bool engage_notice;
 
@@ -569,6 +572,7 @@ protected:
 
 private:
 	uint32	loottable_id;
+	bool	skip_global_loot;
 	bool	p_depop;
 	glm::vec3 push_vector;
 	float wall_normal1_x;

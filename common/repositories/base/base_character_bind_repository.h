@@ -6,7 +6,7 @@
  * Any modifications to base repositories are to be made by the generator only
  *
  * @generator ./utils/scripts/generators/repository-generator.pl
- * @docs https://eqemu.gitbook.io/server/in-development/developer-area/repositories
+ * @docs https://docs.eqemu.io/developer/repositories
  */
 
 #ifndef EQEMU_BASE_CHARACTER_BIND_REPOSITORY_H
@@ -15,7 +15,6 @@
 #include "../../database.h"
 #include "../../strings.h"
 #include <ctime>
-
 
 class BaseCharacterBindRepository {
 public:
@@ -97,13 +96,13 @@ public:
 	{
 		CharacterBind e{};
 
-		e.id          = 0;
-		e.is_home     = 0;
-		e.zone_id     = 0;
-		e.x           = 0;
-		e.y           = 0;
-		e.z           = 0;
-		e.heading     = 0;
+		e.id      = 0;
+		e.is_home = 0;
+		e.zone_id = 0;
+		e.x       = 0;
+		e.y       = 0;
+		e.z       = 0;
+		e.heading = 0;
 
 		return e;
 	}
@@ -140,13 +139,13 @@ public:
 		if (results.RowCount() == 1) {
 			CharacterBind e{};
 
-			e.id          = static_cast<uint32_t>(strtoul(row[0], nullptr, 10));
-			e.is_home     = static_cast<uint8_t>(strtoul(row[1], nullptr, 10));
-			e.zone_id     = static_cast<uint16_t>(strtoul(row[2], nullptr, 10));
-			e.x           = strtof(row[3], nullptr);
-			e.y           = strtof(row[4], nullptr);
-			e.z           = strtof(row[5], nullptr);
-			e.heading     = strtof(row[6], nullptr);
+			e.id      = row[0] ? static_cast<uint32_t>(strtoul(row[0], nullptr, 10)) : 0;
+			e.is_home = row[1] ? static_cast<uint8_t>(strtoul(row[1], nullptr, 10)) : 0;
+			e.zone_id = row[2] ? static_cast<uint16_t>(strtoul(row[2], nullptr, 10)) : 0;
+			e.x       = row[3] ? strtof(row[3], nullptr) : 0;
+			e.y       = row[4] ? strtof(row[4], nullptr) : 0;
+			e.z       = row[5] ? strtof(row[5], nullptr) : 0;
+			e.heading = row[6] ? strtof(row[6], nullptr) : 0;
 
 			return e;
 		}
@@ -283,13 +282,13 @@ public:
 		for (auto row = results.begin(); row != results.end(); ++row) {
 			CharacterBind e{};
 
-			e.id          = static_cast<uint32_t>(strtoul(row[0], nullptr, 10));
-			e.is_home     = static_cast<uint8_t>(strtoul(row[1], nullptr, 10));
-			e.zone_id     = static_cast<uint16_t>(strtoul(row[2], nullptr, 10));
-			e.x           = strtof(row[3], nullptr);
-			e.y           = strtof(row[4], nullptr);
-			e.z           = strtof(row[5], nullptr);
-			e.heading     = strtof(row[6], nullptr);
+			e.id      = row[0] ? static_cast<uint32_t>(strtoul(row[0], nullptr, 10)) : 0;
+			e.is_home = row[1] ? static_cast<uint8_t>(strtoul(row[1], nullptr, 10)) : 0;
+			e.zone_id = row[2] ? static_cast<uint16_t>(strtoul(row[2], nullptr, 10)) : 0;
+			e.x       = row[3] ? strtof(row[3], nullptr) : 0;
+			e.y       = row[4] ? strtof(row[4], nullptr) : 0;
+			e.z       = row[5] ? strtof(row[5], nullptr) : 0;
+			e.heading = row[6] ? strtof(row[6], nullptr) : 0;
 
 			all_entries.push_back(e);
 		}
@@ -314,13 +313,13 @@ public:
 		for (auto row = results.begin(); row != results.end(); ++row) {
 			CharacterBind e{};
 
-			e.id          = static_cast<uint32_t>(strtoul(row[0], nullptr, 10));
-			e.is_home     = static_cast<uint8_t>(strtoul(row[1], nullptr, 10));
-			e.zone_id     = static_cast<uint16_t>(strtoul(row[2], nullptr, 10));
-			e.x           = strtof(row[3], nullptr);
-			e.y           = strtof(row[4], nullptr);
-			e.z           = strtof(row[5], nullptr);
-			e.heading     = strtof(row[6], nullptr);
+			e.id      = row[0] ? static_cast<uint32_t>(strtoul(row[0], nullptr, 10)) : 0;
+			e.is_home = row[1] ? static_cast<uint8_t>(strtoul(row[1], nullptr, 10)) : 0;
+			e.zone_id = row[2] ? static_cast<uint16_t>(strtoul(row[2], nullptr, 10)) : 0;
+			e.x       = row[3] ? strtof(row[3], nullptr) : 0;
+			e.y       = row[4] ? strtof(row[4], nullptr) : 0;
+			e.z       = row[5] ? strtof(row[5], nullptr) : 0;
+			e.heading = row[6] ? strtof(row[6], nullptr) : 0;
 
 			all_entries.push_back(e);
 		}
@@ -379,6 +378,74 @@ public:
 		return (results.Success() && results.begin()[0] ? strtoll(results.begin()[0], nullptr, 10) : 0);
 	}
 
+	static std::string BaseReplace()
+	{
+		return fmt::format(
+			"REPLACE INTO {} ({}) ",
+			TableName(),
+			ColumnsRaw()
+		);
+	}
+
+	static int ReplaceOne(
+		Database& db,
+		const CharacterBind &e
+	)
+	{
+		std::vector<std::string> v;
+
+		v.push_back(std::to_string(e.id));
+		v.push_back(std::to_string(e.is_home));
+		v.push_back(std::to_string(e.zone_id));
+		v.push_back(std::to_string(e.x));
+		v.push_back(std::to_string(e.y));
+		v.push_back(std::to_string(e.z));
+		v.push_back(std::to_string(e.heading));
+
+		auto results = db.QueryDatabase(
+			fmt::format(
+				"{} VALUES ({})",
+				BaseReplace(),
+				Strings::Implode(",", v)
+			)
+		);
+
+		return (results.Success() ? results.RowsAffected() : 0);
+	}
+
+	static int ReplaceMany(
+		Database& db,
+		const std::vector<CharacterBind> &entries
+	)
+	{
+		std::vector<std::string> insert_chunks;
+
+		for (auto &e: entries) {
+			std::vector<std::string> v;
+
+			v.push_back(std::to_string(e.id));
+			v.push_back(std::to_string(e.is_home));
+			v.push_back(std::to_string(e.zone_id));
+			v.push_back(std::to_string(e.x));
+			v.push_back(std::to_string(e.y));
+			v.push_back(std::to_string(e.z));
+			v.push_back(std::to_string(e.heading));
+
+			insert_chunks.push_back("(" + Strings::Implode(",", v) + ")");
+		}
+
+		std::vector<std::string> v;
+
+		auto results = db.QueryDatabase(
+			fmt::format(
+				"{} VALUES {}",
+				BaseReplace(),
+				Strings::Implode(",", insert_chunks)
+			)
+		);
+
+		return (results.Success() ? results.RowsAffected() : 0);
+	}
 };
 
 #endif //EQEMU_BASE_CHARACTER_BIND_REPOSITORY_H

@@ -6,7 +6,7 @@
  * Any modifications to base repositories are to be made by the generator only
  *
  * @generator ./utils/scripts/generators/repository-generator.pl
- * @docs https://eqemu.gitbook.io/server/in-development/developer-area/repositories
+ * @docs https://docs.eqemu.io/developer/repositories
  */
 
 #ifndef EQEMU_BASE_ZONE_REPOSITORY_H
@@ -15,7 +15,6 @@
 #include "../../database.h"
 #include "../../strings.h"
 #include <ctime>
-
 
 class BaseZoneRepository {
 public:
@@ -108,6 +107,10 @@ public:
 		uint16_t    pull_limit;
 		int32_t     graveyard_time;
 		float       max_z;
+		int8_t      min_expansion;
+		int8_t      max_expansion;
+		std::string content_flags;
+		std::string content_flags_disabled;
 	};
 
 	static std::string PrimaryKey()
@@ -206,6 +209,10 @@ public:
 			"pull_limit",
 			"graveyard_time",
 			"max_z",
+			"min_expansion",
+			"max_expansion",
+			"content_flags",
+			"content_flags_disabled",
 		};
 	}
 
@@ -300,6 +307,10 @@ public:
 			"pull_limit",
 			"graveyard_time",
 			"max_z",
+			"min_expansion",
+			"max_expansion",
+			"content_flags",
+			"content_flags_disabled",
 		};
 	}
 
@@ -340,94 +351,98 @@ public:
 	{
 		Zone e{};
 
-		e.short_name          = "";
-		e.id                  = 0;
-		e.file_name           = "";
-		e.long_name           = "";
-		e.map_file_name       = "";
-		e.safe_x              = 0;
-		e.safe_y              = 0;
-		e.safe_z              = 0;
-		e.safe_heading        = 0;
-		e.graveyard_id        = 0;
-		e.min_level           = 0;
-		e.min_status          = 0;
-		e.zoneidnumber        = 0;
-		e.timezone            = 0;
-		e.maxclients          = 0;
-		e.ruleset             = 0;
-		e.note                = "";
-		e.underworld          = 0;
-		e.minclip             = 450;
-		e.maxclip             = 450;
-		e.fog_minclip         = 450;
-		e.fog_maxclip         = 450;
-		e.fog_blue            = 0;
-		e.fog_red             = 0;
-		e.fog_green           = 0;
-		e.sky                 = 1;
-		e.ztype               = 1;
-		e.zone_exp_multiplier = 0.00;
-		e.gravity             = 0.4;
-		e.time_type           = 2;
-		e.fog_red1            = 0;
-		e.fog_green1          = 0;
-		e.fog_blue1           = 0;
-		e.fog_minclip1        = 450;
-		e.fog_maxclip1        = 450;
-		e.fog_red2            = 0;
-		e.fog_green2          = 0;
-		e.fog_blue2           = 0;
-		e.fog_minclip2        = 450;
-		e.fog_maxclip2        = 450;
-		e.fog_red3            = 0;
-		e.fog_green3          = 0;
-		e.fog_blue3           = 0;
-		e.fog_minclip3        = 450;
-		e.fog_maxclip3        = 450;
-		e.fog_red4            = 0;
-		e.fog_green4          = 0;
-		e.fog_blue4           = 0;
-		e.fog_minclip4        = 450;
-		e.fog_maxclip4        = 450;
-		e.fog_density         = 0;
-		e.flag_needed         = "";
-		e.canbind             = 1;
-		e.cancombat           = 1;
-		e.canlevitate         = 1;
-		e.castoutdoor         = 1;
-		e.hotzone             = 0;
-		e.shutdowndelay       = 5000;
-		e.peqzone             = 1;
-		e.expansion           = 0;
-		e.suspendbuffs        = 0;
-		e.rain_chance1        = 0;
-		e.rain_chance2        = 0;
-		e.rain_chance3        = 0;
-		e.rain_chance4        = 0;
-		e.rain_duration1      = 0;
-		e.rain_duration2      = 0;
-		e.rain_duration3      = 0;
-		e.rain_duration4      = 0;
-		e.snow_chance1        = 0;
-		e.snow_chance2        = 0;
-		e.snow_chance3        = 0;
-		e.snow_chance4        = 0;
-		e.snow_duration1      = 0;
-		e.snow_duration2      = 0;
-		e.snow_duration3      = 0;
-		e.snow_duration4      = 0;
-		e.type                = 0;
-		e.skylock             = 0;
-		e.skip_los            = 0;
-		e.music               = 0;
-		e.random_loc          = 3;
-		e.dragaggro           = 0;
-		e.never_idle          = 0;
-		e.castdungeon         = 0;
-		e.pull_limit          = 80;
-		e.graveyard_time      = 1;
-		e.max_z               = 10000;
+		e.short_name             = "";
+		e.id                     = 0;
+		e.file_name              = "";
+		e.long_name              = "";
+		e.map_file_name          = "";
+		e.safe_x                 = 0;
+		e.safe_y                 = 0;
+		e.safe_z                 = 0;
+		e.safe_heading           = 0;
+		e.graveyard_id           = 0;
+		e.min_level              = 0;
+		e.min_status             = 0;
+		e.zoneidnumber           = 0;
+		e.timezone               = 0;
+		e.maxclients             = 0;
+		e.ruleset                = 0;
+		e.note                   = "";
+		e.underworld             = 0;
+		e.minclip                = 450;
+		e.maxclip                = 450;
+		e.fog_minclip            = 450;
+		e.fog_maxclip            = 450;
+		e.fog_blue               = 0;
+		e.fog_red                = 0;
+		e.fog_green              = 0;
+		e.sky                    = 1;
+		e.ztype                  = 1;
+		e.zone_exp_multiplier    = 0.00;
+		e.gravity                = 0.4;
+		e.time_type              = 2;
+		e.fog_red1               = 0;
+		e.fog_green1             = 0;
+		e.fog_blue1              = 0;
+		e.fog_minclip1           = 450;
+		e.fog_maxclip1           = 450;
+		e.fog_red2               = 0;
+		e.fog_green2             = 0;
+		e.fog_blue2              = 0;
+		e.fog_minclip2           = 450;
+		e.fog_maxclip2           = 450;
+		e.fog_red3               = 0;
+		e.fog_green3             = 0;
+		e.fog_blue3              = 0;
+		e.fog_minclip3           = 450;
+		e.fog_maxclip3           = 450;
+		e.fog_red4               = 0;
+		e.fog_green4             = 0;
+		e.fog_blue4              = 0;
+		e.fog_minclip4           = 450;
+		e.fog_maxclip4           = 450;
+		e.fog_density            = 0;
+		e.flag_needed            = "";
+		e.canbind                = 1;
+		e.cancombat              = 1;
+		e.canlevitate            = 1;
+		e.castoutdoor            = 1;
+		e.hotzone                = 0;
+		e.shutdowndelay          = 5000;
+		e.peqzone                = 1;
+		e.expansion              = 0;
+		e.suspendbuffs           = 0;
+		e.rain_chance1           = 0;
+		e.rain_chance2           = 0;
+		e.rain_chance3           = 0;
+		e.rain_chance4           = 0;
+		e.rain_duration1         = 0;
+		e.rain_duration2         = 0;
+		e.rain_duration3         = 0;
+		e.rain_duration4         = 0;
+		e.snow_chance1           = 0;
+		e.snow_chance2           = 0;
+		e.snow_chance3           = 0;
+		e.snow_chance4           = 0;
+		e.snow_duration1         = 0;
+		e.snow_duration2         = 0;
+		e.snow_duration3         = 0;
+		e.snow_duration4         = 0;
+		e.type                   = 0;
+		e.skylock                = 0;
+		e.skip_los               = 0;
+		e.music                  = 0;
+		e.random_loc             = 3;
+		e.dragaggro              = 0;
+		e.never_idle             = 0;
+		e.castdungeon            = 0;
+		e.pull_limit             = 80;
+		e.graveyard_time         = 1;
+		e.max_z                  = 10000;
+		e.min_expansion          = -1;
+		e.max_expansion          = -1;
+		e.content_flags          = "";
+		e.content_flags_disabled = "";
 
 		return e;
 	}
@@ -464,94 +479,98 @@ public:
 		if (results.RowCount() == 1) {
 			Zone e{};
 
-			e.short_name          = row[0] ? row[0] : "";
-			e.id                  = static_cast<int32_t>(atoi(row[1]));
-			e.file_name           = row[2] ? row[2] : "";
-			e.long_name           = row[3] ? row[3] : "";
-			e.map_file_name       = row[4] ? row[4] : "";
-			e.safe_x              = strtof(row[5], nullptr);
-			e.safe_y              = strtof(row[6], nullptr);
-			e.safe_z              = strtof(row[7], nullptr);
-			e.safe_heading        = strtof(row[8], nullptr);
-			e.graveyard_id        = strtof(row[9], nullptr);
-			e.min_level           = static_cast<uint8_t>(strtoul(row[10], nullptr, 10));
-			e.min_status          = static_cast<uint8_t>(strtoul(row[11], nullptr, 10));
-			e.zoneidnumber        = static_cast<int32_t>(atoi(row[12]));
-			e.timezone            = static_cast<int32_t>(atoi(row[13]));
-			e.maxclients          = static_cast<int32_t>(atoi(row[14]));
-			e.ruleset             = static_cast<uint32_t>(strtoul(row[15], nullptr, 10));
-			e.note                = row[16] ? row[16] : "";
-			e.underworld          = strtof(row[17], nullptr);
-			e.minclip             = strtof(row[18], nullptr);
-			e.maxclip             = strtof(row[19], nullptr);
-			e.fog_minclip         = strtof(row[20], nullptr);
-			e.fog_maxclip         = strtof(row[21], nullptr);
-			e.fog_blue            = static_cast<uint8_t>(strtoul(row[22], nullptr, 10));
-			e.fog_red             = static_cast<uint8_t>(strtoul(row[23], nullptr, 10));
-			e.fog_green           = static_cast<uint8_t>(strtoul(row[24], nullptr, 10));
-			e.sky                 = static_cast<uint8_t>(strtoul(row[25], nullptr, 10));
-			e.ztype               = static_cast<uint8_t>(strtoul(row[26], nullptr, 10));
-			e.zone_exp_multiplier = strtof(row[27], nullptr);
-			e.gravity             = strtof(row[28], nullptr);
-			e.time_type           = static_cast<uint8_t>(strtoul(row[29], nullptr, 10));
-			e.fog_red1            = static_cast<uint8_t>(strtoul(row[30], nullptr, 10));
-			e.fog_green1          = static_cast<uint8_t>(strtoul(row[31], nullptr, 10));
-			e.fog_blue1           = static_cast<uint8_t>(strtoul(row[32], nullptr, 10));
-			e.fog_minclip1        = strtof(row[33], nullptr);
-			e.fog_maxclip1        = strtof(row[34], nullptr);
-			e.fog_red2            = static_cast<uint8_t>(strtoul(row[35], nullptr, 10));
-			e.fog_green2          = static_cast<uint8_t>(strtoul(row[36], nullptr, 10));
-			e.fog_blue2           = static_cast<uint8_t>(strtoul(row[37], nullptr, 10));
-			e.fog_minclip2        = strtof(row[38], nullptr);
-			e.fog_maxclip2        = strtof(row[39], nullptr);
-			e.fog_red3            = static_cast<uint8_t>(strtoul(row[40], nullptr, 10));
-			e.fog_green3          = static_cast<uint8_t>(strtoul(row[41], nullptr, 10));
-			e.fog_blue3           = static_cast<uint8_t>(strtoul(row[42], nullptr, 10));
-			e.fog_minclip3        = strtof(row[43], nullptr);
-			e.fog_maxclip3        = strtof(row[44], nullptr);
-			e.fog_red4            = static_cast<uint8_t>(strtoul(row[45], nullptr, 10));
-			e.fog_green4          = static_cast<uint8_t>(strtoul(row[46], nullptr, 10));
-			e.fog_blue4           = static_cast<uint8_t>(strtoul(row[47], nullptr, 10));
-			e.fog_minclip4        = strtof(row[48], nullptr);
-			e.fog_maxclip4        = strtof(row[49], nullptr);
-			e.fog_density         = strtof(row[50], nullptr);
-			e.flag_needed         = row[51] ? row[51] : "";
-			e.canbind             = static_cast<int8_t>(atoi(row[52]));
-			e.cancombat           = static_cast<int8_t>(atoi(row[53]));
-			e.canlevitate         = static_cast<int8_t>(atoi(row[54]));
-			e.castoutdoor         = static_cast<int8_t>(atoi(row[55]));
-			e.hotzone             = static_cast<uint8_t>(strtoul(row[56], nullptr, 10));
-			e.shutdowndelay       = strtoull(row[57], nullptr, 10);
-			e.peqzone             = static_cast<int8_t>(atoi(row[58]));
-			e.expansion           = static_cast<int8_t>(atoi(row[59]));
-			e.suspendbuffs        = static_cast<uint8_t>(strtoul(row[60], nullptr, 10));
-			e.rain_chance1        = static_cast<int32_t>(atoi(row[61]));
-			e.rain_chance2        = static_cast<int32_t>(atoi(row[62]));
-			e.rain_chance3        = static_cast<int32_t>(atoi(row[63]));
-			e.rain_chance4        = static_cast<int32_t>(atoi(row[64]));
-			e.rain_duration1      = static_cast<int32_t>(atoi(row[65]));
-			e.rain_duration2      = static_cast<int32_t>(atoi(row[66]));
-			e.rain_duration3      = static_cast<int32_t>(atoi(row[67]));
-			e.rain_duration4      = static_cast<int32_t>(atoi(row[68]));
-			e.snow_chance1        = static_cast<int32_t>(atoi(row[69]));
-			e.snow_chance2        = static_cast<int32_t>(atoi(row[70]));
-			e.snow_chance3        = static_cast<int32_t>(atoi(row[71]));
-			e.snow_chance4        = static_cast<int32_t>(atoi(row[72]));
-			e.snow_duration1      = static_cast<int32_t>(atoi(row[73]));
-			e.snow_duration2      = static_cast<int32_t>(atoi(row[74]));
-			e.snow_duration3      = static_cast<int32_t>(atoi(row[75]));
-			e.snow_duration4      = static_cast<int32_t>(atoi(row[76]));
-			e.type                = static_cast<int32_t>(atoi(row[77]));
-			e.skylock             = static_cast<int8_t>(atoi(row[78]));
-			e.skip_los            = static_cast<int8_t>(atoi(row[79]));
-			e.music               = static_cast<int8_t>(atoi(row[80]));
-			e.random_loc          = static_cast<int8_t>(atoi(row[81]));
-			e.dragaggro           = static_cast<int8_t>(atoi(row[82]));
-			e.never_idle          = static_cast<int8_t>(atoi(row[83]));
-			e.castdungeon         = static_cast<int8_t>(atoi(row[84]));
-			e.pull_limit          = static_cast<uint16_t>(strtoul(row[85], nullptr, 10));
-			e.graveyard_time      = static_cast<int32_t>(atoi(row[86]));
-			e.max_z               = strtof(row[87], nullptr);
+			e.short_name             = row[0] ? row[0] : "";
+			e.id                     = row[1] ? static_cast<int32_t>(atoi(row[1])) : 0;
+			e.file_name              = row[2] ? row[2] : "";
+			e.long_name              = row[3] ? row[3] : "";
+			e.map_file_name          = row[4] ? row[4] : "";
+			e.safe_x                 = row[5] ? strtof(row[5], nullptr) : 0;
+			e.safe_y                 = row[6] ? strtof(row[6], nullptr) : 0;
+			e.safe_z                 = row[7] ? strtof(row[7], nullptr) : 0;
+			e.safe_heading           = row[8] ? strtof(row[8], nullptr) : 0;
+			e.graveyard_id           = row[9] ? strtof(row[9], nullptr) : 0;
+			e.min_level              = row[10] ? static_cast<uint8_t>(strtoul(row[10], nullptr, 10)) : 0;
+			e.min_status             = row[11] ? static_cast<uint8_t>(strtoul(row[11], nullptr, 10)) : 0;
+			e.zoneidnumber           = row[12] ? static_cast<int32_t>(atoi(row[12])) : 0;
+			e.timezone               = row[13] ? static_cast<int32_t>(atoi(row[13])) : 0;
+			e.maxclients             = row[14] ? static_cast<int32_t>(atoi(row[14])) : 0;
+			e.ruleset                = row[15] ? static_cast<uint32_t>(strtoul(row[15], nullptr, 10)) : 0;
+			e.note                   = row[16] ? row[16] : "";
+			e.underworld             = row[17] ? strtof(row[17], nullptr) : 0;
+			e.minclip                = row[18] ? strtof(row[18], nullptr) : 450;
+			e.maxclip                = row[19] ? strtof(row[19], nullptr) : 450;
+			e.fog_minclip            = row[20] ? strtof(row[20], nullptr) : 450;
+			e.fog_maxclip            = row[21] ? strtof(row[21], nullptr) : 450;
+			e.fog_blue               = row[22] ? static_cast<uint8_t>(strtoul(row[22], nullptr, 10)) : 0;
+			e.fog_red                = row[23] ? static_cast<uint8_t>(strtoul(row[23], nullptr, 10)) : 0;
+			e.fog_green              = row[24] ? static_cast<uint8_t>(strtoul(row[24], nullptr, 10)) : 0;
+			e.sky                    = row[25] ? static_cast<uint8_t>(strtoul(row[25], nullptr, 10)) : 1;
+			e.ztype                  = row[26] ? static_cast<uint8_t>(strtoul(row[26], nullptr, 10)) : 1;
+			e.zone_exp_multiplier    = row[27] ? strtof(row[27], nullptr) : 0.00;
+			e.gravity                = row[28] ? strtof(row[28], nullptr) : 0.4;
+			e.time_type              = row[29] ? static_cast<uint8_t>(strtoul(row[29], nullptr, 10)) : 2;
+			e.fog_red1               = row[30] ? static_cast<uint8_t>(strtoul(row[30], nullptr, 10)) : 0;
+			e.fog_green1             = row[31] ? static_cast<uint8_t>(strtoul(row[31], nullptr, 10)) : 0;
+			e.fog_blue1              = row[32] ? static_cast<uint8_t>(strtoul(row[32], nullptr, 10)) : 0;
+			e.fog_minclip1           = row[33] ? strtof(row[33], nullptr) : 450;
+			e.fog_maxclip1           = row[34] ? strtof(row[34], nullptr) : 450;
+			e.fog_red2               = row[35] ? static_cast<uint8_t>(strtoul(row[35], nullptr, 10)) : 0;
+			e.fog_green2             = row[36] ? static_cast<uint8_t>(strtoul(row[36], nullptr, 10)) : 0;
+			e.fog_blue2              = row[37] ? static_cast<uint8_t>(strtoul(row[37], nullptr, 10)) : 0;
+			e.fog_minclip2           = row[38] ? strtof(row[38], nullptr) : 450;
+			e.fog_maxclip2           = row[39] ? strtof(row[39], nullptr) : 450;
+			e.fog_red3               = row[40] ? static_cast<uint8_t>(strtoul(row[40], nullptr, 10)) : 0;
+			e.fog_green3             = row[41] ? static_cast<uint8_t>(strtoul(row[41], nullptr, 10)) : 0;
+			e.fog_blue3              = row[42] ? static_cast<uint8_t>(strtoul(row[42], nullptr, 10)) : 0;
+			e.fog_minclip3           = row[43] ? strtof(row[43], nullptr) : 450;
+			e.fog_maxclip3           = row[44] ? strtof(row[44], nullptr) : 450;
+			e.fog_red4               = row[45] ? static_cast<uint8_t>(strtoul(row[45], nullptr, 10)) : 0;
+			e.fog_green4             = row[46] ? static_cast<uint8_t>(strtoul(row[46], nullptr, 10)) : 0;
+			e.fog_blue4              = row[47] ? static_cast<uint8_t>(strtoul(row[47], nullptr, 10)) : 0;
+			e.fog_minclip4           = row[48] ? strtof(row[48], nullptr) : 450;
+			e.fog_maxclip4           = row[49] ? strtof(row[49], nullptr) : 450;
+			e.fog_density            = row[50] ? strtof(row[50], nullptr) : 0;
+			e.flag_needed            = row[51] ? row[51] : "";
+			e.canbind                = row[52] ? static_cast<int8_t>(atoi(row[52])) : 1;
+			e.cancombat              = row[53] ? static_cast<int8_t>(atoi(row[53])) : 1;
+			e.canlevitate            = row[54] ? static_cast<int8_t>(atoi(row[54])) : 1;
+			e.castoutdoor            = row[55] ? static_cast<int8_t>(atoi(row[55])) : 1;
+			e.hotzone                = row[56] ? static_cast<uint8_t>(strtoul(row[56], nullptr, 10)) : 0;
+			e.shutdowndelay          = row[57] ? strtoull(row[57], nullptr, 10) : 5000;
+			e.peqzone                = row[58] ? static_cast<int8_t>(atoi(row[58])) : 1;
+			e.expansion              = row[59] ? static_cast<int8_t>(atoi(row[59])) : 0;
+			e.suspendbuffs           = row[60] ? static_cast<uint8_t>(strtoul(row[60], nullptr, 10)) : 0;
+			e.rain_chance1           = row[61] ? static_cast<int32_t>(atoi(row[61])) : 0;
+			e.rain_chance2           = row[62] ? static_cast<int32_t>(atoi(row[62])) : 0;
+			e.rain_chance3           = row[63] ? static_cast<int32_t>(atoi(row[63])) : 0;
+			e.rain_chance4           = row[64] ? static_cast<int32_t>(atoi(row[64])) : 0;
+			e.rain_duration1         = row[65] ? static_cast<int32_t>(atoi(row[65])) : 0;
+			e.rain_duration2         = row[66] ? static_cast<int32_t>(atoi(row[66])) : 0;
+			e.rain_duration3         = row[67] ? static_cast<int32_t>(atoi(row[67])) : 0;
+			e.rain_duration4         = row[68] ? static_cast<int32_t>(atoi(row[68])) : 0;
+			e.snow_chance1           = row[69] ? static_cast<int32_t>(atoi(row[69])) : 0;
+			e.snow_chance2           = row[70] ? static_cast<int32_t>(atoi(row[70])) : 0;
+			e.snow_chance3           = row[71] ? static_cast<int32_t>(atoi(row[71])) : 0;
+			e.snow_chance4           = row[72] ? static_cast<int32_t>(atoi(row[72])) : 0;
+			e.snow_duration1         = row[73] ? static_cast<int32_t>(atoi(row[73])) : 0;
+			e.snow_duration2         = row[74] ? static_cast<int32_t>(atoi(row[74])) : 0;
+			e.snow_duration3         = row[75] ? static_cast<int32_t>(atoi(row[75])) : 0;
+			e.snow_duration4         = row[76] ? static_cast<int32_t>(atoi(row[76])) : 0;
+			e.type                   = row[77] ? static_cast<int32_t>(atoi(row[77])) : 0;
+			e.skylock                = row[78] ? static_cast<int8_t>(atoi(row[78])) : 0;
+			e.skip_los               = row[79] ? static_cast<int8_t>(atoi(row[79])) : 0;
+			e.music                  = row[80] ? static_cast<int8_t>(atoi(row[80])) : 0;
+			e.random_loc             = row[81] ? static_cast<int8_t>(atoi(row[81])) : 3;
+			e.dragaggro              = row[82] ? static_cast<int8_t>(atoi(row[82])) : 0;
+			e.never_idle             = row[83] ? static_cast<int8_t>(atoi(row[83])) : 0;
+			e.castdungeon            = row[84] ? static_cast<int8_t>(atoi(row[84])) : 0;
+			e.pull_limit             = row[85] ? static_cast<uint16_t>(strtoul(row[85], nullptr, 10)) : 80;
+			e.graveyard_time         = row[86] ? static_cast<int32_t>(atoi(row[86])) : 1;
+			e.max_z                  = row[87] ? strtof(row[87], nullptr) : 10000;
+			e.min_expansion          = row[88] ? static_cast<int8_t>(atoi(row[88])) : -1;
+			e.max_expansion          = row[89] ? static_cast<int8_t>(atoi(row[89])) : -1;
+			e.content_flags          = row[90] ? row[90] : "";
+			e.content_flags_disabled = row[91] ? row[91] : "";
 
 			return e;
 		}
@@ -672,6 +691,10 @@ public:
 		v.push_back(columns[85] + " = " + std::to_string(e.pull_limit));
 		v.push_back(columns[86] + " = " + std::to_string(e.graveyard_time));
 		v.push_back(columns[87] + " = " + std::to_string(e.max_z));
+		v.push_back(columns[88] + " = " + std::to_string(e.min_expansion));
+		v.push_back(columns[89] + " = " + std::to_string(e.max_expansion));
+		v.push_back(columns[90] + " = '" + Strings::Escape(e.content_flags) + "'");
+		v.push_back(columns[91] + " = '" + Strings::Escape(e.content_flags_disabled) + "'");
 
 		auto results = db.QueryDatabase(
 			fmt::format(
@@ -781,6 +804,10 @@ public:
 		v.push_back(std::to_string(e.pull_limit));
 		v.push_back(std::to_string(e.graveyard_time));
 		v.push_back(std::to_string(e.max_z));
+		v.push_back(std::to_string(e.min_expansion));
+		v.push_back(std::to_string(e.max_expansion));
+		v.push_back("'" + Strings::Escape(e.content_flags) + "'");
+		v.push_back("'" + Strings::Escape(e.content_flags_disabled) + "'");
 
 		auto results = db.QueryDatabase(
 			fmt::format(
@@ -898,6 +925,10 @@ public:
 			v.push_back(std::to_string(e.pull_limit));
 			v.push_back(std::to_string(e.graveyard_time));
 			v.push_back(std::to_string(e.max_z));
+			v.push_back(std::to_string(e.min_expansion));
+			v.push_back(std::to_string(e.max_expansion));
+			v.push_back("'" + Strings::Escape(e.content_flags) + "'");
+			v.push_back("'" + Strings::Escape(e.content_flags_disabled) + "'");
 
 			insert_chunks.push_back("(" + Strings::Implode(",", v) + ")");
 		}
@@ -931,94 +962,98 @@ public:
 		for (auto row = results.begin(); row != results.end(); ++row) {
 			Zone e{};
 
-			e.short_name          = row[0] ? row[0] : "";
-			e.id                  = static_cast<int32_t>(atoi(row[1]));
-			e.file_name           = row[2] ? row[2] : "";
-			e.long_name           = row[3] ? row[3] : "";
-			e.map_file_name       = row[4] ? row[4] : "";
-			e.safe_x              = strtof(row[5], nullptr);
-			e.safe_y              = strtof(row[6], nullptr);
-			e.safe_z              = strtof(row[7], nullptr);
-			e.safe_heading        = strtof(row[8], nullptr);
-			e.graveyard_id        = strtof(row[9], nullptr);
-			e.min_level           = static_cast<uint8_t>(strtoul(row[10], nullptr, 10));
-			e.min_status          = static_cast<uint8_t>(strtoul(row[11], nullptr, 10));
-			e.zoneidnumber        = static_cast<int32_t>(atoi(row[12]));
-			e.timezone            = static_cast<int32_t>(atoi(row[13]));
-			e.maxclients          = static_cast<int32_t>(atoi(row[14]));
-			e.ruleset             = static_cast<uint32_t>(strtoul(row[15], nullptr, 10));
-			e.note                = row[16] ? row[16] : "";
-			e.underworld          = strtof(row[17], nullptr);
-			e.minclip             = strtof(row[18], nullptr);
-			e.maxclip             = strtof(row[19], nullptr);
-			e.fog_minclip         = strtof(row[20], nullptr);
-			e.fog_maxclip         = strtof(row[21], nullptr);
-			e.fog_blue            = static_cast<uint8_t>(strtoul(row[22], nullptr, 10));
-			e.fog_red             = static_cast<uint8_t>(strtoul(row[23], nullptr, 10));
-			e.fog_green           = static_cast<uint8_t>(strtoul(row[24], nullptr, 10));
-			e.sky                 = static_cast<uint8_t>(strtoul(row[25], nullptr, 10));
-			e.ztype               = static_cast<uint8_t>(strtoul(row[26], nullptr, 10));
-			e.zone_exp_multiplier = strtof(row[27], nullptr);
-			e.gravity             = strtof(row[28], nullptr);
-			e.time_type           = static_cast<uint8_t>(strtoul(row[29], nullptr, 10));
-			e.fog_red1            = static_cast<uint8_t>(strtoul(row[30], nullptr, 10));
-			e.fog_green1          = static_cast<uint8_t>(strtoul(row[31], nullptr, 10));
-			e.fog_blue1           = static_cast<uint8_t>(strtoul(row[32], nullptr, 10));
-			e.fog_minclip1        = strtof(row[33], nullptr);
-			e.fog_maxclip1        = strtof(row[34], nullptr);
-			e.fog_red2            = static_cast<uint8_t>(strtoul(row[35], nullptr, 10));
-			e.fog_green2          = static_cast<uint8_t>(strtoul(row[36], nullptr, 10));
-			e.fog_blue2           = static_cast<uint8_t>(strtoul(row[37], nullptr, 10));
-			e.fog_minclip2        = strtof(row[38], nullptr);
-			e.fog_maxclip2        = strtof(row[39], nullptr);
-			e.fog_red3            = static_cast<uint8_t>(strtoul(row[40], nullptr, 10));
-			e.fog_green3          = static_cast<uint8_t>(strtoul(row[41], nullptr, 10));
-			e.fog_blue3           = static_cast<uint8_t>(strtoul(row[42], nullptr, 10));
-			e.fog_minclip3        = strtof(row[43], nullptr);
-			e.fog_maxclip3        = strtof(row[44], nullptr);
-			e.fog_red4            = static_cast<uint8_t>(strtoul(row[45], nullptr, 10));
-			e.fog_green4          = static_cast<uint8_t>(strtoul(row[46], nullptr, 10));
-			e.fog_blue4           = static_cast<uint8_t>(strtoul(row[47], nullptr, 10));
-			e.fog_minclip4        = strtof(row[48], nullptr);
-			e.fog_maxclip4        = strtof(row[49], nullptr);
-			e.fog_density         = strtof(row[50], nullptr);
-			e.flag_needed         = row[51] ? row[51] : "";
-			e.canbind             = static_cast<int8_t>(atoi(row[52]));
-			e.cancombat           = static_cast<int8_t>(atoi(row[53]));
-			e.canlevitate         = static_cast<int8_t>(atoi(row[54]));
-			e.castoutdoor         = static_cast<int8_t>(atoi(row[55]));
-			e.hotzone             = static_cast<uint8_t>(strtoul(row[56], nullptr, 10));
-			e.shutdowndelay       = strtoull(row[57], nullptr, 10);
-			e.peqzone             = static_cast<int8_t>(atoi(row[58]));
-			e.expansion           = static_cast<int8_t>(atoi(row[59]));
-			e.suspendbuffs        = static_cast<uint8_t>(strtoul(row[60], nullptr, 10));
-			e.rain_chance1        = static_cast<int32_t>(atoi(row[61]));
-			e.rain_chance2        = static_cast<int32_t>(atoi(row[62]));
-			e.rain_chance3        = static_cast<int32_t>(atoi(row[63]));
-			e.rain_chance4        = static_cast<int32_t>(atoi(row[64]));
-			e.rain_duration1      = static_cast<int32_t>(atoi(row[65]));
-			e.rain_duration2      = static_cast<int32_t>(atoi(row[66]));
-			e.rain_duration3      = static_cast<int32_t>(atoi(row[67]));
-			e.rain_duration4      = static_cast<int32_t>(atoi(row[68]));
-			e.snow_chance1        = static_cast<int32_t>(atoi(row[69]));
-			e.snow_chance2        = static_cast<int32_t>(atoi(row[70]));
-			e.snow_chance3        = static_cast<int32_t>(atoi(row[71]));
-			e.snow_chance4        = static_cast<int32_t>(atoi(row[72]));
-			e.snow_duration1      = static_cast<int32_t>(atoi(row[73]));
-			e.snow_duration2      = static_cast<int32_t>(atoi(row[74]));
-			e.snow_duration3      = static_cast<int32_t>(atoi(row[75]));
-			e.snow_duration4      = static_cast<int32_t>(atoi(row[76]));
-			e.type                = static_cast<int32_t>(atoi(row[77]));
-			e.skylock             = static_cast<int8_t>(atoi(row[78]));
-			e.skip_los            = static_cast<int8_t>(atoi(row[79]));
-			e.music               = static_cast<int8_t>(atoi(row[80]));
-			e.random_loc          = static_cast<int8_t>(atoi(row[81]));
-			e.dragaggro           = static_cast<int8_t>(atoi(row[82]));
-			e.never_idle          = static_cast<int8_t>(atoi(row[83]));
-			e.castdungeon         = static_cast<int8_t>(atoi(row[84]));
-			e.pull_limit          = static_cast<uint16_t>(strtoul(row[85], nullptr, 10));
-			e.graveyard_time      = static_cast<int32_t>(atoi(row[86]));
-			e.max_z               = strtof(row[87], nullptr);
+			e.short_name             = row[0] ? row[0] : "";
+			e.id                     = row[1] ? static_cast<int32_t>(atoi(row[1])) : 0;
+			e.file_name              = row[2] ? row[2] : "";
+			e.long_name              = row[3] ? row[3] : "";
+			e.map_file_name          = row[4] ? row[4] : "";
+			e.safe_x                 = row[5] ? strtof(row[5], nullptr) : 0;
+			e.safe_y                 = row[6] ? strtof(row[6], nullptr) : 0;
+			e.safe_z                 = row[7] ? strtof(row[7], nullptr) : 0;
+			e.safe_heading           = row[8] ? strtof(row[8], nullptr) : 0;
+			e.graveyard_id           = row[9] ? strtof(row[9], nullptr) : 0;
+			e.min_level              = row[10] ? static_cast<uint8_t>(strtoul(row[10], nullptr, 10)) : 0;
+			e.min_status             = row[11] ? static_cast<uint8_t>(strtoul(row[11], nullptr, 10)) : 0;
+			e.zoneidnumber           = row[12] ? static_cast<int32_t>(atoi(row[12])) : 0;
+			e.timezone               = row[13] ? static_cast<int32_t>(atoi(row[13])) : 0;
+			e.maxclients             = row[14] ? static_cast<int32_t>(atoi(row[14])) : 0;
+			e.ruleset                = row[15] ? static_cast<uint32_t>(strtoul(row[15], nullptr, 10)) : 0;
+			e.note                   = row[16] ? row[16] : "";
+			e.underworld             = row[17] ? strtof(row[17], nullptr) : 0;
+			e.minclip                = row[18] ? strtof(row[18], nullptr) : 450;
+			e.maxclip                = row[19] ? strtof(row[19], nullptr) : 450;
+			e.fog_minclip            = row[20] ? strtof(row[20], nullptr) : 450;
+			e.fog_maxclip            = row[21] ? strtof(row[21], nullptr) : 450;
+			e.fog_blue               = row[22] ? static_cast<uint8_t>(strtoul(row[22], nullptr, 10)) : 0;
+			e.fog_red                = row[23] ? static_cast<uint8_t>(strtoul(row[23], nullptr, 10)) : 0;
+			e.fog_green              = row[24] ? static_cast<uint8_t>(strtoul(row[24], nullptr, 10)) : 0;
+			e.sky                    = row[25] ? static_cast<uint8_t>(strtoul(row[25], nullptr, 10)) : 1;
+			e.ztype                  = row[26] ? static_cast<uint8_t>(strtoul(row[26], nullptr, 10)) : 1;
+			e.zone_exp_multiplier    = row[27] ? strtof(row[27], nullptr) : 0.00;
+			e.gravity                = row[28] ? strtof(row[28], nullptr) : 0.4;
+			e.time_type              = row[29] ? static_cast<uint8_t>(strtoul(row[29], nullptr, 10)) : 2;
+			e.fog_red1               = row[30] ? static_cast<uint8_t>(strtoul(row[30], nullptr, 10)) : 0;
+			e.fog_green1             = row[31] ? static_cast<uint8_t>(strtoul(row[31], nullptr, 10)) : 0;
+			e.fog_blue1              = row[32] ? static_cast<uint8_t>(strtoul(row[32], nullptr, 10)) : 0;
+			e.fog_minclip1           = row[33] ? strtof(row[33], nullptr) : 450;
+			e.fog_maxclip1           = row[34] ? strtof(row[34], nullptr) : 450;
+			e.fog_red2               = row[35] ? static_cast<uint8_t>(strtoul(row[35], nullptr, 10)) : 0;
+			e.fog_green2             = row[36] ? static_cast<uint8_t>(strtoul(row[36], nullptr, 10)) : 0;
+			e.fog_blue2              = row[37] ? static_cast<uint8_t>(strtoul(row[37], nullptr, 10)) : 0;
+			e.fog_minclip2           = row[38] ? strtof(row[38], nullptr) : 450;
+			e.fog_maxclip2           = row[39] ? strtof(row[39], nullptr) : 450;
+			e.fog_red3               = row[40] ? static_cast<uint8_t>(strtoul(row[40], nullptr, 10)) : 0;
+			e.fog_green3             = row[41] ? static_cast<uint8_t>(strtoul(row[41], nullptr, 10)) : 0;
+			e.fog_blue3              = row[42] ? static_cast<uint8_t>(strtoul(row[42], nullptr, 10)) : 0;
+			e.fog_minclip3           = row[43] ? strtof(row[43], nullptr) : 450;
+			e.fog_maxclip3           = row[44] ? strtof(row[44], nullptr) : 450;
+			e.fog_red4               = row[45] ? static_cast<uint8_t>(strtoul(row[45], nullptr, 10)) : 0;
+			e.fog_green4             = row[46] ? static_cast<uint8_t>(strtoul(row[46], nullptr, 10)) : 0;
+			e.fog_blue4              = row[47] ? static_cast<uint8_t>(strtoul(row[47], nullptr, 10)) : 0;
+			e.fog_minclip4           = row[48] ? strtof(row[48], nullptr) : 450;
+			e.fog_maxclip4           = row[49] ? strtof(row[49], nullptr) : 450;
+			e.fog_density            = row[50] ? strtof(row[50], nullptr) : 0;
+			e.flag_needed            = row[51] ? row[51] : "";
+			e.canbind                = row[52] ? static_cast<int8_t>(atoi(row[52])) : 1;
+			e.cancombat              = row[53] ? static_cast<int8_t>(atoi(row[53])) : 1;
+			e.canlevitate            = row[54] ? static_cast<int8_t>(atoi(row[54])) : 1;
+			e.castoutdoor            = row[55] ? static_cast<int8_t>(atoi(row[55])) : 1;
+			e.hotzone                = row[56] ? static_cast<uint8_t>(strtoul(row[56], nullptr, 10)) : 0;
+			e.shutdowndelay          = row[57] ? strtoull(row[57], nullptr, 10) : 5000;
+			e.peqzone                = row[58] ? static_cast<int8_t>(atoi(row[58])) : 1;
+			e.expansion              = row[59] ? static_cast<int8_t>(atoi(row[59])) : 0;
+			e.suspendbuffs           = row[60] ? static_cast<uint8_t>(strtoul(row[60], nullptr, 10)) : 0;
+			e.rain_chance1           = row[61] ? static_cast<int32_t>(atoi(row[61])) : 0;
+			e.rain_chance2           = row[62] ? static_cast<int32_t>(atoi(row[62])) : 0;
+			e.rain_chance3           = row[63] ? static_cast<int32_t>(atoi(row[63])) : 0;
+			e.rain_chance4           = row[64] ? static_cast<int32_t>(atoi(row[64])) : 0;
+			e.rain_duration1         = row[65] ? static_cast<int32_t>(atoi(row[65])) : 0;
+			e.rain_duration2         = row[66] ? static_cast<int32_t>(atoi(row[66])) : 0;
+			e.rain_duration3         = row[67] ? static_cast<int32_t>(atoi(row[67])) : 0;
+			e.rain_duration4         = row[68] ? static_cast<int32_t>(atoi(row[68])) : 0;
+			e.snow_chance1           = row[69] ? static_cast<int32_t>(atoi(row[69])) : 0;
+			e.snow_chance2           = row[70] ? static_cast<int32_t>(atoi(row[70])) : 0;
+			e.snow_chance3           = row[71] ? static_cast<int32_t>(atoi(row[71])) : 0;
+			e.snow_chance4           = row[72] ? static_cast<int32_t>(atoi(row[72])) : 0;
+			e.snow_duration1         = row[73] ? static_cast<int32_t>(atoi(row[73])) : 0;
+			e.snow_duration2         = row[74] ? static_cast<int32_t>(atoi(row[74])) : 0;
+			e.snow_duration3         = row[75] ? static_cast<int32_t>(atoi(row[75])) : 0;
+			e.snow_duration4         = row[76] ? static_cast<int32_t>(atoi(row[76])) : 0;
+			e.type                   = row[77] ? static_cast<int32_t>(atoi(row[77])) : 0;
+			e.skylock                = row[78] ? static_cast<int8_t>(atoi(row[78])) : 0;
+			e.skip_los               = row[79] ? static_cast<int8_t>(atoi(row[79])) : 0;
+			e.music                  = row[80] ? static_cast<int8_t>(atoi(row[80])) : 0;
+			e.random_loc             = row[81] ? static_cast<int8_t>(atoi(row[81])) : 3;
+			e.dragaggro              = row[82] ? static_cast<int8_t>(atoi(row[82])) : 0;
+			e.never_idle             = row[83] ? static_cast<int8_t>(atoi(row[83])) : 0;
+			e.castdungeon            = row[84] ? static_cast<int8_t>(atoi(row[84])) : 0;
+			e.pull_limit             = row[85] ? static_cast<uint16_t>(strtoul(row[85], nullptr, 10)) : 80;
+			e.graveyard_time         = row[86] ? static_cast<int32_t>(atoi(row[86])) : 1;
+			e.max_z                  = row[87] ? strtof(row[87], nullptr) : 10000;
+			e.min_expansion          = row[88] ? static_cast<int8_t>(atoi(row[88])) : -1;
+			e.max_expansion          = row[89] ? static_cast<int8_t>(atoi(row[89])) : -1;
+			e.content_flags          = row[90] ? row[90] : "";
+			e.content_flags_disabled = row[91] ? row[91] : "";
 
 			all_entries.push_back(e);
 		}
@@ -1043,94 +1078,98 @@ public:
 		for (auto row = results.begin(); row != results.end(); ++row) {
 			Zone e{};
 
-			e.short_name          = row[0] ? row[0] : "";
-			e.id                  = static_cast<int32_t>(atoi(row[1]));
-			e.file_name           = row[2] ? row[2] : "";
-			e.long_name           = row[3] ? row[3] : "";
-			e.map_file_name       = row[4] ? row[4] : "";
-			e.safe_x              = strtof(row[5], nullptr);
-			e.safe_y              = strtof(row[6], nullptr);
-			e.safe_z              = strtof(row[7], nullptr);
-			e.safe_heading        = strtof(row[8], nullptr);
-			e.graveyard_id        = strtof(row[9], nullptr);
-			e.min_level           = static_cast<uint8_t>(strtoul(row[10], nullptr, 10));
-			e.min_status          = static_cast<uint8_t>(strtoul(row[11], nullptr, 10));
-			e.zoneidnumber        = static_cast<int32_t>(atoi(row[12]));
-			e.timezone            = static_cast<int32_t>(atoi(row[13]));
-			e.maxclients          = static_cast<int32_t>(atoi(row[14]));
-			e.ruleset             = static_cast<uint32_t>(strtoul(row[15], nullptr, 10));
-			e.note                = row[16] ? row[16] : "";
-			e.underworld          = strtof(row[17], nullptr);
-			e.minclip             = strtof(row[18], nullptr);
-			e.maxclip             = strtof(row[19], nullptr);
-			e.fog_minclip         = strtof(row[20], nullptr);
-			e.fog_maxclip         = strtof(row[21], nullptr);
-			e.fog_blue            = static_cast<uint8_t>(strtoul(row[22], nullptr, 10));
-			e.fog_red             = static_cast<uint8_t>(strtoul(row[23], nullptr, 10));
-			e.fog_green           = static_cast<uint8_t>(strtoul(row[24], nullptr, 10));
-			e.sky                 = static_cast<uint8_t>(strtoul(row[25], nullptr, 10));
-			e.ztype               = static_cast<uint8_t>(strtoul(row[26], nullptr, 10));
-			e.zone_exp_multiplier = strtof(row[27], nullptr);
-			e.gravity             = strtof(row[28], nullptr);
-			e.time_type           = static_cast<uint8_t>(strtoul(row[29], nullptr, 10));
-			e.fog_red1            = static_cast<uint8_t>(strtoul(row[30], nullptr, 10));
-			e.fog_green1          = static_cast<uint8_t>(strtoul(row[31], nullptr, 10));
-			e.fog_blue1           = static_cast<uint8_t>(strtoul(row[32], nullptr, 10));
-			e.fog_minclip1        = strtof(row[33], nullptr);
-			e.fog_maxclip1        = strtof(row[34], nullptr);
-			e.fog_red2            = static_cast<uint8_t>(strtoul(row[35], nullptr, 10));
-			e.fog_green2          = static_cast<uint8_t>(strtoul(row[36], nullptr, 10));
-			e.fog_blue2           = static_cast<uint8_t>(strtoul(row[37], nullptr, 10));
-			e.fog_minclip2        = strtof(row[38], nullptr);
-			e.fog_maxclip2        = strtof(row[39], nullptr);
-			e.fog_red3            = static_cast<uint8_t>(strtoul(row[40], nullptr, 10));
-			e.fog_green3          = static_cast<uint8_t>(strtoul(row[41], nullptr, 10));
-			e.fog_blue3           = static_cast<uint8_t>(strtoul(row[42], nullptr, 10));
-			e.fog_minclip3        = strtof(row[43], nullptr);
-			e.fog_maxclip3        = strtof(row[44], nullptr);
-			e.fog_red4            = static_cast<uint8_t>(strtoul(row[45], nullptr, 10));
-			e.fog_green4          = static_cast<uint8_t>(strtoul(row[46], nullptr, 10));
-			e.fog_blue4           = static_cast<uint8_t>(strtoul(row[47], nullptr, 10));
-			e.fog_minclip4        = strtof(row[48], nullptr);
-			e.fog_maxclip4        = strtof(row[49], nullptr);
-			e.fog_density         = strtof(row[50], nullptr);
-			e.flag_needed         = row[51] ? row[51] : "";
-			e.canbind             = static_cast<int8_t>(atoi(row[52]));
-			e.cancombat           = static_cast<int8_t>(atoi(row[53]));
-			e.canlevitate         = static_cast<int8_t>(atoi(row[54]));
-			e.castoutdoor         = static_cast<int8_t>(atoi(row[55]));
-			e.hotzone             = static_cast<uint8_t>(strtoul(row[56], nullptr, 10));
-			e.shutdowndelay       = strtoull(row[57], nullptr, 10);
-			e.peqzone             = static_cast<int8_t>(atoi(row[58]));
-			e.expansion           = static_cast<int8_t>(atoi(row[59]));
-			e.suspendbuffs        = static_cast<uint8_t>(strtoul(row[60], nullptr, 10));
-			e.rain_chance1        = static_cast<int32_t>(atoi(row[61]));
-			e.rain_chance2        = static_cast<int32_t>(atoi(row[62]));
-			e.rain_chance3        = static_cast<int32_t>(atoi(row[63]));
-			e.rain_chance4        = static_cast<int32_t>(atoi(row[64]));
-			e.rain_duration1      = static_cast<int32_t>(atoi(row[65]));
-			e.rain_duration2      = static_cast<int32_t>(atoi(row[66]));
-			e.rain_duration3      = static_cast<int32_t>(atoi(row[67]));
-			e.rain_duration4      = static_cast<int32_t>(atoi(row[68]));
-			e.snow_chance1        = static_cast<int32_t>(atoi(row[69]));
-			e.snow_chance2        = static_cast<int32_t>(atoi(row[70]));
-			e.snow_chance3        = static_cast<int32_t>(atoi(row[71]));
-			e.snow_chance4        = static_cast<int32_t>(atoi(row[72]));
-			e.snow_duration1      = static_cast<int32_t>(atoi(row[73]));
-			e.snow_duration2      = static_cast<int32_t>(atoi(row[74]));
-			e.snow_duration3      = static_cast<int32_t>(atoi(row[75]));
-			e.snow_duration4      = static_cast<int32_t>(atoi(row[76]));
-			e.type                = static_cast<int32_t>(atoi(row[77]));
-			e.skylock             = static_cast<int8_t>(atoi(row[78]));
-			e.skip_los            = static_cast<int8_t>(atoi(row[79]));
-			e.music               = static_cast<int8_t>(atoi(row[80]));
-			e.random_loc          = static_cast<int8_t>(atoi(row[81]));
-			e.dragaggro           = static_cast<int8_t>(atoi(row[82]));
-			e.never_idle          = static_cast<int8_t>(atoi(row[83]));
-			e.castdungeon         = static_cast<int8_t>(atoi(row[84]));
-			e.pull_limit          = static_cast<uint16_t>(strtoul(row[85], nullptr, 10));
-			e.graveyard_time      = static_cast<int32_t>(atoi(row[86]));
-			e.max_z               = strtof(row[87], nullptr);
+			e.short_name             = row[0] ? row[0] : "";
+			e.id                     = row[1] ? static_cast<int32_t>(atoi(row[1])) : 0;
+			e.file_name              = row[2] ? row[2] : "";
+			e.long_name              = row[3] ? row[3] : "";
+			e.map_file_name          = row[4] ? row[4] : "";
+			e.safe_x                 = row[5] ? strtof(row[5], nullptr) : 0;
+			e.safe_y                 = row[6] ? strtof(row[6], nullptr) : 0;
+			e.safe_z                 = row[7] ? strtof(row[7], nullptr) : 0;
+			e.safe_heading           = row[8] ? strtof(row[8], nullptr) : 0;
+			e.graveyard_id           = row[9] ? strtof(row[9], nullptr) : 0;
+			e.min_level              = row[10] ? static_cast<uint8_t>(strtoul(row[10], nullptr, 10)) : 0;
+			e.min_status             = row[11] ? static_cast<uint8_t>(strtoul(row[11], nullptr, 10)) : 0;
+			e.zoneidnumber           = row[12] ? static_cast<int32_t>(atoi(row[12])) : 0;
+			e.timezone               = row[13] ? static_cast<int32_t>(atoi(row[13])) : 0;
+			e.maxclients             = row[14] ? static_cast<int32_t>(atoi(row[14])) : 0;
+			e.ruleset                = row[15] ? static_cast<uint32_t>(strtoul(row[15], nullptr, 10)) : 0;
+			e.note                   = row[16] ? row[16] : "";
+			e.underworld             = row[17] ? strtof(row[17], nullptr) : 0;
+			e.minclip                = row[18] ? strtof(row[18], nullptr) : 450;
+			e.maxclip                = row[19] ? strtof(row[19], nullptr) : 450;
+			e.fog_minclip            = row[20] ? strtof(row[20], nullptr) : 450;
+			e.fog_maxclip            = row[21] ? strtof(row[21], nullptr) : 450;
+			e.fog_blue               = row[22] ? static_cast<uint8_t>(strtoul(row[22], nullptr, 10)) : 0;
+			e.fog_red                = row[23] ? static_cast<uint8_t>(strtoul(row[23], nullptr, 10)) : 0;
+			e.fog_green              = row[24] ? static_cast<uint8_t>(strtoul(row[24], nullptr, 10)) : 0;
+			e.sky                    = row[25] ? static_cast<uint8_t>(strtoul(row[25], nullptr, 10)) : 1;
+			e.ztype                  = row[26] ? static_cast<uint8_t>(strtoul(row[26], nullptr, 10)) : 1;
+			e.zone_exp_multiplier    = row[27] ? strtof(row[27], nullptr) : 0.00;
+			e.gravity                = row[28] ? strtof(row[28], nullptr) : 0.4;
+			e.time_type              = row[29] ? static_cast<uint8_t>(strtoul(row[29], nullptr, 10)) : 2;
+			e.fog_red1               = row[30] ? static_cast<uint8_t>(strtoul(row[30], nullptr, 10)) : 0;
+			e.fog_green1             = row[31] ? static_cast<uint8_t>(strtoul(row[31], nullptr, 10)) : 0;
+			e.fog_blue1              = row[32] ? static_cast<uint8_t>(strtoul(row[32], nullptr, 10)) : 0;
+			e.fog_minclip1           = row[33] ? strtof(row[33], nullptr) : 450;
+			e.fog_maxclip1           = row[34] ? strtof(row[34], nullptr) : 450;
+			e.fog_red2               = row[35] ? static_cast<uint8_t>(strtoul(row[35], nullptr, 10)) : 0;
+			e.fog_green2             = row[36] ? static_cast<uint8_t>(strtoul(row[36], nullptr, 10)) : 0;
+			e.fog_blue2              = row[37] ? static_cast<uint8_t>(strtoul(row[37], nullptr, 10)) : 0;
+			e.fog_minclip2           = row[38] ? strtof(row[38], nullptr) : 450;
+			e.fog_maxclip2           = row[39] ? strtof(row[39], nullptr) : 450;
+			e.fog_red3               = row[40] ? static_cast<uint8_t>(strtoul(row[40], nullptr, 10)) : 0;
+			e.fog_green3             = row[41] ? static_cast<uint8_t>(strtoul(row[41], nullptr, 10)) : 0;
+			e.fog_blue3              = row[42] ? static_cast<uint8_t>(strtoul(row[42], nullptr, 10)) : 0;
+			e.fog_minclip3           = row[43] ? strtof(row[43], nullptr) : 450;
+			e.fog_maxclip3           = row[44] ? strtof(row[44], nullptr) : 450;
+			e.fog_red4               = row[45] ? static_cast<uint8_t>(strtoul(row[45], nullptr, 10)) : 0;
+			e.fog_green4             = row[46] ? static_cast<uint8_t>(strtoul(row[46], nullptr, 10)) : 0;
+			e.fog_blue4              = row[47] ? static_cast<uint8_t>(strtoul(row[47], nullptr, 10)) : 0;
+			e.fog_minclip4           = row[48] ? strtof(row[48], nullptr) : 450;
+			e.fog_maxclip4           = row[49] ? strtof(row[49], nullptr) : 450;
+			e.fog_density            = row[50] ? strtof(row[50], nullptr) : 0;
+			e.flag_needed            = row[51] ? row[51] : "";
+			e.canbind                = row[52] ? static_cast<int8_t>(atoi(row[52])) : 1;
+			e.cancombat              = row[53] ? static_cast<int8_t>(atoi(row[53])) : 1;
+			e.canlevitate            = row[54] ? static_cast<int8_t>(atoi(row[54])) : 1;
+			e.castoutdoor            = row[55] ? static_cast<int8_t>(atoi(row[55])) : 1;
+			e.hotzone                = row[56] ? static_cast<uint8_t>(strtoul(row[56], nullptr, 10)) : 0;
+			e.shutdowndelay          = row[57] ? strtoull(row[57], nullptr, 10) : 5000;
+			e.peqzone                = row[58] ? static_cast<int8_t>(atoi(row[58])) : 1;
+			e.expansion              = row[59] ? static_cast<int8_t>(atoi(row[59])) : 0;
+			e.suspendbuffs           = row[60] ? static_cast<uint8_t>(strtoul(row[60], nullptr, 10)) : 0;
+			e.rain_chance1           = row[61] ? static_cast<int32_t>(atoi(row[61])) : 0;
+			e.rain_chance2           = row[62] ? static_cast<int32_t>(atoi(row[62])) : 0;
+			e.rain_chance3           = row[63] ? static_cast<int32_t>(atoi(row[63])) : 0;
+			e.rain_chance4           = row[64] ? static_cast<int32_t>(atoi(row[64])) : 0;
+			e.rain_duration1         = row[65] ? static_cast<int32_t>(atoi(row[65])) : 0;
+			e.rain_duration2         = row[66] ? static_cast<int32_t>(atoi(row[66])) : 0;
+			e.rain_duration3         = row[67] ? static_cast<int32_t>(atoi(row[67])) : 0;
+			e.rain_duration4         = row[68] ? static_cast<int32_t>(atoi(row[68])) : 0;
+			e.snow_chance1           = row[69] ? static_cast<int32_t>(atoi(row[69])) : 0;
+			e.snow_chance2           = row[70] ? static_cast<int32_t>(atoi(row[70])) : 0;
+			e.snow_chance3           = row[71] ? static_cast<int32_t>(atoi(row[71])) : 0;
+			e.snow_chance4           = row[72] ? static_cast<int32_t>(atoi(row[72])) : 0;
+			e.snow_duration1         = row[73] ? static_cast<int32_t>(atoi(row[73])) : 0;
+			e.snow_duration2         = row[74] ? static_cast<int32_t>(atoi(row[74])) : 0;
+			e.snow_duration3         = row[75] ? static_cast<int32_t>(atoi(row[75])) : 0;
+			e.snow_duration4         = row[76] ? static_cast<int32_t>(atoi(row[76])) : 0;
+			e.type                   = row[77] ? static_cast<int32_t>(atoi(row[77])) : 0;
+			e.skylock                = row[78] ? static_cast<int8_t>(atoi(row[78])) : 0;
+			e.skip_los               = row[79] ? static_cast<int8_t>(atoi(row[79])) : 0;
+			e.music                  = row[80] ? static_cast<int8_t>(atoi(row[80])) : 0;
+			e.random_loc             = row[81] ? static_cast<int8_t>(atoi(row[81])) : 3;
+			e.dragaggro              = row[82] ? static_cast<int8_t>(atoi(row[82])) : 0;
+			e.never_idle             = row[83] ? static_cast<int8_t>(atoi(row[83])) : 0;
+			e.castdungeon            = row[84] ? static_cast<int8_t>(atoi(row[84])) : 0;
+			e.pull_limit             = row[85] ? static_cast<uint16_t>(strtoul(row[85], nullptr, 10)) : 80;
+			e.graveyard_time         = row[86] ? static_cast<int32_t>(atoi(row[86])) : 1;
+			e.max_z                  = row[87] ? strtof(row[87], nullptr) : 10000;
+			e.min_expansion          = row[88] ? static_cast<int8_t>(atoi(row[88])) : -1;
+			e.max_expansion          = row[89] ? static_cast<int8_t>(atoi(row[89])) : -1;
+			e.content_flags          = row[90] ? row[90] : "";
+			e.content_flags_disabled = row[91] ? row[91] : "";
 
 			all_entries.push_back(e);
 		}
@@ -1189,6 +1228,244 @@ public:
 		return (results.Success() && results.begin()[0] ? strtoll(results.begin()[0], nullptr, 10) : 0);
 	}
 
+	static std::string BaseReplace()
+	{
+		return fmt::format(
+			"REPLACE INTO {} ({}) ",
+			TableName(),
+			ColumnsRaw()
+		);
+	}
+
+	static int ReplaceOne(
+		Database& db,
+		const Zone &e
+	)
+	{
+		std::vector<std::string> v;
+
+		v.push_back("'" + Strings::Escape(e.short_name) + "'");
+		v.push_back(std::to_string(e.id));
+		v.push_back("'" + Strings::Escape(e.file_name) + "'");
+		v.push_back("'" + Strings::Escape(e.long_name) + "'");
+		v.push_back("'" + Strings::Escape(e.map_file_name) + "'");
+		v.push_back(std::to_string(e.safe_x));
+		v.push_back(std::to_string(e.safe_y));
+		v.push_back(std::to_string(e.safe_z));
+		v.push_back(std::to_string(e.safe_heading));
+		v.push_back(std::to_string(e.graveyard_id));
+		v.push_back(std::to_string(e.min_level));
+		v.push_back(std::to_string(e.min_status));
+		v.push_back(std::to_string(e.zoneidnumber));
+		v.push_back(std::to_string(e.timezone));
+		v.push_back(std::to_string(e.maxclients));
+		v.push_back(std::to_string(e.ruleset));
+		v.push_back("'" + Strings::Escape(e.note) + "'");
+		v.push_back(std::to_string(e.underworld));
+		v.push_back(std::to_string(e.minclip));
+		v.push_back(std::to_string(e.maxclip));
+		v.push_back(std::to_string(e.fog_minclip));
+		v.push_back(std::to_string(e.fog_maxclip));
+		v.push_back(std::to_string(e.fog_blue));
+		v.push_back(std::to_string(e.fog_red));
+		v.push_back(std::to_string(e.fog_green));
+		v.push_back(std::to_string(e.sky));
+		v.push_back(std::to_string(e.ztype));
+		v.push_back(std::to_string(e.zone_exp_multiplier));
+		v.push_back(std::to_string(e.gravity));
+		v.push_back(std::to_string(e.time_type));
+		v.push_back(std::to_string(e.fog_red1));
+		v.push_back(std::to_string(e.fog_green1));
+		v.push_back(std::to_string(e.fog_blue1));
+		v.push_back(std::to_string(e.fog_minclip1));
+		v.push_back(std::to_string(e.fog_maxclip1));
+		v.push_back(std::to_string(e.fog_red2));
+		v.push_back(std::to_string(e.fog_green2));
+		v.push_back(std::to_string(e.fog_blue2));
+		v.push_back(std::to_string(e.fog_minclip2));
+		v.push_back(std::to_string(e.fog_maxclip2));
+		v.push_back(std::to_string(e.fog_red3));
+		v.push_back(std::to_string(e.fog_green3));
+		v.push_back(std::to_string(e.fog_blue3));
+		v.push_back(std::to_string(e.fog_minclip3));
+		v.push_back(std::to_string(e.fog_maxclip3));
+		v.push_back(std::to_string(e.fog_red4));
+		v.push_back(std::to_string(e.fog_green4));
+		v.push_back(std::to_string(e.fog_blue4));
+		v.push_back(std::to_string(e.fog_minclip4));
+		v.push_back(std::to_string(e.fog_maxclip4));
+		v.push_back(std::to_string(e.fog_density));
+		v.push_back("'" + Strings::Escape(e.flag_needed) + "'");
+		v.push_back(std::to_string(e.canbind));
+		v.push_back(std::to_string(e.cancombat));
+		v.push_back(std::to_string(e.canlevitate));
+		v.push_back(std::to_string(e.castoutdoor));
+		v.push_back(std::to_string(e.hotzone));
+		v.push_back(std::to_string(e.shutdowndelay));
+		v.push_back(std::to_string(e.peqzone));
+		v.push_back(std::to_string(e.expansion));
+		v.push_back(std::to_string(e.suspendbuffs));
+		v.push_back(std::to_string(e.rain_chance1));
+		v.push_back(std::to_string(e.rain_chance2));
+		v.push_back(std::to_string(e.rain_chance3));
+		v.push_back(std::to_string(e.rain_chance4));
+		v.push_back(std::to_string(e.rain_duration1));
+		v.push_back(std::to_string(e.rain_duration2));
+		v.push_back(std::to_string(e.rain_duration3));
+		v.push_back(std::to_string(e.rain_duration4));
+		v.push_back(std::to_string(e.snow_chance1));
+		v.push_back(std::to_string(e.snow_chance2));
+		v.push_back(std::to_string(e.snow_chance3));
+		v.push_back(std::to_string(e.snow_chance4));
+		v.push_back(std::to_string(e.snow_duration1));
+		v.push_back(std::to_string(e.snow_duration2));
+		v.push_back(std::to_string(e.snow_duration3));
+		v.push_back(std::to_string(e.snow_duration4));
+		v.push_back(std::to_string(e.type));
+		v.push_back(std::to_string(e.skylock));
+		v.push_back(std::to_string(e.skip_los));
+		v.push_back(std::to_string(e.music));
+		v.push_back(std::to_string(e.random_loc));
+		v.push_back(std::to_string(e.dragaggro));
+		v.push_back(std::to_string(e.never_idle));
+		v.push_back(std::to_string(e.castdungeon));
+		v.push_back(std::to_string(e.pull_limit));
+		v.push_back(std::to_string(e.graveyard_time));
+		v.push_back(std::to_string(e.max_z));
+		v.push_back(std::to_string(e.min_expansion));
+		v.push_back(std::to_string(e.max_expansion));
+		v.push_back("'" + Strings::Escape(e.content_flags) + "'");
+		v.push_back("'" + Strings::Escape(e.content_flags_disabled) + "'");
+
+		auto results = db.QueryDatabase(
+			fmt::format(
+				"{} VALUES ({})",
+				BaseReplace(),
+				Strings::Implode(",", v)
+			)
+		);
+
+		return (results.Success() ? results.RowsAffected() : 0);
+	}
+
+	static int ReplaceMany(
+		Database& db,
+		const std::vector<Zone> &entries
+	)
+	{
+		std::vector<std::string> insert_chunks;
+
+		for (auto &e: entries) {
+			std::vector<std::string> v;
+
+			v.push_back("'" + Strings::Escape(e.short_name) + "'");
+			v.push_back(std::to_string(e.id));
+			v.push_back("'" + Strings::Escape(e.file_name) + "'");
+			v.push_back("'" + Strings::Escape(e.long_name) + "'");
+			v.push_back("'" + Strings::Escape(e.map_file_name) + "'");
+			v.push_back(std::to_string(e.safe_x));
+			v.push_back(std::to_string(e.safe_y));
+			v.push_back(std::to_string(e.safe_z));
+			v.push_back(std::to_string(e.safe_heading));
+			v.push_back(std::to_string(e.graveyard_id));
+			v.push_back(std::to_string(e.min_level));
+			v.push_back(std::to_string(e.min_status));
+			v.push_back(std::to_string(e.zoneidnumber));
+			v.push_back(std::to_string(e.timezone));
+			v.push_back(std::to_string(e.maxclients));
+			v.push_back(std::to_string(e.ruleset));
+			v.push_back("'" + Strings::Escape(e.note) + "'");
+			v.push_back(std::to_string(e.underworld));
+			v.push_back(std::to_string(e.minclip));
+			v.push_back(std::to_string(e.maxclip));
+			v.push_back(std::to_string(e.fog_minclip));
+			v.push_back(std::to_string(e.fog_maxclip));
+			v.push_back(std::to_string(e.fog_blue));
+			v.push_back(std::to_string(e.fog_red));
+			v.push_back(std::to_string(e.fog_green));
+			v.push_back(std::to_string(e.sky));
+			v.push_back(std::to_string(e.ztype));
+			v.push_back(std::to_string(e.zone_exp_multiplier));
+			v.push_back(std::to_string(e.gravity));
+			v.push_back(std::to_string(e.time_type));
+			v.push_back(std::to_string(e.fog_red1));
+			v.push_back(std::to_string(e.fog_green1));
+			v.push_back(std::to_string(e.fog_blue1));
+			v.push_back(std::to_string(e.fog_minclip1));
+			v.push_back(std::to_string(e.fog_maxclip1));
+			v.push_back(std::to_string(e.fog_red2));
+			v.push_back(std::to_string(e.fog_green2));
+			v.push_back(std::to_string(e.fog_blue2));
+			v.push_back(std::to_string(e.fog_minclip2));
+			v.push_back(std::to_string(e.fog_maxclip2));
+			v.push_back(std::to_string(e.fog_red3));
+			v.push_back(std::to_string(e.fog_green3));
+			v.push_back(std::to_string(e.fog_blue3));
+			v.push_back(std::to_string(e.fog_minclip3));
+			v.push_back(std::to_string(e.fog_maxclip3));
+			v.push_back(std::to_string(e.fog_red4));
+			v.push_back(std::to_string(e.fog_green4));
+			v.push_back(std::to_string(e.fog_blue4));
+			v.push_back(std::to_string(e.fog_minclip4));
+			v.push_back(std::to_string(e.fog_maxclip4));
+			v.push_back(std::to_string(e.fog_density));
+			v.push_back("'" + Strings::Escape(e.flag_needed) + "'");
+			v.push_back(std::to_string(e.canbind));
+			v.push_back(std::to_string(e.cancombat));
+			v.push_back(std::to_string(e.canlevitate));
+			v.push_back(std::to_string(e.castoutdoor));
+			v.push_back(std::to_string(e.hotzone));
+			v.push_back(std::to_string(e.shutdowndelay));
+			v.push_back(std::to_string(e.peqzone));
+			v.push_back(std::to_string(e.expansion));
+			v.push_back(std::to_string(e.suspendbuffs));
+			v.push_back(std::to_string(e.rain_chance1));
+			v.push_back(std::to_string(e.rain_chance2));
+			v.push_back(std::to_string(e.rain_chance3));
+			v.push_back(std::to_string(e.rain_chance4));
+			v.push_back(std::to_string(e.rain_duration1));
+			v.push_back(std::to_string(e.rain_duration2));
+			v.push_back(std::to_string(e.rain_duration3));
+			v.push_back(std::to_string(e.rain_duration4));
+			v.push_back(std::to_string(e.snow_chance1));
+			v.push_back(std::to_string(e.snow_chance2));
+			v.push_back(std::to_string(e.snow_chance3));
+			v.push_back(std::to_string(e.snow_chance4));
+			v.push_back(std::to_string(e.snow_duration1));
+			v.push_back(std::to_string(e.snow_duration2));
+			v.push_back(std::to_string(e.snow_duration3));
+			v.push_back(std::to_string(e.snow_duration4));
+			v.push_back(std::to_string(e.type));
+			v.push_back(std::to_string(e.skylock));
+			v.push_back(std::to_string(e.skip_los));
+			v.push_back(std::to_string(e.music));
+			v.push_back(std::to_string(e.random_loc));
+			v.push_back(std::to_string(e.dragaggro));
+			v.push_back(std::to_string(e.never_idle));
+			v.push_back(std::to_string(e.castdungeon));
+			v.push_back(std::to_string(e.pull_limit));
+			v.push_back(std::to_string(e.graveyard_time));
+			v.push_back(std::to_string(e.max_z));
+			v.push_back(std::to_string(e.min_expansion));
+			v.push_back(std::to_string(e.max_expansion));
+			v.push_back("'" + Strings::Escape(e.content_flags) + "'");
+			v.push_back("'" + Strings::Escape(e.content_flags_disabled) + "'");
+
+			insert_chunks.push_back("(" + Strings::Implode(",", v) + ")");
+		}
+
+		std::vector<std::string> v;
+
+		auto results = db.QueryDatabase(
+			fmt::format(
+				"{} VALUES {}",
+				BaseReplace(),
+				Strings::Implode(",", insert_chunks)
+			)
+		);
+
+		return (results.Success() ? results.RowsAffected() : 0);
+	}
 };
 
 #endif //EQEMU_BASE_ZONE_REPOSITORY_H

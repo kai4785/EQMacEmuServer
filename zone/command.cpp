@@ -334,6 +334,7 @@ int command_init(void)
 		command_add("randomfeatures", "- Temporarily randomizes the Facial Features of your target.", AccountStatus::GMCoder, command_randomfeatures) ||
 		command_add("refreshgroup", "- Refreshes Group.", AccountStatus::EQSupport, command_refreshgroup) ||
 		command_add("reloadallrules", "Executes a reload of all rules.", AccountStatus::GMCoder, command_reloadallrules) ||
+		command_add("reloadcontentflags", "Executes a reload of all expansion and content flags", AccountStatus::QuestTroupe, command_reloadcontentflags) ||
 		command_add("reloademote", "Reloads NPC Emotes.", AccountStatus::GMCoder, command_reloademote) ||
 		command_add("reloadlevelmods", nullptr, AccountStatus::Max, command_reloadlevelmods) ||
 		command_add("reloadmerchants", "Reloads NPC merchant list.", AccountStatus::Max, command_reloadmerchants) ||
@@ -377,10 +378,12 @@ int command_init(void)
 		command_add("showhelm", "on/off [all] Toggles displaying of player helms (including your own.) Specifying 'all' toggles every character currently on your account", AccountStatus::Player, command_showhelm) ||
 		command_add("showpetspell", "[spellid/searchstring] - search pet summoning spells.", AccountStatus::Guide, command_showpetspell) ||
 		command_add("showregen", "- Shows information about your target's regen.", AccountStatus::GMAdmin, command_showregen) ||
+		command_add("shownpcgloballoot", "Show GlobalLoot entires on this npc", 50, command_shownpcgloballoot) ||
 		command_add("showskills", "- Show the values of your skills if no target, or your target's skills.", AccountStatus::Guide, command_showskills) ||
 		command_add("showspellslist", "Shows spell list of targeted NPC.", AccountStatus::GMStaff, command_showspellslist) ||
 		command_add("showstats", "[quick stats]- Show details about you or your target. Quick stats shows only key stats.", AccountStatus::Guide, command_showstats) ||
 		command_add("showtraderitems", "Displays the list of items a trader has up for sale.", AccountStatus::QuestTroupe, command_showtraderitems) ||
+		command_add("showzonegloballoot", "Show GlobalLoot entires on this zone", 50, command_showzonegloballoot) ||
 		command_add("shutdown", "- Shut this zone process down.", AccountStatus::GMImpossible, command_shutdown) ||
 		command_add("size", "[size] - Change size of you or your target.", AccountStatus::GMAdmin, command_size) ||
 		command_add("skills", "List skill difficulty.", AccountStatus::GMAdmin, command_skilldifficulty) ||
@@ -1768,54 +1771,75 @@ void command_listnpcs(Client *c, const Seperator *sep){
 	}
 }
 
-void command_date(Client *c, const Seperator *sep){
-	//yyyy mm dd hh mm local
-	if (sep->arg[3][0] == 0 || !sep->IsNumber(1) || !sep->IsNumber(2) || !sep->IsNumber(3)) {
-		c->Message(CC_Red, "Usage: #date yyyy mm dd [HH MM]");
+void command_date(Client *c, const Seperator *sep)
+{
+	const auto arguments = sep->argnum;
+	if (
+		arguments < 1 ||
+		!sep->IsNumber(1) ||
+		!sep->IsNumber(2) ||
+		!sep->IsNumber(3)
+		) {
+		c->Message(CC_Default, "Usage: #date [Year] [Month] [Day] [Hour] [Minute]");
+		c->Message(CC_Default, "Hour and Minute are optional");
+		return;
 	}
-	else {
-		int h = 0, m = 0;
-		TimeOfDay_Struct eqTime;
-		zone->zone_time.getEQTimeOfDay(time(0), &eqTime);
-		if (!sep->IsNumber(4))
-			h = eqTime.hour;
-		else
-			h = atoi(sep->arg[4]);
-		if (!sep->IsNumber(5))
-			m = eqTime.minute;
-		else
-			m = atoi(sep->arg[5]);
-		c->Message(CC_Red, "Setting world time to %s-%s-%s %i:%i...", sep->arg[1], sep->arg[2], sep->arg[3], h, m);
-		zone->SetDate(atoi(sep->arg[1]), atoi(sep->arg[2]), atoi(sep->arg[3]), h, m);
-	}
+
+	TimeOfDay_Struct eqTime;
+	zone->zone_time.getEQTimeOfDay(time(0), &eqTime);
+
+	const uint16 year = Strings::ToUnsignedInt(sep->arg[1]);
+	const uint8  month = Strings::ToUnsignedInt(sep->arg[2]);
+	const uint8  day = Strings::ToUnsignedInt(sep->arg[3]);
+	const uint8  hour = !sep->IsNumber(4) ? eqTime.hour : Strings::ToUnsignedInt(sep->arg[4]);
+	const uint8  minute = !sep->IsNumber(5) ? eqTime.minute : Strings::ToUnsignedInt(sep->arg[5]);
+	
+	c->Message(CC_Default, fmt::format("Setting world time to {}-{}-{} {}:{}...", year, month, day, hour, minute).c_str());
+	zone->SetDate(year, month, day, hour, minute);
 }
 
-void command_timezone(Client *c, const Seperator *sep){
-	if (sep->arg[1][0] == 0 && !sep->IsNumber(1)) {
-		c->Message(CC_Red, "Usage: #timezone HH [MM]");
-		c->Message(CC_Red, "Current timezone is: %ih %im", zone->zone_time.getEQTimeZoneHr(), zone->zone_time.getEQTimeZoneMin());
+void command_timezone(Client *c, const Seperator *sep)
+{
+	const auto arguments = sep->argnum;
+	if (arguments < 1 || sep->IsNumber(1)) {
+		c->Message(CC_Default, "Usage: #timezone HH [MM]");
+		c->Message(CC_Default, fmt::format("Current timezone is: {}h {}m", zone->zone_time.getEQTimeZoneHr(), zone->zone_time.getEQTimeZoneMin()).c_str());
+		return;
 	}
-	else {
-		uint8 hours = atoi(sep->arg[1]);
-		uint8 minutes = atoi(sep->arg[2]);
-		if (!sep->IsNumber(2))
-			minutes = 0;
-		c->Message(CC_Red, "Setting timezone to %i h %i m", hours, minutes);
-		uint32 ntz = (hours * 60) + minutes;
-		zone->zone_time.setEQTimeZone(ntz);
-		database.SetZoneTZ(zone->GetZoneID(), ntz);
 
-		// Update all clients with new TZ.
-		auto outapp = new EQApplicationPacket(OP_TimeOfDay, sizeof(TimeOfDay_Struct));
-		TimeOfDay_Struct* tod = (TimeOfDay_Struct*)outapp->pBuffer;
-		zone->zone_time.getEQTimeOfDay(time(0), tod);
-		entity_list.QueueClients(c, outapp);
-		safe_delete(outapp);
+	uint8 minutes = 0;
+	uint8 hours = Strings::ToUnsignedInt(sep->arg[1]);
+
+	if (hours > 24) {
+		hours = 24;
 	}
+
+	if (!sep->IsNumber(2)) {
+		minutes = Strings::ToUnsignedInt(sep->arg[2]);
+
+		if (minutes > 59) {
+			minutes = 59;
+		}
+	}
+
+	c->Message(CC_Default, fmt::format("Setting timezone to {} h {} m", hours, minutes).c_str());
+	const int new_timezone = ((hours * 60) + minutes);
+	zone->zone_time.setEQTimeZone(new_timezone);
+	database.SetZoneTZ(zone->GetZoneID(), new_timezone);
+
+	// Update all clients with new TZ.
+	auto outapp = new EQApplicationPacket(OP_TimeOfDay, sizeof(TimeOfDay_Struct));
+
+	auto tod = (TimeOfDay_Struct*)outapp->pBuffer;
+	zone->zone_time.getEQTimeOfDay(time(0), tod);
+
+	entity_list.QueueClients(c, outapp);
+	safe_delete(outapp);
 }
 
-void command_synctod(Client *c, const Seperator *sep){
-	c->Message(CC_Red, "Updating Time/Date for all clients in zone...");
+void command_synctod(Client *c, const Seperator *sep)
+{
+	c->Message(CC_Default, "Updating Time/Date for all clients in zone...");
 	auto outapp = new EQApplicationPacket(OP_TimeOfDay, sizeof(TimeOfDay_Struct));
 	TimeOfDay_Struct* tod = (TimeOfDay_Struct*)outapp->pBuffer;
 	zone->zone_time.getEQTimeOfDay(time(0), tod);
@@ -2785,7 +2809,7 @@ void command_flymode(Client *c, const Seperator *sep)
 		return;
 	}
 
-	target->SendAppearancePacket(AT_Levitate, flymode_id);
+	target->SendAppearancePacket(AppearanceType::FlyMode, flymode_id);
 	database.SetGMFlymode(account, static_cast<EQ::constants::GravityBehavior>(flymode_id));
 	c->Message(
 		CC_Default,
@@ -3136,20 +3160,47 @@ void command_level(Client *c, const Seperator *sep)
 	}
 }
 
-void command_spawn(Client *c, const Seperator *sep){
-	if (sep->arg[1][0] != 0){
-		Client* client = entity_list.GetClientByName(sep->arg[1]);
-		if (client){
-			c->Message(CC_Default, "You cannot spawn a mob with the same name as a character!");
-			return;
-		}
+void command_spawn(Client *c, const Seperator *sep)
+{
+	const auto arguments = sep->argnum;
+	if (!arguments) {
+		c->Message(CC_Default, "Usage: #spawn [Name]");
+		c->Message(
+			CC_Default,
+			"Optional Usage: #spawn [Name] [Race] [Level] [Texture] [Health] [Gender] [Class] [Primary Model] [Secondary Model] [Merchant ID] [Body Type]"
+		);
+		c->Message(
+			CC_Default,
+			"Name Format: NPCFirstname_NPCLastname - All numbers in a name are stripped and \"_\" characters become a space."
+		);
+		c->Message(
+			CC_Default,
+			"Note: Using \"-\" for gender will autoselect the gender for the race. Using \"-\" for HP will use the calculated maximum HP."
+		);
+		return;
 	}
 
-	NPC* npc = NPC::SpawnNPC(sep->argplus[1], c->GetPosition(), c);
-	if (!npc) {
-		c->Message(CC_Default, "Format: #spawn name race level material hp gender class priweapon secweapon merchantid bodytype - spawns a npc those parameters.");
-		c->Message(CC_Default, "Name Format: NPCFirstname_NPCLastname - All numbers in a name are stripped and \"_\" characters become a space.");
-		c->Message(CC_Default, "Note: Using \"-\" for gender will autoselect the gender for the race. Using \"-\" for HP will use the calculated maximum HP.");
+	const auto *m = entity_list.GetClientByName(sep->arg[1]);
+	if (m) {
+		c->Message(CC_Default, "You cannot spawn a mob with the same name as a character!");
+		return;
+	}
+
+	const auto* n = NPC::SpawnNPC(sep->argplus[1], c->GetPosition(), c);
+	if (!n) {
+		c->Message(CC_Default, "Usage: #spawn [Name]");
+		c->Message(
+			CC_Default,
+			"Optional Usage: #spawn [Name] [Race] [Level] [Texture] [Health] [Gender] [Class] [Primary Model] [Secondary Model] [Merchant ID] [Body Type]"
+		);
+		c->Message(
+			CC_Default,
+			"Name Format: NPCFirstname_NPCLastname - All numbers in a name are stripped and \"_\" characters become a space."
+		);
+		c->Message(
+			CC_Default,
+			"Note: Using \"-\" for gender will autoselect the gender for the race. Using \"-\" for HP will use the calculated maximum HP."
+		);
 	}
 }
 
@@ -3198,13 +3249,17 @@ void command_texture(Client *c, const Seperator *sep){
 void command_npctypespawn(Client *c, const Seperator *sep){
 	if (sep->IsNumber(1)) {
 		const NPCType* tmp = 0;
-		if ((tmp = database.GetNPCType(atoi(sep->arg[1])))) {
+		if ((tmp = database.LoadNPCTypesData(atoi(sep->arg[1])))) {
 			//tmp->fixedZ = 1;
 			auto npc = new NPC(tmp, 0, c->GetPosition(), EQ::constants::GravityBehavior::Water);
-			if (npc && sep->IsNumber(2))
+			if (npc && sep->IsNumber(2)) {
 				npc->SetNPCFactionID(atoi(sep->arg[2]));
+			}
 
 			npc->AddLootTable();
+			if (npc->DropsGlobalLoot()) {
+				npc->CheckGlobalLootTables();
+			}
 			entity_list.AddNPC(npc);
 		}
 		else
@@ -3234,19 +3289,46 @@ void command_heal(Client *c, const Seperator *sep)
 	}
 }
 
-void command_appearance(Client *c, const Seperator *sep){
-	Mob *t = c->CastToMob();
+void command_appearance(Client *c, const Seperator *sep)
+{
+	const int arguments = sep->argnum;
+	if (!arguments || !sep->IsNumber(1) || !sep->IsNumber(2)) {
+		c->Message(CC_Default, "Usage: #appearance [Type] [Value]");
+		c->Message(CC_Default, "Note: Types are as follows:");
 
-	// sends any appearance packet
-	// Dev debug command, for appearance types
-	if (sep->arg[2][0] == 0)
-		c->Message(CC_Default, "Usage: #appearance type value");
-	else {
-		if ((c->GetTarget()))
-			t = c->GetTarget();
-		t->SendAppearancePacket(atoi(sep->arg[1]), atoi(sep->arg[2]));
-		c->Message(CC_Default, "Sending appearance packet: target=%s, type=%s, value=%s", t->GetName(), sep->arg[1], sep->arg[2]);
+		for (const auto &a : EQ::constants::GetAppearanceTypeMap()) {
+			c->Message(
+				CC_Default,
+				fmt::format(
+					"Appearance Type {} | {}",
+					a.first,
+					a.second
+				).c_str()
+			);
+		}
+
+		return;
 	}
+	Mob *t = c;
+	if (c->GetTarget()) {
+		t = c->GetTarget();
+	}
+
+	const uint32 type = Strings::ToUnsignedInt(sep->arg[1]);
+	const uint32 value = Strings::ToUnsignedInt(sep->arg[2]);
+
+	t->SendAppearancePacket(type, value);
+
+	c->Message(
+		CC_Default,
+		fmt::format(
+			"Appearance Sent to {} | Type: {} ({}) Value: {}",
+			c->GetTargetDescription(t, TargetDescriptionType::UCSelf),
+			EQ::constants::GetAppearanceTypeName(type),
+			type,
+			value
+		).c_str()
+	);
 }
 
 void command_nukeitem(Client *c, const Seperator *sep){
@@ -3547,7 +3629,7 @@ void command_viewnpctype(Client *c, const Seperator *sep){
 	else
 	{
 		uint32 npctypeid = atoi(sep->arg[1]);
-		const NPCType* npct = database.GetNPCType(npctypeid);
+		const NPCType* npct = database.LoadNPCTypesData(npctypeid);
 		if (npct) {
 			c->Message(CC_Default, " NPCType Info, ");
 			c->Message(CC_Default, "  NPCTypeID: %u", npct->npc_id);
@@ -4643,6 +4725,40 @@ void command_showstats(Client *c, const Seperator *sep)
 	}
 }
 
+void command_showzonegloballoot(Client *c, const Seperator *sep)
+{
+	c->Message(
+		CC_Default,
+		fmt::format(
+			"Global loot for {} ({}).",
+			zone->GetLongName(),
+			zone->GetZoneID()
+		).c_str()
+	);
+	zone->ShowZoneGlobalLoot(c);
+}
+
+void command_shownpcgloballoot(Client *c, const Seperator *sep)
+{
+	if (!c->GetTarget() || !c->GetTarget()->IsNPC()) {
+		c->Message(0, "You must target an NPC to use this command.");
+		return;
+	}
+
+	auto target = c->GetTarget()->CastToNPC();
+
+	c->Message(
+		CC_Default,
+		fmt::format(
+			"Global loot for {} ({}).",
+			target->GetCleanName(),
+			target->GetNPCTypeID()
+		).c_str()
+	);
+
+	zone->ShowNPCGlobalLoot(c, target);
+}
+
 void command_mystats(Client *c, const Seperator *sep){
 	if (c->GetTarget() && c->GetPet()) {
 		if (c->GetTarget()->IsPet() && c->GetTarget() == c->GetPet())
@@ -4817,14 +4933,14 @@ void command_zsafecoords(Client *c, const Seperator *sep){
 
 void command_freeze(Client *c, const Seperator *sep){
 	if (c->GetTarget() != 0)
-		c->GetTarget()->SendAppearancePacket(AT_Anim, ANIM_FREEZE);
+		c->GetTarget()->SendAppearancePacket(AppearanceType::Animation, Animation::Freeze);
 	else
 		c->Message(CC_Default, "ERROR: Freeze requires a target.");
 }
 
 void command_unfreeze(Client *c, const Seperator *sep){
 	if (c->GetTarget() != 0)
-		c->GetTarget()->SendAppearancePacket(AT_Anim, ANIM_STAND);
+		c->GetTarget()->SendAppearancePacket(AppearanceType::Animation, Animation::Standing);
 	else
 		c->Message(CC_Default, "ERROR: Unfreeze requires a target.");
 }
@@ -5349,17 +5465,10 @@ void command_flag(Client *c, const Seperator *sep){
 
 void command_time(Client *c, const Seperator *sep)
 {
-	int minutes = 0;
-	if (sep->IsNumber(1)) {
-		if (sep->IsNumber(2)) {
-			minutes = atoi(sep->arg[2]);
-		}
-		c->Message(CC_Default, fmt::format("Setting world time to {}:{} ...", sep->arg[1], minutes).c_str());
-		zone->SetTime(atoi(sep->arg[1]), minutes);
-		LogInfo("{} :: Setting world time to {}:{} ...", c->GetCleanName(), sep->arg[1], minutes);
-	}
-	else {
+	const auto arguments = sep->argnum;
+	if (arguments < 1 || !sep->IsNumber(1)) {
 		c->Message(CC_Default, "To set the Time: #time HH [MM]");
+
 		TimeOfDay_Struct eqTime;
 		zone->zone_time.getEQTimeOfDay(time(0), &eqTime);
 
@@ -5368,11 +5477,34 @@ void command_time(Client *c, const Seperator *sep)
 			(eqTime.minute < 10) ? "0" : "",
 			eqTime.minute,
 			(eqTime.hour >= 12 && eqTime.hour < 24) ? "PM" : "AM"
-			);
+		);
 
 		c->Message(CC_Default, fmt::format("It is now {}.", time_string).c_str());
-		LogInfo("Current Time is: {} ", time_string);
+
+		return;
 	}
+
+	uint8 minutes = 0;
+	uint8 hours = Strings::ToUnsignedInt(sep->arg[1]);
+
+	if (hours > 24) {
+		hours = 24;
+	}
+
+
+	if (sep->IsNumber(2)) {
+		minutes = Strings::ToUnsignedInt(sep->arg[2]);
+
+		if (minutes > 59) {
+			minutes = 59;
+		}
+	}
+		
+	c->Message(CC_Default, fmt::format("Setting world time to {}:{} ...", hours, minutes).c_str());
+		
+	zone->SetTime(hours, minutes);
+	
+	LogInfo("{} :: Setting world time to {}:{} ...", c->GetCleanName(), hours, minutes);
 }
 
 void command_guild(Client *c, const Seperator *sep){
@@ -5860,7 +5992,7 @@ void command_manaburn(Client *c, const Seperator *sep){
 }
 
 void command_doanim(Client *c, const Seperator *sep){
-	Animation animation = static_cast<Animation>(atoi(sep->arg[1]));
+	DoAnimation animation = static_cast<DoAnimation>(atoi(sep->arg[1]));
 	if (!sep->IsNumber(1))
 		c->Message(CC_Default, "Usage: #DoAnim [number]");
 	else
@@ -7916,7 +8048,7 @@ void command_qglobal(Client *c, const Seperator *sep)
 	}
 
 	if (!strcasecmp(sep->arg[1], "view")) {
-		const NPCType *type = database.GetNPCType(target->GetNPCTypeID());
+		const NPCType *type = database.LoadNPCTypesData(target->GetNPCTypeID());
 		if (!type)
 			c->Message(CC_Yellow, "Invalid NPC type.");
 		else if (type->qglobal)
@@ -9469,6 +9601,16 @@ void command_reloadallrules(Client *c, const Seperator *sep){
 	}
 }
 
+void command_reloadcontentflags(Client *c, const Seperator *sep)
+{
+	if (c) {
+		auto pack = new ServerPacket(ServerOP_ReloadContentFlags, 0);
+		worldserver.SendPacket(pack);
+		c->Message(CC_Red, "Successfully sent the packet to world to reload content flags globally.");
+		safe_delete(pack);
+	}
+}
+
 void command_reloadworldrules(Client *c, const Seperator *sep){
 	if (c)
 	{
@@ -10370,7 +10512,7 @@ void command_godmode(Client *c, const Seperator *sep){
 		c->SetInvul(state);
 		database.SetGMInvul(account, state);
 		database.SetGMSpeed(account, state ? 1 : 0);
-		c->SendAppearancePacket(AT_Levitate, state);
+		c->SendAppearancePacket(AppearanceType::FlyMode, state);
 		database.SetGMFlymode(account, state);
 		c->SetHideMe(state);
 		database.SetGMIgnoreTells(account, state ? 1 : 0);
